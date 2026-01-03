@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Point to your sitemap URL
+Sitemap: https://ambetsatech.vercel.app/sitemap.xml
