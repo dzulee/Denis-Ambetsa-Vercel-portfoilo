@@ -39,8 +39,8 @@ export function Projects() {
                     id: 'python', 
                     label: 'Python', 
                     content: [
-                        { name: 'EDA Explanatory Data Analysis', url: 'https://github.com/dzulee?tab=repositories' },
-                        { name: 'Data Cleaning', url: 'https://github.com/dzulee?tab=repositories' }
+                        { name: 'EDA Explanatory Data Analysis', url: 'https://github.com/dzulee/Wine_Quality_Analysis/blob/main/wine_quality_dataset.ipynb' },
+                        { name: 'Data Cleaning', url: 'https://github.com/dzulee/Wine_Quality_Analysis/blob/main/wine_quality_dataset.ipynb' }
                     ] 
                 },
                    { 
