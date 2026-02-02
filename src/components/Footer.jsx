@@ -11,42 +11,48 @@ import whatsappIcon from '../assets/whatsapp-brands-solid-full.svg';
 export function Footer() {
     return (
         <div>
-            <main className="flex-shrink-0">
-                <div className="container text-center">
-                    <h1 className="mt-5">Get In Touch</h1>
-                    <p className="lead">The dedication and the strength to any work will be given with integrity.</p>
-                </div>
-            </main>
+            
 
-            <footer className="footer mt-auto py-3 bg-light">
-                <div className="container">
-                    <div className="text-muted d-flex flex-column flex-md-row justify-content-center align-items-center mb-3 gap-5">
+            <footer className="footer mt-auto py-3 position-relative" style={{ overflow: 'hidden', backgroundColor: '#d0d0d0' }}>
+                {/* Animated Background Layer */}
+                <div className="rotating-bg-container" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}>
+                    <div className="rotating-bg-image"></div>
+                </div>
+                <div className="position-relative" style={{ zIndex: 1, right: -100 }}>
+                    <div className="text-muted d-flex justify-content-center row-cols-3 row-cols-md-3 align-items-center gap-5">
                         <div>
                             {/* Fixed image path to use relative import or public folder path */}
                             <img src="/logo2.png" alt="logo" width="80" height="80" className="mx-2" />
+                            <h4 className="fw-bold text-back">WE DONT GET 2 LOSE</h4>
                         </div>
+                        <div>
                         <ul className="list-unstyled text-center text-md-start">
+                            {/* Change this line */}
                             <li>
-                                <Link to="/" className="text-decoration-none">Home</Link>
+                                <NavHashLink smooth to="/#Hero" className="text-decoration-none text-dark">Home</NavHashLink>
                             </li>
                             <li>
-                                <Link to="/about" className="text-decoration-none">About Me</Link>
+                                <Link to="/about" className="text-decoration-none text-dark">About Me</Link>
                             </li>
                             {/* NavHashLink allows cross-page smooth scrolling */}
                             <li>
-                                <NavHashLink smooth to="/#services" className="text-decoration-none text-muted">Services</NavHashLink>
+                                <NavHashLink smooth to="/#services" className="text-decoration-none text-dark">Services</NavHashLink>
                             </li>
                             <li>
-                                <NavHashLink smooth to="/#featured-work" className="text-decoration-none text-muted">Projects</NavHashLink>
+                                <NavHashLink smooth to="/#featured-work" className="text-decoration-none text-dark">Projects</NavHashLink>
                             </li>
                             <li>
-                                <NavHashLink smooth to="/#contact-section" className="text-decoration-none text-muted">Contact us</NavHashLink>
+                                <NavHashLink smooth to="/#contact-section" className="text-decoration-none text-dark">Contact us</NavHashLink>
+                            </li>
+                            <li>
+                                <NavHashLink smooth to="/#Blog" className="text-decoration-none text-dark">Blog</NavHashLink>
                             </li>
                         </ul>
                     </div>
+                    <div>
 
                     {/* Social Media Icons */}
-                    <ul className="d-flex justify-content-center list-unstyled gap-3 flex-wrap">
+                    <ul className="d-flex justify-content-space-around list-unstyled gap-3 flex-wrap">
                         <li>
                             <a href="https://youtube.com" target="_blank" rel="noreferrer">
                                 <img src={youtubeIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="YouTube" width="50" height="50" />
@@ -73,6 +79,8 @@ export function Footer() {
                             </a>
                         </li>
                     </ul>
+                    </div>
+                    </div>
                 </div>
             </footer>
         </div>

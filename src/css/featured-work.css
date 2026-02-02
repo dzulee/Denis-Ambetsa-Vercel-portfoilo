@@ -1,0 +1,73 @@
+.project-section {
+    padding: 80px 0;
+    background-color: transparent;
+}
+
+/* Description Text Styling */
+.lead-custom {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #d0d0d0;
+}
+
+.small-text {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Card Styling */
+.project-card {
+    background: rgba(15, 20, 25, 0.85); /* Semi-transparent for background effect */
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    background: rgba(20, 26, 32, 0.95);
+    border-color: #00CED1 !important;
+    box-shadow: 0 15px 35px rgba(0, 206, 209, 0.15) !important;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+}
+
+/* Link Styling */
+.project-link {
+    color: #00CED1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.project-link:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+/* Animation for switching tabs */
+.fade-in-text {
+    animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-5px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Smaller buttons for mobile */
+.btn-xs {
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+@media (max-width: 991px) {
+    .project-descriptions {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+}

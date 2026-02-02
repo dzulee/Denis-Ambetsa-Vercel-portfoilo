@@ -18,12 +18,12 @@ export default function Home() {
             </section>
 
             {/* IMPORTANT: Added the id "services" here */}
-            <section id="services" className="py-5">
+            <section id="services" className="py-0" style={{ margin: '0', padding: '0' }}>
                 <Services />
             </section>
 
             {/* Change id to "contact-section" to match your Navbar links */}
-            <section id="contact-section">
+            <section id="contact-section" style={{ margin: '0', padding: '0' }}>
                 <ContactForm />
             </section>
         </div>

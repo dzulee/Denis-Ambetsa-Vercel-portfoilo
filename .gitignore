@@ -33,3 +33,5 @@ dist
 *.exe
 *.msix
 .vercel
+.vercel
+.env*.local

@@ -1,0 +1,100 @@
+/* contactInfo Container */
+.contactInfo {
+    position: relative;
+    background-color: #0a0c10;     
+}
+
+.contactInfo main {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Get-intouch Content Wrapper */
+.get-in-touch {
+    position: relative; /* Fixed typo from absolutue */
+    z-index: 1;
+    padding: 60px 20px 120px 20px; /* Added extra bottom padding for the overlap */
+    background-color: #002b5c; /* Slightly refined dark blue */
+}
+
+.get-in-touch h1 {
+    font-size: calc(1.8rem + 1vw); /* Fluid typography */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Office and Contact Layout */
+.office-info, .contact-form {
+    position: relative;
+    margin-top: -80px; /* Using margin instead of top for better flow */
+    z-index: 5;
+}
+
+/* Cards */
+.office-card, .contact-card {
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #01060d;
+}
+
+.contact-card {
+    border-top: 5px solid #00CED1; /* Changed to match your new theme color */
+}
+
+/* Form Controls */
+.contact-card .form-control, .contact-card input, .contact-card textarea {
+    background-color: #0a0c10 !important;
+    border: 1px solid #333;
+    color: #ffffff !important;
+    margin-bottom: 15px;
+}
+/* This makes the "Name", "Email", etc., clearly visible but muted */
+input::placeholder,
+textarea::placeholder {
+    color: #a0a0a0 !important;
+    opacity: 1 !important;
+}
+
+/* ========== RESPONSIVENESS ========== */
+
+/* For Mobile Devices (Phones) */
+@media (max-width: 767.98px) {
+    .get-in-touch {
+        padding: 40px 15px 100px 15px;
+    }
+
+    .office-info {
+        margin-top: -40px; /* Reduced overlap on mobile */
+    }
+
+    .office-card, .contact-card {
+        width: 100%;
+        padding: 30px;
+        margin-bottom: 20px;
+    }
+
+    .office-info {
+        order: 1; /* Push office info below the form on mobile for better UX */
+    }
+    
+    .contact-form {
+        order: 2;
+        margin-top: 20px;
+    }
+}
+
+/* For Tablets and Small Desktops */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .office-info, .contact-form {
+        margin-top: -70px;
+    
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: rotateBg 120s linear infinite;
+    opacity: 0.6;
+}}

@@ -1,0 +1,46 @@
+.service-section {
+    background-color: #0a0c10; /* Match your theme */
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.service-card { 
+    background-color: #0f1419;
+    border-top: 3px solid #00CED1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 206, 209, 0.2) !important;
+}
+
+/* Fix for Image height consistency */
+.img-container {
+    height: 160px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.card-img-top {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* This prevents stretching */
+}
+
+.card-text {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+    .bookus-call {
+        font-size: 1.6rem;
+    }
+    .service-section {
+        padding: 60px 0;
+    }
+}

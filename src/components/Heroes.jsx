@@ -1,79 +1,70 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import 'bootstrap/dist/css/bootstrap.css';
-
-// 1. Import your assets
+import { Navbar } from './Navbar';
+import '../index.css';
 import githubIcon from '../assets/github-brands-solid-full.svg';
 import linkedinIcon from '../assets/linkedin-in-brands-solid-full.svg';
 import mailIcon from '../assets/envelope-solid-full.svg';
 
 export function Heroes() {
-    // Create reference for the typed element
     const el = useRef(null);
 
     useEffect(() => {
-        const typed = new Typed(el.current, {
-            strings: [
-                'Full Stack Developer',
-                'UI/UX Designer',
-                'Data Analyst',
-                'IT Solutions Expert',
-                'Consultant'
-            ],
-            typeSpeed: 60,
-            backSpeed: 40,
-            backDelay: 2000,
-            loop: true,
-            showCursor: true,
-            cursorChar: '|'
-        });
-
-        return () => {
-            typed.destroy();
-        };
+        if (el.current) {
+            const typed = new Typed(el.current, {
+                strings: ['Full Stack Developer', 'UI/UX Designer', 'Data Analyst', 'IT Solutions Expert', 'Consultant'],
+                typeSpeed: 60,
+                backSpeed: 40,
+                backDelay: 2000,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|'
+            });
+            return () => typed.destroy();
+        }
     }, []);
 
     return (
-        <div>
-            <div className="b-example-divider"></div>
-
-            <div className="bg-dark text-secondary px-4 py-5 text-center" id="home">
-                <div className="py-5">
-                    {/* The static part of the title + the dynamic Typed span */}
-                    <h1 className="display-5 fw-bold text-white mb-3">
-                        Professional <span className="text-info" ref={el}></span>
-                    </h1>
+        <div className="hero-master-container" id="Hero">
+            <Navbar />
+            
+            {/* Main Content Wrapper */}
+            <div className="container-fluid d-flex align-items-center" style={{ minHeight: '100vh', position: 'relative', zIndex: 2 }}>
+                <div className="row w-100 justify-content-center justify-content-md-start px-md-5">
                     
-                    <div className="col-lg-6 mx-auto">
-                        <p className="fs-5 mb-4 text-light">
-                            Hi, I'm Denis Ambetsa. I specialize in building high-quality responsive websites 
-                            using modern tools like React, Redux, and Bootstrap. Let's build something amazing together.
-                        </p>
-                        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                            <a href="#featured-work" className="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">View My Work</a>
-                            <a href="#contact-section" className="btn btn-outline-light btn-lg px-4">Contact Me</a>
+                    {/* Glassmorphism Hero Box */}
+                    <div className="col-11 col-md-10 col-lg-8 hero-content-box p-4 p-md-5">
+                        <h1 className="display-3 fw-bold text-white mb-3">
+                            Professional <br className="d-md-none" />
+                            <span className="typed-text" style={{ color: '#00CED1' }} ref={el}></span>
+                        </h1>
+                        
+                        <div className="col-12 col-xl-10">
+                            <p className="fs-5 mb-4 text-light hero-subtext">
+                                Hi, I'm <span className="fw-bold" style={{ color: '#00CED1' }}>Denis Ambetsa</span>. 
+                                I specialize in building high-quality responsive websites and data-driven solutions. 
+                                Let's transform your vision into reality.
+                            </p>
+                            
+                            <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+                                <a href="#featured-work" className="btn btn-info btn-lg px-4 fw-bold hero-btn-primary">
+                                    View My Work
+                                </a>
+                                <a href="#contact-section" className="btn btn-outline-light btn-lg px-4 hero-btn-secondary">
+                                    Contact Me
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            {/* Social Brand Section */}
-            <div className="container py-5">
-                <div className="row text-center justify-content-center">
-                     <div className="col-md-2 col-4">
-                        <a href="mailto:dennisambetsa63@gmail.com" target="_blank" rel="noopener noreferrer">
-                            <img src={mailIcon} className="img-fluid border rounded-3 shadow-lg mb-4 p-3 social-icon" alt="Mail" />
-                        </a>
-                    </div>
-                    <div className="col-md-2 col-4">
-                        <a href="https://github.com/dzulee?tab=repositories" target="_blank" rel="noopener noreferrer">
-                            <img src={githubIcon} className="img-fluid border rounded-3 shadow-lg mb-4 p-3 social-icon" alt="GitHub" />
-                        </a>
-                    </div>
-                    <div className="col-md-2 col-4">
-                        <a href="https://www.linkedin.com/in/dennis-ambetsa/" target="_blank" rel="noopener noreferrer">
-                            <img src={linkedinIcon} className="img-fluid border rounded-3 shadow-lg mb-4 p-3 social-icon" alt="LinkedIn" />
-                        </a>
+                        {/* Social Icons Integrated into the Box */}
+                        <div className="social-icons-wrapper mt-5 pt-4">
+                            <div className="d-flex gap-3 justify-content-center justify-content-md-start">
+                                <a href="mailto:dennisambetsa63@gmail.com" className="social-link"><img src={mailIcon} className="social-icon-img" alt="Mail"/></a>
+                                <a href="https://github.com/dzulee" className="social-link"><img src={githubIcon} className="social-icon-img" alt="GitHub"/></a>
+                                <a href="https://linkedin.com/in/dennis-ambetsa" className="social-link"><img src={linkedinIcon} className="social-icon-img" alt="LinkedIn"/></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

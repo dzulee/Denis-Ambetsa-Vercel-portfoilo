@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../css/service.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 
@@ -40,40 +41,47 @@ export function Services() {
         }
     ];
 
-    return (
-        <section className="container py-5" id="services">
-            <div className="text-center mb-5">
-                <h2 className="fw-bold">Book Us Now For Our Services</h2>
-                <p className="text-muted">Tailored solutions for your digital needs.</p>
+     return (
+        <section className="service-section position-relative" id="services">
+            {/* Animated Background Layer */}
+            <div className="rotating-bg-container" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}>
+                <div className="rotating-bg-image"></div>
             </div>
+           
+            <div className="container position-relative py-5" style={{ zIndex: 1 }}>
+                <h2 className="bookus-call text-center mb-3 fw-bold text-white">Book Us Now For Our Services</h2>
+                <p className="text-center mb-5 text-muted">Tailored solutions for your digital needs.</p>
 
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                {serviceList.map((service) => (
-                    <div className="col" key={service.id}>
-                        <div className="card h-100 shadow-sm border-0 service-card text-center p-3">
-                            <img src={service.img} className="card-img-top rounded mb-3" alt={service.title} style={{ height: '200px', objectFit: 'cover' }} />
-                            <div className="card-body d-flex flex-column">
-                                <h3 className="h5 fw-bold">{service.title}</h3>
-                                <p className="card-text text-muted small">{service.text}</p>
-                                
-                                <div className="mt-auto pt-3 d-grid gap-2">
-                                    {/* Link to the contact section ID */}
-                                    <NavHashLink smooth to="/#contact-section" className="btn btn-warning fw-bold">
-                                        Book This Service
-                                        </NavHashLink>
+                {/* Updated Row with specific responsive column widths */}
+                <div className="row g-4">
+                    {serviceList.map((service) => (
+                        <div className="col-12 col-md-6 col-lg-3 d-flex" key={service.id}>
+                            <div className="card service-card shadow-sm border-0 text-center p-3 w-100 h-100 d-flex flex-column">
+                                <div className="img-container mb-3">
+                                    <img src={service.img} className="card-img-top rounded shadow-sm" alt={service.title} />
+                                </div>
+                                <div className="card-body d-flex flex-column p-0">
+                                    <h3 className="h5 fw-bold text-white">{service.title}</h3>
+                                    <p className="card-text mb-4">{service.text}</p>
                                     
-                                    {/* Button to trigger navigation function */}
-                                    <button 
-                                        onClick={() => handleLearnMore(service.title)} 
-                                        className="btn btn-link btn-sm text-decoration-none text-muted"
-                                    >
-                                        Learn More
-                                    </button>
+                                    <div className="mt-auto d-grid gap-2">
+                                        <NavHashLink smooth to="/#contact-section" className="btn btn-info fw-bold text-dark" style={{backgroundColor: '#00CED1', border: 'none'}}>
+                                            Book This Service
+                                        </NavHashLink>
+                                        
+                                        <button 
+                                            onClick={() => handleLearnMore(service.title)} 
+                                            className="btn btn-link btn-sm text-decoration-none"
+                                            style={{ color: '#00CED1' }}
+                                        >
+                                            Learn More →
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );
