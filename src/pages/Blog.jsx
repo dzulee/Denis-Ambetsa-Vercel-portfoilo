@@ -6,8 +6,7 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const [replyText, setReplyText] = useState({}); // Track reply text for each post
 
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwCZWZ_i32-DklHsGmMetwMF52c3RQiWTNeIwMrz5uTD5-tYKk4fNIXZcUgpK02AmQEzg/exec";
-
+  const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
   const fetchPosts = () => {
     fetch(SCRIPT_URL)
       .then(res => res.json())
