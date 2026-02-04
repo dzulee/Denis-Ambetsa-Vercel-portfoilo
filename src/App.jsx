@@ -4,6 +4,8 @@ import AboutMe from './pages/AboutUs';
 import {Footer} from './components/Footer';
 import LearnMorePage from './pages/LearnMorePage';
 import NotFound from './pages/NoteFound';
+import PowerBi from './components/PowerBiDashboards';
+import Blog from './pages/Blog'
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
           <Route path="/learn-more/:id" element={<LearnMorePage />} />
         <Route path="/about" element={<AboutMe />} />
-
+         <Route path="/powerbi/:id" element={<PowerBi />} />
+         <Route path="/blog" element={<Blog />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       

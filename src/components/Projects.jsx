@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../css/featured-work.css';
-export function Projects() {
+import { DashboardData } from './PowerBiDashboards';export function Projects() {
     const [activeTabs, setActiveTabs] = useState({
         analysis: 'excel',
         webdev: 'webdesign',
-        va: 'social-media-mngmnt',
-        pm: 'lean-sixsigma',
+        va: 'Inbox-management',
+        pm: 'agile-scrum',
     });
 
     const handleTabChange = (category, tabId) => {
@@ -23,16 +23,14 @@ export function Projects() {
                     label: 'Excel', 
                     content: [
                         { name: '3 Statement Model', url: 'https://bit.ly/4a62hTh' },
-                        { name: 'Cash Flow Analysis', url: 'https://github.com/dzulee?tab=repositories' }
+                        { name: 'Cash Flow Analysis', url: 'https://bit.ly/4a62hTh' }
                     ] 
                 },
-                { 
+              { 
                     id: 'powerbi', 
                     label: 'Power BI', 
-                    content: [
-                        { name: 'Sales Dashboard', url: 'https://app.powerbi.com/links/cBNJxqGTWE?ctid=df8679cd-a80e-45d8-99ac-c83ed7ff95a0&pbi_source=linkShare' },
-                        { name: 'Car models', url: 'https://github.com/dzulee?tab=repositories' }
-                    ] 
+                    //fetching the power bi dashboards list:
+                    content: DashboardData 
                 },
                    { 
                     id: 'python', 
@@ -62,8 +60,8 @@ export function Projects() {
                     id: 'webdesign', 
                     label: 'Web Design', 
                     content: [
-                        { name: 'Portfolio Website', url: 'https://github.com/dzulee?tab=repositories' },
-                        { name: 'Blog website page', url: 'https://github.com/dzulee?tab=repositories' }
+                        { name: 'Portfolio Website', url: 'https://ambetsatech.vercel.app/' },
+                        { name: 'Blog website page', url: '/powerBi/salesdashboard.jsx' }
                     ] 
                 },
                 { 

@@ -86,6 +86,8 @@ html, body, #root {
 .hero-subtext {
     opacity: 0.9;
     line-height: 1.6;
+}.logo{
+    @import url('britney.css');
 }
 
 .hero-btn-primary {

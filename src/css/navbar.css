@@ -1,0 +1,18 @@
+
+
+.logo{
+   font-family: Verdana;
+   font-size: 1.5rem;
+   font-weight: 500px;
+  letter-spacing: 2px;
+  text-decoration: none;
+ 
+}.logo span {
+   font-size: 2.5rem;
+   font-weight: bold;
+    color: #e5b565;
+     font-family: Verdana;
+     position: relative;
+     top: 0.3rem;
+
+}

@@ -1,0 +1,66 @@
+.blog-section {
+  background: rgba(0, 0, 0, 0.2); /* Slight contrast from other sections */
+}
+
+.blog-content-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-img:hover {
+  transform: scale(1.02);
+}
+.reply{
+ position: relative;
+  top: -2.5rem;
+  left: 10rem;
+
+      bottom: 10px;
+      right: 10px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .blog-section {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.blog-content-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* On Medium/Large screens, make the reply box a bit narrower */
+@media (min-width: 768px) {
+  .reply-wrapper {
+    max-width: 70%;
+  }
+}
+
+/* Ensure the background image doesn't drown out text on small screens */
+.blog-img {
+  max-height: 250px; /* Smaller on mobile */
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+@media (min-width: 992px) {
+  .blog-img {
+    max-height: 400px;
+  }
+}

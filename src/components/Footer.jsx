@@ -45,7 +45,7 @@ export function Footer() {
                                 <NavHashLink smooth to="/#contact-section" className="text-decoration-none text-dark">Contact us</NavHashLink>
                             </li>
                             <li>
-                                <NavHashLink smooth to="/#Blog" className="text-decoration-none text-dark">Blog</NavHashLink>
+                                <NavHashLink smooth to="/blog" className="text-decoration-none text-dark">Blog</NavHashLink>
                             </li>
                         </ul>
                     </div>

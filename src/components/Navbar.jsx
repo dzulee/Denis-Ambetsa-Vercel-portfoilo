@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { NavHashLink } from 'react-router-hash-link'; 
+import { NavHashLink } from 'react-router-hash-link';
+import { Logo } from './Logo';
+import '../css/navbar.css' 
+
 
 export function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -12,8 +15,8 @@ export function Navbar() {
       zIndex: 1030
     }}>
       <div className="d-flex  w-100 px-5">
-        <NavLink className="navbar-brand fw-bold text-white" to="/">AMBETSA TECH</NavLink>
         
+       <Logo className="navbar-brand" />
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" onClick={() => setIsCollapsed(!isCollapsed)} data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -47,6 +50,10 @@ export function Navbar() {
                 Contact
               </NavHashLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link text-white" to="/blog">Blog</NavLink>
+            </li>
+
           </ul>
         </div>
       </div>
