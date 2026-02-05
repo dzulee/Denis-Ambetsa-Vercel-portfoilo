@@ -22,19 +22,23 @@ const navigationLinks = [
 }
 ]
 export function NavigationLinks({ containerClass = "" }) {
-  return (
-    <ul className={`navigationLinks list-unstyled ${containerClass}`}>
-      {navigationLinks.map((link, index) => (
-        <li className="nav-item" key={index}>
-          <NavHashLink 
-            smooth 
-            to={link.navigationTo} 
-            className="navigation-links"
-          >
-            {link.text}
-          </NavHashLink>
-        </li>
-      ))}
-    </ul>
-  );
+    return (
+        <ul className={`navigationLinks list-unstyled ${containerClass}`}>
+            {navigationLinks.map((link, index) => (
+                <li className="nav-item" key={index}>
+                    <NavHashLink 
+                        smooth 
+                        to={link.navigationTo} 
+                        // Using a function here prevents the isActive prop 
+                        // from being sent to the <a> tag
+                        className={({ isActive }) => 
+                            `navigation-links ${isActive ? 'active-link' : ''}`
+                        }
+                    >
+                        {link.text}
+                    </NavHashLink>
+                </li>
+            ))}
+        </ul>
+    );
 }
