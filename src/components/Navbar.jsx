@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 import { Logo } from './Logo';
 import '../css/navbar.css' 
+import { NavigationLinks } from './NavigationLinks';
 
 
 export function Navbar() {
@@ -16,45 +17,14 @@ export function Navbar() {
     }}>
       <div className="d-flex  w-100 px-5">
         
-       <Logo className="navbar-brand" />
+        <Logo className="navbar-brand" />
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" onClick={() => setIsCollapsed(!isCollapsed)} data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>
 
         <div className={`collapse navbar-collapse ${isCollapsed ? '' : 'show'}`} id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-              <NavHashLink smooth className="nav-link text-white" to="/#home">Home</NavHashLink>
-            </li>
-            
-            {/* NavLink for the standalone About page */}
-            <li className="nav-item">
-              <NavLink className="nav-link text-white" to="/about">About Me</NavLink>
-            </li>
-
-            {/* NavHashLink for sections on the Home page */}
-            <li className="nav-item">
-              <NavHashLink smooth className="nav-link text-white" to="/#services">
-                Services
-              </NavHashLink>
-            </li>
-            
-            <li className="nav-item">
-              <NavHashLink smooth className="nav-link text-white" to="/#featured-work">
-                Projects
-              </NavHashLink>
-            </li>
-
-            <li className="nav-item">
-              <NavHashLink smooth className="nav-link text-white" to="/#contact-section">
-                Contact
-              </NavHashLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link text-white" to="/blog">Blog</NavLink>
-            </li>
-
-          </ul>
+          {/* Pass horizontal alignment class */}
+          <NavigationLinks containerClass="ms-auto d-flex gap-4" />
         </div>
       </div>
     </nav>

@@ -1,0 +1,38 @@
+
+.wg2l{
+        width: 80px;
+        height: 80px;
+       
+    }.textback{
+        font-weight: 700;
+        color: black;
+    }
+.social-icons img{
+        width: 40px;
+        height: 40px;
+       
+
+    }
+    
+@media (max-width: 767.98px) {
+    .footer-item{
+        flex-direction: column;
+        justify-content:center;
+
+    }h4{
+        font-size: 20px;
+        font-weight: 100px;
+
+        
+       
+    }.social-icons img{
+        width: 40px;
+        height: 40px;
+
+    }.footer-container{
+         left:-50px;
+    }.navigation-links{
+         
+    }
+        
+}

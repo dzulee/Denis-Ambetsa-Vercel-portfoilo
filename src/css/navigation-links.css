@@ -1,0 +1,54 @@
+
+.navigation-links{
+     font-family: Verdana;
+    text-decoration: none;
+    
+}
+/* 1. When inside the Navbar (Dark background) */
+.navbar .navigation-links {
+    color: #ffffff !important; /* Force White */
+}
+
+.navbar .navigation-links:hover {
+    color: #ffc107 !important; /* Yellow on hover */
+}
+
+/* 2. When inside the Footer (Light background) */
+.footer .navigation-links {
+    color: #000000 !important; /* Force Black */
+    align-items: left;
+}
+
+.footer .navigation-links:hover {
+    color: #555555 !important; /* Dark grey on hover */
+}
+/* Navbar specific layout (Desktop) */
+@media (min-width: 768px) {
+    .navigationLinks.ms-auto {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+/* Mobile: Stack items left-aligned */
+@media (max-width: 767.98px) {
+    .navigationLinks {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+    }
+    
+    .navigation-links {
+        color: #fff;
+        display: block;
+        padding: 10px 0;
+    }
+}
+/* Responsive adjustment for Mobile Navbar */
+@media (max-width: 991.98px) {
+    .navbar-collapse .navigation-links {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+}
