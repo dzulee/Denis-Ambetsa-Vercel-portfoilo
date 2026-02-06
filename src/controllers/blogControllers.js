@@ -1,4 +1,4 @@
-const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL|| "https://script.google.com/macros/s/AKfycbzpq4R3ysaR-xdOyydDCtSeV0xOrUFrjzTAXfnL9yDtvKf1xwdp_ak60iIoacZQrO33oQ/exec";
 
 export const blogControllers = {
   // Fetch logic
