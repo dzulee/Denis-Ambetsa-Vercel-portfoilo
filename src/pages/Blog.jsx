@@ -8,7 +8,29 @@ const Blog = () => {
   const [replyText, setReplyText] = useState({});
 
   const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycby1jvCtDlilOnal7iNYJt99FNteKLOTg50LP1uPYkbi5zHTvrgUDtHXYrIjJm4FS5Lpyw/exec";
-
+const getBackgroundStyle = (post) => {
+    const hasImage = post.imageUrl && post.imageUrl.trim() !== "";
+    return {
+      backgroundImage: hasImage 
+        ? `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${post.imageUrl})` 
+        : 'none',
+      backgroundColor: '#121212', 
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '300px', 
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      color: 'white',
+      padding: '40px 20px', // Added more padding for structure
+      borderRadius: '12px',
+      textAlign: 'center',
+      transition: 'all 0.3s ease' // Smooth transition
+    };
+  };
   const fetchPosts = () => {
     setLoading(true);
     fetch(SCRIPT_URL)
@@ -72,19 +94,28 @@ const Blog = () => {
     </div>
   );
 
-  return (
+ return (
     <section className="blog-section py-5" id="blog">
       <div className="container">
         <h2 className="display-5 fw-bold text-white mb-5 text-center">Insights & Stories</h2>
         <div className="row g-4 justify-content-center">
           {posts.map((post) => (
             <div className="col-lg-10" key={post.rowId}>
-              <div className="blog-content-box p-4 p-md-5 rounded-4 mb-4">
+              {/* APPLY STYLE HERE IN THE MAP */}
+              <div 
+                className="blog-content-box rounded-4 mb-4" 
+                style={getBackgroundStyle(post)}
+              >
                 <span className="badge bg-warning text-dark mb-2">{post.contentType}</span>
                 <h3 className="text-white fw-bold mb-3">{post.title}</h3>
-                <p className="lead text-light">{post.story}</p>
+                
+                {/* PRE-WRAP PRESERVES THE POETRY STRUCTURE */}
+                <p className="lead text-light" style={{ whiteSpace: "pre-wrap", width: '100%' }}>
+                  {post.story} 
+                </p>
 
-                <div className="interaction-area mt-4 border-top border-secondary pt-3">  
+                {/* Interaction Area (Ensuring it stays at bottom) */}
+                <div className="interaction-area mt-4 border-top border-secondary pt-3 w-100">  
                   <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
                     <button 
                       onClick={() => handleAction(post.rowId, 'like')}
