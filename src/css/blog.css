@@ -7,13 +7,15 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+}.likes{
+  background-color: bisque;
 }
 
 
 /* On Medium/Large screens, make the reply box a bit narrower */
 @media (min-width: 768px) {
   .reply-wrapper {
-    max-width: 70%;
+    max-width: 60%;
   }
 }
 
@@ -27,6 +29,22 @@
 
 @media (min-width: 992px) {
   .blog-img {
-    max-height: 400px;
+    max-height: 150px;
+  }
+}.pagination-mobile-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 576px) {
+  .pagination-mobile-container {
+    position: sticky;
+    bottom: 20px;
+    z-index: 100;
+    margin: 0 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 }

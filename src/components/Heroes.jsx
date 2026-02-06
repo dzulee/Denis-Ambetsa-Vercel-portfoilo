@@ -7,6 +7,7 @@ import '../index.css';
 import githubIcon from '../assets/github-brands-solid-full.svg';
 import linkedinIcon from '../assets/linkedin-in-brands-solid-full.svg';
 import mailIcon from '../assets/envelope-solid-full.svg';
+import XIcon from '../assets/x-twitter-brands-solid-full.svg';
 
 export function Heroes() {
     const el = useRef(null);
@@ -28,25 +29,26 @@ export function Heroes() {
 
     return (
         <div className="hero-master-container" id="Hero">
+           <div >
             <Navbar />
-            
+            </div>
             {/* Main Content Wrapper */}
             <div className="container-fluid d-flex align-items-center" style={{ minHeight: '100vh', position: 'relative', zIndex: 2 }}>
                 <div className="row w-100 justify-content-center justify-content-md-start px-md-5">
                     
                     {/* Glassmorphism Hero Box */}
                     <div className="col-11 col-md-10 col-lg-8 hero-content-box p-4 p-md-5">
-                        <h1 className="display-3 fw-bold text-white mb-3">
+                        <h2 className="display-3 fw-bold text-white mb-3">
                             Professional <br className="d-md-none" />
                             <span className="typed-text" style={{ color: '#00CED1', fontSize: '2.5rem' }} ref={el}></span>
-                        </h1>
+                        </h2>
                         
                         <div className="col-12 col-xl-10">
-                            <p className="fs-5 mb-4 text-light hero-subtext">
+                            <div className="fs-5 mb-4 text-light hero-subtext">
                                 Hi, welcome to <span className="d-inline-block mx-1"><Logo /></span> 
                                 we specialize in building high-quality responsive websites and data-driven solutions. 
                                 Let's transform your vision into reality.
-                            </p>
+                            </div>
                             
                             <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
                                 <a href="#featured-work" className="btn btn-info btn-lg px-4 fw-bold hero-btn-primary">
@@ -61,7 +63,7 @@ export function Heroes() {
                         {/* Social Icons Integrated into the Box */}
                         <div className="social-icons-wrapper mt-5 pt-4">
                             <div className="d-flex gap-3 justify-content-center justify-content-md-start">
-                                <a href="mailto:dennisambetsa63@gmail.com" className="social-link"><img src={mailIcon} className="social-icon-img" alt="Mail"/></a>
+                                <a href="https://x.com/ambetsa_dennis" className="social-link"><img src={XIcon} className="social-icon-img" alt="Mail"/></a>
                                 <a href="https://github.com/dzulee" className="social-link"><img src={githubIcon} className="social-icon-img" alt="GitHub"/></a>
                                 <a href="https://linkedin.com/in/dennis-ambetsa" className="social-link"><img src={linkedinIcon} className="social-icon-img" alt="LinkedIn"/></a>
                             </div>

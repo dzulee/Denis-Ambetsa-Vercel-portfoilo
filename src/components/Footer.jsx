@@ -35,22 +35,22 @@ export function Footer() {
                         <div className='social-icons'>
                         <ul className="d-flex justify-content-space-around list-unstyled gap-2 flex-wrap">
                             <li>
-                                <a href="https://youtube.com" target="_blank" rel="noreferrer">
+                                <a href="https://www.youtube.com/@dennisambetsa1588" target="_blank" rel="noreferrer">
                                     <img src={youtubeIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="YouTube" style={{color:'red'}}  />
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                                <a href="https://x.com/ambetsa_dennis" target="_blank" rel="noreferrer">
                                     <img src={XIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="Twitter"  />
                                 </a>
                             </li>
                             <li>
-                                <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                                <a href="https://www.facebook.com/profile.php?id=61587463236155" target="_blank" rel="noreferrer">
                                     <img src={facebookIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="Facebook"  />
                                 </a>
                             </li>
                             <li>
-                                <a href="https://discord.com" target="_blank" rel="noreferrer">
+                                <a href="https://discord.com/users/1347999417046663262" target="_blank" rel="noreferrer">
                                     <img src={discordkIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="Discord"  />
                                 </a>
                             </li>

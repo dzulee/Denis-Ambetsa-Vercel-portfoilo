@@ -2,6 +2,7 @@
 .navigation-links{
      font-family: Verdana;
     text-decoration: none;
+   
     
 }
 /* 1. When inside the Navbar (Dark background) */
@@ -11,6 +12,7 @@
 
 .navbar .navigation-links:hover {
     color: #ffc107 !important; /* Yellow on hover */
+     top: 60px;
 }
 
 /* 2. When inside the Footer (Light background) */

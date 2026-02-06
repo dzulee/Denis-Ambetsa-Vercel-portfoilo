@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import '../css/aboutus.css';
 import MissionSection from '../components/Mission_value';
-import myCV from '../my_cv/Denis_Ambetsa_cv.pdf';
 import { Navbar } from '../components/Navbar';
 
 const AboutMe = () => {
     const [activeTab, setActiveTab] = useState('education');
-
+    const myCV="https://drive.google.com/file/d/1uYCJFjgB1NiT4j81aAfGhr26XZomd2du/view?usp=sharing"
     return (
         <section className="about_us py-5" id="about_us" style={{ backgroundColor: '#0a0c10', minHeight: '100vh' }}>
-            <Navbar />
+            <div id='Navbar'><Navbar/> </div>
             <div className="container mt-5">
                 <div className="row align-items-center justify-content-center py-5">
                     

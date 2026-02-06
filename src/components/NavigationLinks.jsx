@@ -6,7 +6,7 @@ const navigationLinks = [
     navigationTo:'/#Hero'},
     {
     text:'ABOUT US',
-     navigationTo:'/about'},
+     navigationTo:'/about#Navbar'},
      {
     text:'PROJECTS',
      navigationTo:'/#featured-work'},

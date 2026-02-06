@@ -1,151 +1,101 @@
 import React, { useState, useEffect } from 'react';
+import { Navbar } from '../components/Navbar';
+import { blogControllers } from '../controllers/blogControllers'; 
 import '../css/blog.css';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // Added error state
+  const [error, setError] = useState(null);
   const [replyText, setReplyText] = useState({});
-
-  const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycby1jvCtDlilOnal7iNYJt99FNteKLOTg50LP1uPYkbi5zHTvrgUDtHXYrIjJm4FS5Lpyw/exec";
-const getBackgroundStyle = (post) => {
-    const hasImage = post.imageUrl && post.imageUrl.trim() !== "";
-    return {
-      backgroundImage: hasImage 
-        ? `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${post.imageUrl})` 
-        : 'none',
-      backgroundColor: '#121212', 
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      minHeight: '300px', 
-      width: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      color: 'white',
-      padding: '40px 20px', // Added more padding for structure
-      borderRadius: '12px',
-      textAlign: 'center',
-      transition: 'all 0.3s ease' // Smooth transition
-    };
-  };
-  const fetchPosts = () => {
-    setLoading(true);
-    fetch(SCRIPT_URL)
-      .then(res => {
-        // If Google sends HTML, the content-type won't be application/json
-        const contentType = res.headers.get("content-type");
-        if (contentType && contentType.indexOf("application/json") !== -1) {
-          return res.json();
-        } else {
-          throw new Error("Google sent back HTML instead of JSON. Check your 'Anyone' permissions!");
-        }
-      })
-      .then(data => {
-        setPosts(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Fetch error:", err);
-        setError(err.message);
-        setLoading(false);
-      });
-  };
+  const [expandedPosts, setExpandedPosts] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 2;
 
   useEffect(() => {
-    if (SCRIPT_URL) {
-      fetchPosts();
-    } else {
-      setError("VITE_GOOGLE_SCRIPT_URL is missing from .env");
-      setLoading(false);
-    }
+    const loadData = async () => {
+      try {
+        const data = await blogControllers.getPosts();
+        setPosts(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
   }, []);
 
   const handleAction = async (rowId, action, message = "") => {
-    // Mode 'no-cors' means we can't read the response, but the data still hits the sheet
-    await fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' }, // Avoids pre-flight issues
-      body: JSON.stringify({ rowId, action, message })
-    });
-    
-    if (action === 'like') {
-      setPosts(posts.map(p => p.rowId === rowId ? { ...p, likes: (p.likes || 0) + 1 } : p));
-    } else {
-      alert("Reply sent to Dennis!");
-      setReplyText({ ...replyText, [rowId]: "" });
+    try {
+      // FIXED: using blogControllers instead of blogService
+      await blogControllers.postAction(rowId, action, message);
+      
+      if (action === 'like') {
+        setPosts(posts.map(p => p.rowId === rowId ? { ...p, likes: (p.likes || 0) + 1 } : p));
+      } else {
+        alert("Reply sent to Dennis!");
+        setReplyText(prev => ({ ...prev, [rowId]: "" }));
+      }
+    } catch (err) {
+      console.error("Action failed:", err);
     }
   };
 
-  if (loading) return (
-    <div className="text-center text-white p-5">
-      <div className="spinner-border text-warning" role="status"></div>
-      <p className="mt-3">Fetching stories...</p>
-    </div>
-  );
+  const paginate = (num) => {
+    setCurrentPage(num);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-  if (error) return (
-    <div className="text-center text-danger p-5">
-      <p>⚠️ Error: {error}</p>
-      <button className="btn btn-outline-light btn-sm" onClick={fetchPosts}>Try Again</button>
-    </div>
-  );
+  const currentPosts = posts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
+  const totalPages = Math.ceil(posts.length / postsPerPage);
 
- return (
+  if (loading) return <div className="text-center text-white p-5">Loading stories...</div>;
+
+  return (
     <section className="blog-section py-5" id="blog">
-      <div className="container">
-        <h2 className="display-5 fw-bold text-white mb-5 text-center">Insights & Stories</h2>
+      <Navbar />
+      <div className="container mt-5">
         <div className="row g-4 justify-content-center">
-          {posts.map((post) => (
+          {currentPosts.map((post) => (
             <div className="col-lg-10" key={post.rowId}>
-              {/* APPLY STYLE HERE IN THE MAP */}
-              <div 
-                className="blog-content-box rounded-4 mb-4" 
-                style={getBackgroundStyle(post)}
-              >
-                <span className="badge bg-warning text-dark mb-2">{post.contentType}</span>
-                <h3 className="text-white fw-bold mb-3">{post.title}</h3>
+              <div className="blog-content-box rounded-4 mb-4 shadow" style={blogControllers.getBackgroundStyle(post)}>
+                <h3 className="fw-bold mb-3">{post.title}</h3>
                 
-                {/* PRE-WRAP PRESERVES THE POETRY STRUCTURE */}
-                <p className="lead text-light" style={{ whiteSpace: "pre-wrap", width: '100%' }}>
-                  {post.story} 
-                </p>
+                <div style={{ maxHeight: expandedPosts[post.rowId] ? 'none' : '150px', overflow: 'hidden', position: 'relative' }}>
+                  <p className="lead" style={{ whiteSpace: "pre-wrap" }}>{post.story}</p>
+                </div>
 
-                {/* Interaction Area (Ensuring it stays at bottom) */}
-                <div className="interaction-area mt-4 border-top border-secondary pt-3 w-100">  
-                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
-                    <button 
-                      onClick={() => handleAction(post.rowId, 'like')}
-                      className="btn btn-warning d-flex align-items-center justify-content-center fw-bold shadow-sm"
-                      style={{ width: '100px', height: '45px', borderRadius: '12px' }}
-                    >
+                <button className="btn btn-link text-warning fw-bold mb-3" onClick={() => setExpandedPosts(prev => ({ ...prev, [post.rowId]: !prev[post.rowId] }))}>
+                  {expandedPosts[post.rowId] ? "Show Less ↑" : "Read More ↓"}
+                </button>
+
+                <div className="interaction-area w-100 border-top border-secondary pt-3">
+                  <div className="d-flex flex-column flex-md-row gap-3">
+                    <button onClick={() => handleAction(post.rowId, 'like')} className="likes fw-bold">
                       👍 {post.likes || 0}
                     </button>
-
-                    <div className="reply-wrapper w-100 position-relative">
+                    <div className="position-relative flex-grow-1">
                       <textarea 
-                        className="form-control bg-dark text-white border-secondary pe-5"
-                        placeholder="Write a reply..."
-                        style={{ minHeight: '60px', borderRadius: '15px', resize: 'none' }}
+                        className="form-control bg-dark text-white pe-5" 
+                        placeholder="Reply..."
                         value={replyText[post.rowId] || ""}
                         onChange={(e) => setReplyText({ ...replyText, [post.rowId]: e.target.value })}
                       />
-                      <button 
-                        onClick={() => handleAction(post.rowId, 'reply', replyText[post.rowId])}
-                        className="btn btn-warning position-absolute translate-middle-y"
-                        style={{ top: '50%', right: '10px', borderRadius: '50%', width: '35px', height: '35px', padding: '0' }}
-                      >
-                        ➔
-                      </button>
+                      <button onClick={() => handleAction(post.rowId, 'reply', replyText[post.rowId])} className="btn btn-warning position-absolute top-50 end-0 translate-middle-y me-2">➔</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Pagination UI */}
+        <div className="d-flex justify-content-center gap-3 mt-4">
+          <button disabled={currentPage === 1} onClick={() => paginate(currentPage - 1)} className="btn btn-outline-warning">Prev</button>
+          <span className="text-white align-self-center">Page {currentPage} of {totalPages}</span>
+          <button disabled={currentPage === totalPages} onClick={() => paginate(currentPage + 1)} className="btn btn-outline-warning">Next</button>
         </div>
       </div>
     </section>

@@ -15,4 +15,7 @@
      position: relative;
      top: 0.3rem;
 
+}.navigationlinks{
+   padding-top: 20px;
+   font-family: Verdana;
 }
