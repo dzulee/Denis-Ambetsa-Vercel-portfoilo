@@ -49,7 +49,8 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                     ] 
                 }
                 
-            ]
+            ],
+            whatido:'I turn raw numbers into actionable growth strategies using Python, SQL, and Power BI dashboards.'
         },
         {
             id: 'webdev',
@@ -61,7 +62,8 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                     label: 'Web Design', 
                     content: [
                         { name: 'Portfolio Website', url: 'https://ambetsatech.vercel.app/' },
-                        { name: 'Blog website page', url: '/powerBi/salesdashboard.jsx' }
+                        { name: 'Blog website page', url: '/powerBi/salesdashboard.jsx' },
+                       
                     ] 
                 },
                 { 
@@ -73,7 +75,9 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                         { name: 'Payment Integration', url: 'https://github.com/dzulee?tab=repositories' }
                     ] 
                 }
-            ]
+            ],
+            whatido:'I create high-performance, responsive digital experiences using React and Bootstrap, focusing on clean UI/UX.'
+
         },
             {
             id: 'va',
@@ -92,7 +96,7 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                              url: 'https://github.com/dzulee?tab=repositories' },
                          { name: 'Briefing and Minutes taking',
                              url: 'https://github.com/dzulee?tab=repositories' }
-                    ] 
+                    ]
                 },
                 { 
                     id: 'social-media-mngmnt', 
@@ -103,7 +107,8 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                         { name: 'Sentiment Analysis', url: '#' }
                     ] 
                 }
-            ]
+            ],
+             whatido:'I optimize the "backend" of business through workflow automation and CRM management.'
         },
             {
             id: 'pm',
@@ -118,7 +123,7 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                              url: 'https://github.com/dzulee?tab=repositories' },
                         { name: 'Decision Making',
                              url: 'https://github.com/dzulee?tab=repositories' }
-                    ] 
+                    ]
                 },
                 { 
                     id: 'lean-sixsigma', 
@@ -132,7 +137,8 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                              url: 'https://github.com/dzulee?tab=repositories' }
                     ] 
                 }
-            ]
+            ],
+                     whatido:'I lead teams using Agile methodologies to ensure high-impact projects move from ideation to launch.'
         }
         
     ];
@@ -143,45 +149,35 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
             <div className="rotating-bg-container" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}>
                 <div className="rotating-bg-image"></div>
             </div>
-
             <div className="container-fluid px-md-5 position-relative" style={{ zIndex: 1 }}>
-                <h2 className="text-center mb-5 fw-bold text-white display-5">My Expertise</h2>
                 
                 <div className="row g-5 align-items-start justify-content-center">
                     
                     {/* Left Column: Description Text */}
-                    <div className="col-12 col-lg-5">
+                    <div className="col-12 col-lg-5">                        
                         <div className="project-descriptions text-muted pe-lg-4">
-                            <h3 className="mb-4 text-white fw-bold" style={{ fontSize: '1.75rem' }}>
+                            <h3 className="mb-4 text-white fw-bold slide-in-left"style={{ fontSize: '1.75rem' }}>
                                 Bridging the Gap: Innovation Across Disciplines
                             </h3>
-                            <p className="mb-4 lead-custom">
+                            <p className="mb-4 lead-custom slide-in-left"style={{ animationDelay: '0.1s' }}>
                                 I don't just build tools; I build solutions. By combining technical precision with strategic oversight, I help businesses scale through four core pillars:
                             </p>
                             
                             <div className="pillar-list">
-                                <div className="mb-4">
-                                    <h4 className="text-warning fw-bold mb-2">1. Web Design & Development</h4>
-                                    <p className="small-text">I create high-performance, responsive digital experiences using React and Bootstrap, focusing on clean UI/UX.</p>
-                                </div>
-                                <div className="mb-4">
-                                    <h4 className="text-warning fw-bold mb-2">2. Data Analysis</h4>
-                                    <p className="small-text">I turn raw numbers into actionable growth strategies using Python, SQL, and Power BI dashboards.</p>
-                                </div>
-                                <div className="mb-4">
-                                    <h4 className="text-warning fw-bold mb-2">3. Project Management</h4>
-                                    <p className="small-text">I lead teams using Agile methodologies to ensure high-impact projects move from ideation to launch.</p>
-                                </div>
-                                <div className="mb-4">
-                                    <h4 className="text-warning fw-bold mb-2">4. Virtual Assistance</h4>
-                                    <p className="small-text">I optimize the "backend" of business through workflow automation and CRM management.</p>
-                                </div>
-                            </div>
+                                {categories.map((cat) => (                
+                                    <div className="card mb-4 border-0 slide-in-left" key={cat.id}>
+                                        <h4 className="text-warning fw-bold mb-2">{cat.title}</h4>
+                                        <p className="small text-light opacity-75">{cat.whatido}</p>
+                                    </div>
+                                ))}
+                        </div>
                         </div>
                     </div>
 
                     {/* Right Column: Interactive Project Cards */}
                     <div className="col-12 col-lg-7">
+                        <h2 className="text-center mb-3 fw-bold text-white display-6 slide-in-left">My Expertise</h2>
+
                         <div className="row g-4">
                             {categories.map((cat) => (
                                 <div className="col-12 col-md-6" key={cat.id}>
@@ -221,5 +217,5 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                 </div>
             </div>
         </section>
-    );
-}
+    )
+};

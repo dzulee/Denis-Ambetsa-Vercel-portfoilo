@@ -2,19 +2,43 @@
 .wg2l{
         width: 80px;
         height: 80px;
+        border-radius: 50%;
        
     }.textback{
-        font-weight: 700;
-        color: black;
+        font-weight: 400;
+        color: #fff;
+        font-size: 20px;
+  
+}.social-icons img {
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%; /* Circle looks more modern */
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+.social-icons img:hover{
+    opacity: 0.7;
+    background-color: chocolate;
     }
-.social-icons img{
-        width: 40px;
-        height: 40px;
+    @media (min-width: 567.98px) {
+        .footer-container{
+        padding-left:  0;
+        margin-left: 0px;
        
+        }
+    .footer-item{
+        flex-direction: row;
+        
+    }h4{
+        size: 10px;
+        font-weight: 100px;
+ }
 
-    }
+}
     
-@media (max-width: 767.98px) {
+@media (max-width: 567.98px) {
     .footer-item{
         flex-direction: column;
         justify-content:center;
@@ -22,17 +46,13 @@
     }h4{
         font-size: 20px;
         font-weight: 100px;
-
+ } .footer-container{
+        padding-left:  0;
+        margin-left: 0px;
         
-       
-    }.social-icons img{
-        width: 40px;
-        height: 40px;
+        }.contactmap{
+            height: 200px;
+            width: 100px;
+        }
 
-    }.footer-container{
-         left:-50px;
-    }.navigation-links{
-         
-    }
-        
-}
+    } 

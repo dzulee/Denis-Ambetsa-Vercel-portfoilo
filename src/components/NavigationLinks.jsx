@@ -2,35 +2,36 @@ import { NavHashLink } from "react-router-hash-link";
 import '../css/navigation-links.css';
 const navigationLinks = [
     {
-    text:'HOME',
-    navigationTo:'/#Hero'},
+    text:'Home',
+    navigationTo:'/#Home'},
     {
-    text:'ABOUT US',
+    text:'About US',
      navigationTo:'/about#Navbar'},
      {
-    text:'PROJECTS',
+    text:'Projects',
      navigationTo:'/#featured-work'},
      {
-    text:'SERVICES',
+    text:'Services',
      navigationTo:'/#services'},
      {
-    text:'CONTACT US',
+    text:'Contact US',
      navigationTo:'/#contact-section'
 }, {
-    text:'BLOG',
+    text:'Blog',
      navigationTo:'/blog'
 }
 ]
 export function NavigationLinks({ containerClass = "" }) {
     return (
         <ul className={`navigationLinks list-unstyled ${containerClass}`}>
+            
             {navigationLinks.map((link, index) => (
                 <li className="nav-item" key={index}>
+                    
                     <NavHashLink 
                         smooth 
                         to={link.navigationTo} 
-                        // Using a function here prevents the isActive prop 
-                        // from being sent to the <a> tag
+                        
                         className={({ isActive }) => 
                             `navigation-links ${isActive ? 'active-link' : ''}`
                         }

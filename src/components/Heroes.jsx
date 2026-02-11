@@ -4,10 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar } from './Navbar';
 import { Logo } from './Logo';
 import '../index.css';
-import githubIcon from '../assets/github-brands-solid-full.svg';
-import linkedinIcon from '../assets/linkedin-in-brands-solid-full.svg';
-import mailIcon from '../assets/envelope-solid-full.svg';
-import XIcon from '../assets/x-twitter-brands-solid-full.svg';
+import { SocialIcons } from './SocialMediaIcons';
 
 export function Heroes() {
     const el = useRef(null);
@@ -29,16 +26,13 @@ export function Heroes() {
 
     return (
         <div className="hero-master-container" id="Hero">
-           <div >
-            <Navbar />
-            </div>
             {/* Main Content Wrapper */}
             <div className="container-fluid d-flex align-items-center" style={{ minHeight: '100vh', position: 'relative', zIndex: 2 }}>
                 <div className="row w-100 justify-content-center justify-content-md-start px-md-5">
                     
                     {/* Glassmorphism Hero Box */}
                     <div className="col-11 col-md-10 col-lg-8 hero-content-box p-4 p-md-5">
-                        <h2 className="display-3 fw-bold text-white mb-3">
+                        <h2 className="display-6 fw-bold text-white mb-3">
                             Professional <br className="d-md-none" />
                             <span className="typed-text" style={{ color: '#00CED1', fontSize: '2.5rem' }} ref={el}></span>
                         </h2>
@@ -59,15 +53,13 @@ export function Heroes() {
                                 </a>
                             </div>
                         </div>
+                        <div>
+                            {/* Social Icons Integrated into the Box */}
+                          <SocialIcons limit={4} FromEnd={false} />
 
-                        {/* Social Icons Integrated into the Box */}
-                        <div className="social-icons-wrapper mt-5 pt-4">
-                            <div className="d-flex gap-3 justify-content-center justify-content-md-start">
-                                <a href="https://x.com/ambetsa_dennis" className="social-link"><img src={XIcon} className="social-icon-img" alt="Mail"/></a>
-                                <a href="https://github.com/dzulee" className="social-link"><img src={githubIcon} className="social-icon-img" alt="GitHub"/></a>
-                                <a href="https://linkedin.com/in/dennis-ambetsa" className="social-link"><img src={linkedinIcon} className="social-icon-img" alt="LinkedIn"/></a>
-                            </div>
                         </div>
+
+                        
                     </div>
                 </div>
             </div>

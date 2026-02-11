@@ -4,10 +4,14 @@ import { Services } from "../components/Services";
 import { Heroes } from "../components/Heroes";
 import { Projects } from "../components/Projects";
 import ContactForm from "../components/ContactMe";
+import { Navbar } from "../components/Navbar";
 
 export default function Home() {
     return (
         <div>
+            <section className="" id="Home">
+                <Navbar/>
+            </section>
             <section id="Hero">
                 <Heroes />
             </section>

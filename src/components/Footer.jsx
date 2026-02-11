@@ -2,69 +2,47 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/footer.css';
 import { NavigationLinks } from './NavigationLinks';
-import youtubeIcon from '../assets/youtube-brands-solid-full.svg';
-import XIcon from '../assets/x-twitter-brands-solid-full.svg';
-import facebookIcon from '../assets/facebook-brands-solid-full.svg';
-import discordkIcon from '../assets/discord-brands-solid-full.svg';
-import whatsappIcon from '../assets/whatsapp-brands-solid-full.svg';
-
+import { SocialIcons } from './SocialMediaIcons';
+import { ContactMap } from './ContactMap';
 
 export function Footer() {
     return (
-        <div>
-            
-
-            <footer className="container-fluid footer mt-auto py-3 position-relative" style={{ overflow: 'hidden', backgroundColor: '#d0d0d0' }}>
-                {/* Animated Background Layer */}
-                <div className="rotating-bg-container" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}>
-                    <div className="rotating-bg-image"></div>
-                </div>
-                <div className="footer-container position-relative" style={{ zIndex: 1, right:'-100px' }}>
-                    <div className="footer-item text-muted d-flex justify-content-center row-cols-3 row-cols-md-3 align-items-center gap-5">
-                        <div>
-                            {/* Fixed image path to use relative import or public folder path */}
-                            <img src="/logo2.png" alt="logo" width="80" height="80" className="wg2l mx-2" />
-                            <h4 className="textback">WE DONT GET 2 LOSE</h4>
-                        </div>
-                        <div className='footer-links'>
-                            {/* Pass vertical stacking class */}
-                            <NavigationLinks containerClass="flex-column align-items-center text-center gap-2" />
-                        </div>
-                        <div>
-                        {/* Social Media Icons */}
-                        <div className='social-icons'>
-                        <ul className="d-flex justify-content-space-around list-unstyled gap-2 flex-wrap">
-                            <li>
-                                <a href="https://www.youtube.com/@dennisambetsa1588" target="_blank" rel="noreferrer">
-                                    <img src={youtubeIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="YouTube" style={{color:'red'}}  />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://x.com/ambetsa_dennis" target="_blank" rel="noreferrer">
-                                    <img src={XIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="Twitter"  />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/profile.php?id=61587463236155" target="_blank" rel="noreferrer">
-                                    <img src={facebookIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="Facebook"  />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://discord.com/users/1347999417046663262" target="_blank" rel="noreferrer">
-                                    <img src={discordkIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="Discord"  />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://wa.me/254799964580" target="_blank" rel="noreferrer">
-                                    <img src={whatsappIcon} className="img-fluid border rounded-3 shadow-sm p-2 bg-white" alt="WhatsApp" />
-                                </a>
-                            </li>
-                        </ul>
-                        </div>
+        <footer className="container-fluid footer py-5 bg-dark text-light position-relative" style={{ overflow: 'hidden' }}>
+            <div className="container footer-container position-relative" style={{ zIndex: 1 }}>
+                <div className="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-4 gap-md-5">
+                    
+                    {/* Brand & Socials Section */}
+                    <div className="p-2 text-center text-md-start">
+                        <img src="/logo2.png" alt="logo" width="80" height="80" className="wg2l mb-2" />
+                        <h4 className="textback fw-bold mb-3">We Don't Get 2 Lose</h4>
+                        
+                        <div className="mt-4">
+                            <p className="small  mb-2">Follow me</p>
+                            <SocialIcons limit={4} fromEnd={true} />
                         </div>
                     </div>
+                    <ContactMap/>
+
+                    {/* The Perpendicular Line (Vertical Divider) */}
+                    {/* d-none d-md-block ensures it only shows on desktop where things are side-by-side */}
+                    <span className="vr d-none d-md-block shadow-sm" style={{ alignSelf: 'stretch', width: '2px', opacity: 0.4, backgroundColor: '#ffc107' }}></span>
+
+                    {/* Quick Links Section */}
+                    <div className="p-2 footer-links min-w-200">
+                        <p className="fw-bold text-warning mb-2 border-bottom border-warning border-opacity-25 pb-2">
+                            Quick Web Links
+                        </p>
+                        <NavigationLinks containerClass="flex-column align-items-center align-items-start gap-1 " />
+                    </div>
+                    
                 </div>
-            </footer>
-        </div>
+               <div className="mt-5 pt-3 border-top border-secondary border-opacity-25 text-center">
+                    <p className="small  mb-0">
+                        &copy; {new Date().getFullYear()} Dennis Ambetsa. All Rights Reserved.
+                    </p>
+                </div>
+
+            </div>
+        </footer>
     );
 }

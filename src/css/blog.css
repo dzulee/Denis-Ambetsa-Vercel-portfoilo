@@ -7,8 +7,22 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-}.likes{
-  background-color: bisque;
+}/* Update the likes pill to look more modern */
+.likes {
+  background-color: rgba(255, 193, 7, 0.2); /* Transparent Bootstrap Warning Yellow */
+  color: #ffc107;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+/* Hover effect for the blog cards */
+.blog-content-box:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 193, 7, 0.4); /* Highlight with your brand yellow */
+  transform: translateY(-5px);
 }
 
 
@@ -29,22 +43,23 @@
 
 @media (min-width: 992px) {
   .blog-img {
-    max-height: 150px;
+    max-height: 200px; /* Slightly taller for better visual balance */
+    transition: transform 0.5s ease;
   }
-}.pagination-mobile-container {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 15px;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
+  
+  /* Zoom effect on hover */
+  .blog-content-box:hover .blog-img {
+    transform: scale(1.03);
+  }
 
-@media (max-width: 576px) {
+}@media (max-width: 576px) {
   .pagination-mobile-container {
     position: sticky;
     bottom: 20px;
     z-index: 100;
     margin: 0 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.7); /* Darker for better contrast on mobile */
+    border: 1px solid rgba(255, 193, 7, 0.5); /* Brand border */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.8);
   }
 }

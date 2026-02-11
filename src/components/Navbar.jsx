@@ -7,15 +7,15 @@ export function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark  shadow-sm" style={{
-      position: 'sticky',
-      zIndex: 2
+    <nav className="navbar  navbar-expand-lg navbar-dark  shadow-sm" style={{
+     
+      
     }}>
-      <div className="d-flex w-100 px-3 px-md-5 align-items-center justify-content-between">
+      <div className="d-flex px-3 px-md-5 navbar-card ">
         
         {/* 1. Only show Logo and Toggle when collapsed */}
         {isCollapsed ? (
-          <>
+          <div className="p-2">
             <Logo className="navbar-brand" />
             <button 
               className="navbar-toggler border-0" 
@@ -24,7 +24,7 @@ export function Navbar() {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-          </>
+          </div>
         ) : (
           /* 2. When OPEN: Show Back Arrow and Navigation Links instead of Logo/Hamburger */
           <div className="d-flex align-items-center w-100 animate-fade-in">
@@ -46,8 +46,8 @@ export function Navbar() {
         )}
 
         {/* 3. Desktop View: Standard bootstrap behavior for larger screens */}
-        <div className="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
-          <NavigationLinks containerClass="ms-auto d-flex gap-4 list-unstyled mb-0" />
+        <div className="p-2 collapse navbar-collapse d-none d-lg-block" id="navbarNav">
+          <NavigationLinks containerClass="d-flex gap-4 list-unstyled mb-0" />
         </div>
       </div>
     </nav>
