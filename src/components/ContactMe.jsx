@@ -56,8 +56,10 @@ const ContactForm = () => {
           <p className="text-white lead">The dedication and the strength to any work will be given with integrity.</p>
         </div>
 
-        <div className='container position-relative'>
-          <div className='row'>
+        <div className='container position-relative'style={{zIndex:10}}>
+          <div className='row'
+                      data-aos="fade-up" 
+                      data-aos-delay='0.2s'>
             
             {/* Section 1: Office Info */}
             <div className='office-info text-center text-white col-lg-4 mb-4'>
@@ -83,7 +85,7 @@ const ContactForm = () => {
             {/* Section 2: Contact Form */}
             <div className='contact-form col-lg-8'>
               <div className='contact-card card shadow border-0'>
-                <h2>Contact Me</h2>
+                <h2 className='text-light'>Contact Me</h2>
                 <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
                   
                   <div className='mb-3'>
@@ -114,7 +116,7 @@ const ContactForm = () => {
                       type='text'
                       {...register('subject', { required: 'Subject is required' })}
                       className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
-                      placeholder='Subject / Wallet Address'
+                      placeholder='Subject / Address'
                     />
                     {errors.subject && <div className='invalid-feedback'>{errors.subject.message}</div>}
                   </div>

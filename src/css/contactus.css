@@ -41,7 +41,7 @@
 }
 
 .contact-card {
-    border-top: 5px solid #00CED1; /* Changed to match your new theme color */
+    border-top: 5px solid #00CED1;
 }
 
 /* Form Controls */
@@ -50,6 +50,9 @@
     border: 1px solid #333;
     color: #ffffff !important;
     margin-bottom: 15px;
+}.contact-card{
+    opacity: 1;
+
 }
 /* This makes the "Name", "Email", etc., clearly visible but muted */
 input::placeholder,

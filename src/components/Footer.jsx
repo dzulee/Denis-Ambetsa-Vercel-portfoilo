@@ -38,7 +38,7 @@ export function Footer() {
                 </div>
                <div className="mt-5 pt-3 border-top border-secondary border-opacity-25 text-center">
                     <p className="small  mb-0">
-                        &copy; {new Date().getFullYear()} Dennis Ambetsa. All Rights Reserved.
+                        &copy; {new Date().getFullYear()} Denis Ambetsa. All Rights Reserved.
                     </p>
                 </div>
 

@@ -6,8 +6,18 @@ import LearnMorePage from './pages/LearnMorePage';
 import NotFound from './pages/NoteFound';
 import PowerBi from './components/PowerBiDashboards';
 import Blog from './pages/Blog'
-
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation length in milliseconds
+      once: false,     // Whether animation should happen only once - set to false to animate every time you scroll up/down
+      mirror: true,    // Whether elements should animate out while scrolling past them
+    });
+  }, []);
+
   return (
     <Router>
       <Routes>

@@ -154,18 +154,20 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                 <div className="row g-5 align-items-start justify-content-center">
                     
                     {/* Left Column: Description Text */}
-                    <div className="col-12 col-lg-5">                        
+                    <div className="col-12 col-lg-5 "data-aos="fade-right">                        
                         <div className="project-descriptions text-muted pe-lg-4">
-                            <h3 className="mb-4 text-white fw-bold slide-in-left"style={{ fontSize: '1.75rem' }}>
+                            <h3 className="mb-4 text-white fw-bold "style={{ fontSize: '1.75rem' }}>
                                 Bridging the Gap: Innovation Across Disciplines
                             </h3>
-                            <p className="mb-4 lead-custom slide-in-left"style={{ animationDelay: '0.1s' }}>
+                            <p className="mb-4 lead-custom "style={{ animationDelay: '0.1s' }}>
                                 I don't just build tools; I build solutions. By combining technical precision with strategic oversight, I help businesses scale through four core pillars:
                             </p>
                             
                             <div className="pillar-list">
-                                {categories.map((cat) => (                
-                                    <div className="card mb-4 border-0 slide-in-left" key={cat.id}>
+                                {categories.map((cat,index) => (                
+                                    <div className="card mb-4 border-0 slide-in-left" key={cat.id}
+                                     data-aos="fade-up" 
+                                     data-aos-delay={index * 100}>
                                         <h4 className="text-warning fw-bold mb-2">{cat.title}</h4>
                                         <p className="small text-light opacity-75">{cat.whatido}</p>
                                     </div>
@@ -175,7 +177,7 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                     </div>
 
                     {/* Right Column: Interactive Project Cards */}
-                    <div className="col-12 col-lg-7">
+                    <div className="col-12 col-lg-7" data-aos="fade-left" data-aos-duration="1500">
                         <h2 className="text-center mb-3 fw-bold text-white display-6 slide-in-left">My Expertise</h2>
 
                         <div className="row g-4">

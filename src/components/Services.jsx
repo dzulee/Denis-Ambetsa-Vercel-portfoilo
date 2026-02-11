@@ -50,12 +50,14 @@ export function Services() {
            
             <div className="container position-relative py-5" style={{ zIndex: 1 }}>
                 <h2 className="bookus-call text-center mb-3 fw-bold text-white">Book Us Now For Our Services</h2>
-                <p className="text-center mb-5 text-muted">Tailored solutions for your digital needs.</p>
+                <p className="text-center mb-5 text-light">For tailored solutions for your digital needs.</p>
 
                 {/* Updated Row with specific responsive column widths */}
                 <div className="row g-4">
                     {serviceList.map((service) => (
-                        <div className="col-12 col-md-6 col-lg-3 d-flex" key={service.id}>
+                        <div className="col-12 col-md-6 col-lg-3 d-flex" key={service.id}
+                        data-aos="fade-up" 
+                      data-aos-delay='0.2s'>
                             <div className="card service-card shadow-sm border-0 text-center p-3 w-100 h-100 d-flex flex-column">
                                 <div className="img-container mb-3">
                                     <img src={service.img} className="card-img-top rounded shadow-sm" alt={service.title} />

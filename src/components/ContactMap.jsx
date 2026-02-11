@@ -8,7 +8,7 @@ export function ContactMap() {
 
   return (
     <div className='contactmap' style={{ height: '300px', width: '100%', borderRadius: '15px', overflow: 'hidden' }}>
-      <MapContainer center={position} zoom={13} style={{ height: '100%' }}>
+      <MapContainer  data-aos="zoom-in" data-aos-delay='0.2s' center={position} zoom={13} style={{ height: '100%' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; OpenStreetMap contributors'
