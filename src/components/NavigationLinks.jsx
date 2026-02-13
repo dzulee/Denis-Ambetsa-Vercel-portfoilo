@@ -21,20 +21,16 @@ const navigationLinks = [
      navigationTo:'/blog'
 }
 ]
-export function NavigationLinks({ containerClass = "" }) {
+export function NavigationLinks({ containerClass = "", onLinkClick }) {
     return (
-        <ul className={`navigationLinks list-unstyled ${containerClass}`}>
-            
+        <ul className={`list-unstyled ${containerClass}`}>
             {navigationLinks.map((link, index) => (
-                <li className="nav-item" key={index}>
-                    
+                <li className="nav-item" key={index} onClick={onLinkClick}>
                     <NavHashLink 
                         smooth 
                         to={link.navigationTo} 
-                        
-                        className={({ isActive }) => 
-                            `navigation-links ${isActive ? 'active-link' : ''}`
-                        }
+                        // FIX: Add the class name here!
+                        className="navigation-links" 
                     >
                         {link.text}
                     </NavHashLink>

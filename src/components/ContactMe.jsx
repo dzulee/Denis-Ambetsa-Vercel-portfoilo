@@ -116,7 +116,7 @@ const ContactForm = () => {
                       type='text'
                       {...register('subject', { required: 'Subject is required' })}
                       className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
-                      placeholder='Subject / Address'
+                      placeholder='Subject/address'
                     />
                     {errors.subject && <div className='invalid-feedback'>{errors.subject.message}</div>}
                   </div>

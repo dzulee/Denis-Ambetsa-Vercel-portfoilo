@@ -1,58 +1,81 @@
-
-.navigation-links{
-     font-family: Verdana;
-    text-decoration: none;
-    
-    
+/* Ensure the list itself has no bullets and sits right */
+.list-unstyled {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-/* 1. When inside the Navbar (Dark background) */
+
+/* FIX: Ensure naming matches your JSX exactly */
+.navigation-links {
+    font-family: 'Verdana', sans-serif;
+    text-decoration: none !important; /* Removes the underline */
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    display:flex;
+}
+
+/* Force White color when inside the Navbar */
 .navbar .navigation-links {
-    color: #ffffff !important; /* Force White */
+    color: #ffffff !important;
 }
 
-.navbar .navigation-links:hover {
-    color: #ffc107 !important; /* Yellow on hover */
-     top: 60px;
+/* Hover and Active states */
+.navbar .navigation-links:hover, 
+.active-link {
+    color: #ffc107 !important;
+    transform: translateY(-2px); /* Adds a subtle "proper" lift */
 }
 
-/* 2. When inside the Footer (Light background) */
-.footer .navigation-links {
-    font-size: 10px;
-    color: #fff !important; /* Force Black */
-   
-   
+/* Ensure the bullet point holder (li) doesn't interfere */
+.nav-item {
+    text-decoration: none !important;
+    list-style-type: none !important;
+
+}
+.navigationL-lnks {
+    font-family: Verdana;
+    text-decoration: none;
+    font-size: 0.95rem;
+    white-space: nowrap; /* Prevents text wrapping on mobile scroll */
+    transition: color 0.3s ease;
 }
 
-.footer .navigation-links:hover {
-    color: #555555 !important; /* Dark grey on hover */
+/* THE CARD CONTAINER */
+.navbar-card {
+    background-color: #0c0c0c;
+    border-radius: 12px;
+    height: 70px;
+    padding: 0 20px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-/* Navbar specific layout (Desktop) */
-@media (main-width: 768px) {
-    .navigationLinks {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
+
+/* Horizontal scroll for mobile menu without showing scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (min-width: 992px) {
+    .navbar-card {
+        margin: 10px auto;
+        max-width: 1200px; /* Centers the floating card on desktop */
     }
 }
 
-/* Mobile: Stack items left-aligned */
-@media (max-width: 767.98px) {
-    .navigationLinks {
-        display: flex;
-        flex-direction: column;
-        
+@media (max-width: 991.98px) {
+    .navbar-card {
+        margin: 5px;
+        gap: 10px;
+        height: 60px; /* Slimmer on mobile */
     }
     
-    .navigation-links {
-        color: #fff;
-        display: block;
-       
-    }
-}
-/* Responsive adjustment for Mobile Navbar */
-@media (max-width: 991.98px) {
-    .navbar-collapse .navigation-links {
-        padding: 5px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+    .logo span {
+        font-size: 1.8rem; /* Scale logo down for mobile */
     }
 }

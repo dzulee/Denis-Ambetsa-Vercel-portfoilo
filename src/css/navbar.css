@@ -15,19 +15,18 @@
      position: relative;
      top: 0.3rem;
 
-}.navigationlinks{
+}.collapsed-navLinks{
+   flex-direction: column;
+   background-color: #000 ;
+   top: 10px;
+}.navigation-links{
+   text-decoration: none;
    padding-top: 0;
    font-family: Verdana;
-}.navbar-card{
-   display: flex;
-   height: 70px;
-   opacity: 0.9;
-   padding: 0px;
-   margin-left: 70px;
-   margin-right: 60px;
-   background-color: #0c0c0c;
-   gap: 200px;
-   border-radius: 10px;
-   width: auto;
-   z-index: 1;
 }
+@media (max-width: 567.98px){ 
+   .navbar-links{
+margin-top:210px;
+ background-color:#000;
+ z-index:2;
+ }}

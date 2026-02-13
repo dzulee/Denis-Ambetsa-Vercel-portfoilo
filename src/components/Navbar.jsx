@@ -4,50 +4,48 @@ import '../css/navbar.css';
 import { NavigationLinks } from './NavigationLinks';
 
 export function Navbar() {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
-    <nav className="navbar  navbar-expand-lg navbar-dark  shadow-sm" style={{
-     
-      
-    }}>
-      <div className="d-flex px-3 px-md-5 navbar-card ">
+    <nav className="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top px-2 px-md-4">
+      <div className="navbar-card container-fluid d-flex align-items-center justify-content-between">
         
-        {/* 1. Only show Logo and Toggle when collapsed */}
-        {isCollapsed ? (
-          <div className="d-flex">
-            <Logo className="navbar-brand" />
-            <button 
-              className="navbar-toggler border-0" 
-              type="button" 
-              onClick={() => setIsCollapsed(false)}
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-          </div>
-        ) : (
-          /* 2. When OPEN: Show Back Arrow and Navigation Links instead of Logo/Hamburger */
-          <div className="d-flex align-items-center w-100 animate-fade-in">
-            <button 
-              className="btn text-warning me-3 p-0" 
-              onClick={() => setIsCollapsed(true)}
-              style={{ fontSize: '1.5rem' }}
-            >
-              ← <span style={{ fontSize: '1rem' }}>Back</span>
-            </button>
-            
-            <div className="flex-grow-1">
-              <NavigationLinks 
-                containerClass="d-flex gap-3 gap-md-4 list-unstyled mb-0 mb-lg-0 overflow-auto" 
-                onLinkClick={() => setIsCollapsed(true)} // Close when a link is clicked
-              />
+        {/* MOBILE VIEW LOGIC */}
+        <div className="d-lg-none d-flex align-items-center w-100">
+          {!isMobileOpen ? (
+            <div className="d-flex justify-content-between w-100 align-items-center">
+              <Logo className="navbar-brand" />
+              <button 
+                className="navbar-toggler border-0" 
+                onClick={() => setIsMobileOpen(true)}
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="d-flex align-items-center w-100 animate-fade-in collapsed-navLinks">
+              <button 
+                className="btn text-warning me-3 p-0" 
+                onClick={() => setIsMobileOpen(false)}
+              >
+                ← <span className="small">Back</span>
+              </button>
+              <div className="overflow-auto no-scrollbar py-2">
+                <NavigationLinks 
+                  containerClass="gap-3 mb-0" 
+                  onLinkClick={() => setIsMobileOpen(false)} 
+                />
+              </div>
+            </div>
+          )}
+        </div>
 
-        {/* 3. Desktop View: Standard bootstrap behavior for larger screens */}
-        <div className="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
-          <NavigationLinks containerClass="d-flex gap-4 list-unstyled mb-0" />
+        {/* DESKTOP VIEW LOGIC */}
+        <div className="d-none d-lg-flex justify-content-between align-items-center w-100 ">
+          <Logo className="navbar-brand" />
+          <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav" style={{textDecoration:"none",}}>
+            <NavigationLinks containerClass="d-flex gap-4 mb-0" />
+          </div>
         </div>
       </div>
     </nav>

@@ -154,7 +154,7 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                 <div className="row g-5 align-items-start justify-content-center">
                     
                     {/* Left Column: Description Text */}
-                    <div className="col-12 col-lg-5 "data-aos="fade-right">                        
+                    <div className="col-12 col-lg-5 "data-aos="fade-right" data-aos-duration="1500">                        
                         <div className="project-descriptions text-muted pe-lg-4">
                             <h3 className="mb-4 text-white fw-bold "style={{ fontSize: '1.75rem' }}>
                                 Bridging the Gap: Innovation Across Disciplines
@@ -181,9 +181,12 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                         <h2 className="text-center mb-3 fw-bold text-white display-6 slide-in-left">My Expertise</h2>
 
                         <div className="row g-4">
-                            {categories.map((cat) => (
-                                <div className="col-12 col-md-6" key={cat.id}>
-                                    <div className="project-card h-100 p-4 rounded-4 shadow-lg border-0">
+                            {categories.map((cat,index) => (
+                                <div className="col-12 col-md-6" key={cat.id}
+                                 data-aos="fade-up" 
+                                     data-aos-delay={index * 100}>
+                                    <div className="project-card h-100 p-4 rounded-4 shadow-lg border-0" 
+                                   >
                                         <h4 className="fw-bold text-white mb-2">{cat.title}</h4>
                                         <p className="card-desc mb-3">{cat.desc}</p>
                                         
