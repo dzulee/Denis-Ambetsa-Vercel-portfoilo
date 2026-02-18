@@ -55,7 +55,7 @@ export function Heroes() {
                         </div>
                         <div>
                             {/* Social Icons Integrated into the Box */}
-                          <SocialIcons limit={4} FromEnd={false} />
+                          <SocialIcons limit={5} FromEnd={false} />
 
                         </div>
 

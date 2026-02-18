@@ -23,6 +23,7 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                     label: 'Excel', 
                     content: [
                         { name: '3 Statement Model', url: 'https://bit.ly/4a62hTh' },
+                         { name: 'Budget Vs Actual Analysis', url: 'https://docs.google.com/spreadsheets/d/1S5bOQRUuKnjMvItVP7GhYwOIYUirWUgM/edit?usp=sharing&ouid=105506960372399982664&rtpof=true&sd=true'},
                         { name: 'Cash Flow Analysis', url: 'https://bit.ly/4a62hTh' }
                     ] 
                 },

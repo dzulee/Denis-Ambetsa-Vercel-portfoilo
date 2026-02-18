@@ -7,6 +7,7 @@ import whatsappIcon from '../assets/whatsapp-brands-solid-full.svg';
 import linkedinIcon from '../assets/linkedin-in-brands-solid-full.svg';
 import githubIcon from '../assets/github-brands-solid-full.svg';
 import mailIcon from '../assets/m-solid-full.svg';
+import slackIcon from '../assets/slack-brands-solid-full.svg' 
 
 
 const icons=[
@@ -44,6 +45,11 @@ const icons=[
         name: "Youtube",
         link: "https://www.youtube.com/@dennisambetsa1588",
         socialIcon: youtubeIcon
+    },
+       {
+        name: "Slack",
+        link: "https://join.slack.com/t/ambetsatech/shared_invite/zt-3qgcwltci-HQaQgbjosNtEWkXcGNtDxg",
+        socialIcon: slackIcon
     },      
     
     

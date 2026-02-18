@@ -34,7 +34,7 @@ const Blog = () => {
       if (action === 'like') {
         setPosts(posts.map(p => p.rowId === rowId ? { ...p, likes: (p.likes || 0) + 1 } : p));
       } else {
-        alert("Reply sent to Dennis!");
+        alert("Reply sent to Denis!");
         setReplyText(prev => ({ ...prev, [rowId]: "" }));
       }
     } catch (err) {
