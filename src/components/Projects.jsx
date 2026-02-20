@@ -121,9 +121,9 @@ import { DashboardData } from './PowerBiDashboards';export function Projects() {
                     label: 'Agile & Scrum', 
                     content: [
                         { name: 'Project methodology',
-                             url: 'https://github.com/dzulee?tab=repositories' },
+                             url: 'https://app.asana.com/1/1209734435650469/project/1213343412594085/gantt/1213344836501501' },
                         { name: 'Decision Making',
-                             url: 'https://github.com/dzulee?tab=repositories' }
+                             url: 'https://1drv.ms/x/c/f7424cd8fad957a6/IQAJdc6m3HrwS6YxvqbNiMr5AdulXQtImlx5dXxpLnRlQvM' }
                     ]
                 },
                 { 
