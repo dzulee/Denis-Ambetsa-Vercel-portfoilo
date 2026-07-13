@@ -61,6 +61,118 @@ textarea::placeholder {
     opacity: 1 !important;
 }
 
+.email-verify-wrapper {
+    border: 1px solid rgba(255,255,255,0.14);
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    margin-bottom: 20px;
+}
+
+.email-verify-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.verify-btn,
+.otp-confirm-btn {
+    min-width: 150px;
+}
+
+.otp-verification-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.otp-input {
+    flex: 1 1 180px;
+    min-width: 160px;
+}
+
+.verify-note,
+.verified-note {
+    color: #c4c4c4;
+    font-size: 0.9rem;
+}
+
+.verified-note {
+    color: #4ade80;
+    font-weight: 600;
+}
+/* OTP Overlay Structure Rules */
+.otp-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.75); /* Soft dark backdrop blur layout color */
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.otp-modal-card {
+    background: #ffffff;
+    padding: 24px 18px;
+    border-radius: 14px;
+    max-width: min(92vw, 360px);
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.otp-modal-card h2 {
+    color: #1e293b;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.otp-modal-card p {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+}
+
+.otp-wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-bottom: 18px;
+}
+
+.otp-input {
+    width: 100%;
+    aspect-ratio: 1 / 1.15;
+    min-width: 0;
+    height: auto;
+    padding: 0;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #0f172a;
+    outline: none;
+    line-height: 1;
+    transition: all 0.15s ease-in-out;
+}
+
+.otp-input:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
 /* ========== RESPONSIVENESS ========== */
 
 /* For Mobile Devices (Phones) */

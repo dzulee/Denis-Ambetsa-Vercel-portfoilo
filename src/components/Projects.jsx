@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import '../css/featured-work.css';
-import { DashboardData } from './PowerBiDashboards';export function Projects() {
+import { DashboardData } from './PowerBiDashboards';
+
+
+export function Projects() {
     const [activeTabs, setActiveTabs] = useState({
         analysis: 'excel',
         webdev: 'webdesign',
