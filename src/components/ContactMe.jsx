@@ -217,9 +217,10 @@ const ContactForm = () => {
                   <div className='mb-3'>
                     <input
                       type='text'
+                      disabled={!isOtpVerified}
                       {...register('subject', { required: 'Subject is required' })}
                       className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
-                      placeholder='Subject/address'
+                      placeholder={isOtpVerified ? 'Subject/address' : 'Verify your email first'}
                     />
                     {errors.subject && <div className='invalid-feedback'>{errors.subject.message}</div>}
                   </div>
@@ -227,9 +228,10 @@ const ContactForm = () => {
                   <div className='mb-3'>
                     <textarea
                       rows={4}
+                      disabled={!isOtpVerified}
                       {...register('message', { required: 'Please enter a message' })}
                       className={`form-control ${errors.message ? 'is-invalid' : ''}`}
-                      placeholder='Your Message / Delivery Details'
+                      placeholder={isOtpVerified ? 'Your Message / Delivery Details' : 'Verify your email first'}
                     ></textarea>
                     {errors.message && <div className='invalid-feedback'>{errors.message.message}</div>}
                   </div>
