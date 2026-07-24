@@ -43,14 +43,9 @@ export function Services() {
 
      return (
         <section className="service-section position-relative" id="services">
-            {/* Animated Background Layer */}
-            <div className="rotating-bg-container" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}>
-                <div className="rotating-bg-image"></div>
-            </div>
-           
-            <div className="container position-relative py-5" style={{ zIndex: 1 }}>
-                <h2 className="bookus-call text-center mb-3 fw-bold text-white">Book Us Now For Our Services</h2>
-                <p className="text-center mb-5 text-light">For tailored solutions for your digital needs.</p>
+            <div className="container position-relative py-3" style={{ zIndex: 1 }}>
+                <h2 className="bookus-call text-center mb-2 fw-bold text-white">Book Us Now For Our Services</h2>
+                <p className="text-center mb-3 text-light">For tailored solutions for your digital needs.</p>
 
                 {/* Updated Row with specific responsive column widths */}
                 <div className="row g-4">

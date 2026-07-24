@@ -9,6 +9,15 @@
     z-index: 1;
 }
 
+/* Prevent AboutUs card stacking from interfering with the mobile menu overlay */
+.about_card,
+.img-wrapper,
+.about-img,
+.tab-container {
+    transform: none !important;
+    z-index: auto !important;
+}
+
 .about_card:hover {
     transform: translateY(-15px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);

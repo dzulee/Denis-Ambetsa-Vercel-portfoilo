@@ -1,8 +1,10 @@
 .service-section {
-    background-color: #0a0c10; /* Match your theme */
+    background-color: transparent !important;
     min-height: 80vh;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .service-card { 

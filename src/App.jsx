@@ -9,6 +9,9 @@ import Blog from './pages/Blog'
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import './App.css';
+import backgroundVideo from './assets/background_video.mp4';
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -19,19 +22,30 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Routes>
-        {/* This is your main landing page */}
-        <Route path="/" element={<Home />} />
-          <Route path="/learn-more/:id" element={<LearnMorePage />} />
-        <Route path="/about" element={<AboutMe />} />
-         <Route path="/powerbi/:id" element={<PowerBi />} />
-         <Route path="/blog" element={<Blog />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      
-      <Footer />
-    </Router>
+    <div className="app-shell">
+      <div className="app-video-layer">
+        <video className="app-video-background" autoPlay loop muted playsInline>
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+        <div className="app-video-overlay" />
+      </div>
+
+      <div className="app-content">
+        <Router>
+          <Routes>
+            {/* This is your main landing page */}
+            <Route path="/" element={<Home />} />
+            <Route path="/learn-more/:id" element={<LearnMorePage />} />
+            <Route path="/about" element={<AboutMe />} />
+            <Route path="/powerbi/:id" element={<PowerBi />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+
+          <Footer />
+        </Router>
+      </div>
+    </div>
   );
 }
 

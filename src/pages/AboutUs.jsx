@@ -7,10 +7,10 @@ const AboutMe = () => {
     const [activeTab, setActiveTab] = useState('education');
     const myCV="https://drive.google.com/file/d/1uYCJFjgB1NiT4j81aAfGhr26XZomd2du/view?usp=sharing"
     return (
-        <section className="about_us py-5" id="about_us" style={{ backgroundColor: '#0a0c10', minHeight: '100vh' }}>
+        <section className="about_us py-3" id="about_us" style={{ backgroundColor: 'transparent', minHeight: '100vh' }}>
             <div id='Navbar'><Navbar/> </div>
             <div className="container mt-5">
-                <div className="row align-items-center justify-content-center py-5">
+                <div className="row align-items-center justify-content-center py-3">
                     
                     {/* Column 1: Text Content */}
                     <div className="col-lg-7 p-2 salutation order-2 order-md-1 px-lg-5">
@@ -93,7 +93,7 @@ const AboutMe = () => {
                         </div>
 
                         {/* Download CV Action */}
-                        <div className="mt-5 d-flex align-items-center">
+                        <div className="mt-3 d-flex align-items-center">
                             <a 
                                 href={myCV} 
                                 target="_blank" 

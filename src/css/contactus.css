@@ -1,7 +1,7 @@
 /* contactInfo Container */
 .contactInfo {
     position: relative;
-    background-color: #0a0c10;     
+    background-color: transparent !important;
 }
 
 .contactInfo main {

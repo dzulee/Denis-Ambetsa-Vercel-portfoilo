@@ -6,7 +6,7 @@ const navigationLinks = [
     navigationTo:'/#Home'},
     {
     text:'About US',
-     navigationTo:'/about#Navbar'},
+     navigationTo:'/about#about_us'},
      {
     text:'Projects',
      navigationTo:'/#featured-work'},
@@ -29,7 +29,7 @@ export function NavigationLinks({ containerClass = "", onLinkClick }) {
                     <NavHashLink 
                         smooth 
                         to={link.navigationTo} 
-                        // FIX: Add the class name here!
+                        scroll={el => window.scrollTo({ top: el.offsetTop - 110, behavior: 'smooth' })}
                         className="navigation-links" 
                     >
                         {link.text}

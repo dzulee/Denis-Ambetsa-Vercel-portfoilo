@@ -149,21 +149,17 @@ export function Projects() {
 
     return (
         <section className="project-section" id="featured-work">
-            {/* Animated Background Layer */}
-            <div className="rotating-bg-container" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}>
-                <div className="rotating-bg-image"></div>
-            </div>
-            <div className="container-fluid px-md-5 position-relative" style={{ zIndex: 1 }}>
+            <div className="container-fluid px-2 px-md-4 position-relative" style={{ zIndex: 1 }}>
                 
                 <div className="row g-5 align-items-start justify-content-center">
                     
                     {/* Left Column: Description Text */}
                     <div className="col-12 col-lg-5 "data-aos="fade-right" data-aos-duration="1500">                        
                         <div className="project-descriptions text-muted pe-lg-4">
-                            <h3 className="mb-4 text-white fw-bold "style={{ fontSize: '1.75rem' }}>
+                            <h3 className="mb-3 text-white fw-bold "style={{ fontSize: '1.75rem' }}>
                                 Bridging the Gap: Innovation Across Disciplines
                             </h3>
-                            <p className="mb-4 lead-custom "style={{ animationDelay: '0.1s' }}>
+                            <p className="mb-3 lead-custom "style={{ animationDelay: '0.1s' }}>
                                 I don't just build tools; I build solutions. By combining technical precision with strategic oversight, I help businesses scale through four core pillars:
                             </p>
                             
@@ -182,7 +178,7 @@ export function Projects() {
 
                     {/* Right Column: Interactive Project Cards */}
                     <div className="col-12 col-lg-7" data-aos="fade-left" data-aos-duration="1500">
-                        <h2 className="text-center mb-3 fw-bold text-white display-6 slide-in-left">My Expertise</h2>
+                        <h2 className="text-center mb-2 fw-bold text-white display-6 slide-in-left">My Expertise</h2>
 
                         <div className="row g-4">
                             {categories.map((cat,index) => (

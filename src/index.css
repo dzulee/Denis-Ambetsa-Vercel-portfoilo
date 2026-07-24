@@ -5,6 +5,11 @@ html, body, #root {
     min-height: 100vh;
     width: 100%;
     background-color: #0a0c10;
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
 }
 .project-card{
  width: 300px;
@@ -29,16 +34,48 @@ html, body, #root {
 }.hero-master-container {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     overflow: hidden;
-    background-image: linear-gradient(135deg, rgba(10, 12, 16, 0.8), rgba(10, 12, 16, 0.8)), url('/Ambetsa.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: transparent;
+    padding-top: 5.5rem;
 }
 
+.hero-top-gap {
+    margin-top: 1.5rem;
+}
 
+@media (max-width: 768px) {
+    .hero-master-container {
+        padding-top: 7rem;
+    }
+    .hero-top-gap {
+        margin-top: 3rem;
+    }
+}
+
+.section-video-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 6, 10, 0.22);
+    pointer-events: none;
+    z-index: 1;
+}
+
+section[id] > *:not(.section-video-background):not(.section-video-overlay) {
+    position: relative;
+    z-index: 2;
+}
 
 .rotating-bg-container {
     position: absolute;
@@ -62,22 +99,6 @@ html, body, #root {
     background-position: center;
     background-repeat: no-repeat;
     animation: slowRotation 80s linear infinite;
-}
-.hero-master-container {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-   background: linear-gradient(
-   135deg,
-    rgba(45, 30, 50, 0.75),
-    rgba(60, 40, 80, 0.65),
-    rgba(35, 35, 55, 0.75)
-),
-                url('https://images.unsplash.com/photo-1616681659771-fcbb996c7cad?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Your personal background image */
-    
-                background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }
 
 /* Glassmorphism Box */

@@ -17,16 +17,58 @@
 
 }.collapsed-navLinks{
    flex-direction: column;
-   background-color: #000 ;
-   top: 10px;
-}.navigation-links{
+   background-color: rgba(0, 0, 0, 0.98) !important;
+   position: fixed !important;
+   top: 0 !important;
+   left: 0 !important;
+   right: 0 !important;
+   width: 100% !important;
+   height: 100vh !important;
+   z-index: 2147483647 !important;
+   padding: 5.5rem 1.25rem 1.25rem !important;
+   border-radius: 0 !important;
+   overflow-y: auto !important;
+   pointer-events: auto !important;
+}
+
+/* Ensure the mobile menu overlay is the topmost element on the page */
+body .collapsed-navLinks {
+   z-index: 2147483647 !important;
+}
+
+.navbar.fixed-top {
+   position: fixed !important;
+   top: 0 !important;
+   left: 0 !important;
+   right: 0 !important;
+   width: 100% !important;
+   z-index: 2147483648 !important;
+}
+
+.navbar-card {
+   position: relative !important;
+   z-index: 2147483645 !important;
+}
+
+.navbar,
+.navbar-card,
+.collapsed-navLinks {
+   will-change: transform;
+}
+
+.navbar-card .navigation-links,
+.collapsed-navLinks .navigation-links {
+   color: #fff;
+}
+.navigation-links{
    text-decoration: none;
    padding-top: 0;
    font-family: Verdana;
 }
 @media (max-width: 567.98px){ 
    .navbar-links{
-margin-top:180px;
- background-color:#000;
- z-index:2;
- }}
+      margin-top: 180px;
+      background-color: #000;
+      z-index: 2;
+   }
+}

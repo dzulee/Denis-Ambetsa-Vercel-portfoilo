@@ -25,26 +25,26 @@ export function Heroes() {
     }, []);
 
     return (
-        <div className="hero-master-container" id="Hero">
+        <div className="hero-master-container" id="Hero" style={{ minHeight: 'auto', marginTop: '3rem' }}>
             {/* Main Content Wrapper */}
-            <div className="container-fluid d-flex align-items-center" style={{ minHeight: '100vh', position: 'relative', zIndex: 2 }}>
-                <div className="row w-100 justify-content-center justify-content-md-start px-md-5">
+            <div className="container-fluid d-flex align-items-start hero-top-gap" style={{ minHeight: 'auto', position: 'relative', zIndex: 2, paddingTop: '0', paddingBottom: '0', marginTop: '0' }}>
+                <div className="row w-100 justify-content-center justify-content-md-start px-1 px-md-2 align-items-start" style={{ marginTop: '0' }}>
                     
                     {/* Glassmorphism Hero Box */}
-                    <div className="col-11 col-md-10 col-lg-8 hero-content-box p-4 p-md-5">
+                    <div className="col-11 col-md-10 col-lg-8 hero-content-box p-2 p-md-3" style={{ marginTop: '1.1rem', paddingTop: '0.25rem', paddingBottom: '0.25rem' }}>
                         <h2 className="display-6 fw-bold text-white mb-3">
                             Professional <br className="d-md-none" />
                             <span className="typed-text" style={{ color: '#00CED1', fontSize: '2.5rem' }} ref={el}></span>
                         </h2>
                         
                         <div className="col-12 col-xl-10">
-                            <div className="fs-5 mb-4 text-light hero-subtext">
+                            <div className="fs-5 mb-3 text-light hero-subtext">
                                 Hi, welcome to <span className="d-inline-block mx-1"><Logo /></span> 
                                 we specialize in building high-quality responsive websites and data-driven solutions. 
                                 Let's transform your vision into reality.
                             </div>
                             
-                            <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+                            <div className="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
                                 <a href="#featured-work" className="btn btn-info btn-lg px-4 fw-bold hero-btn-primary">
                                     View My Work
                                 </a>
