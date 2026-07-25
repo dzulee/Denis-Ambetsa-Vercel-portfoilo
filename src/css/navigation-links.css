@@ -1,89 +1,132 @@
-/* Ensure the list itself has no bullets and sits right */
+/* ==========================================================================
+   1. BASE & RESET STYLES
+   ========================================================================== */
+
 .list-unstyled {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
 }
 
-/* FIX: Ensure naming matches your JSX exactly */
-.navigation-links {
-    font-family: 'Verdana', sans-serif;
-    text-decoration: none !important; /* Removes the underline */
-    font-size: 0.95rem;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    display:flex;
-}
-
-/* Force White color when inside the Navbar */
-.navbar .navigation-links {
-    color: #ffffff !important;
-}
-
-/* Hover and Active states */
-.navbar .navigation-links:hover, 
-.active-link {
-    color: #ffc107 !important;
-    transform: translateY(-2px); /* Adds a subtle "proper" lift */
-}
-
-/* Ensure the bullet point holder (li) doesn't interfere */
 .nav-item {
-    text-decoration: none !important;
-    list-style-type: none !important;
-
-}
-.navigationL-lnks {
-    font-family: Verdana;
-    text-decoration: none;
-    font-size: 0.95rem;
-    white-space: nowrap; /* Prevents text wrapping on mobile scroll */
-    transition: color 0.3s ease;
+  list-style-type: none !important;
+  text-decoration: none !important;
 }
 
-/* THE CARD CONTAINER */
+/* Base navigation links */
+.navigation-links {
+  color: #ffffff;
+  font-family: 'Verdana', sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* General Link Hover & Active State */
+.navigation-links:hover,
+.navigation-links.active-link {
+  color: #e5b565 !important; /* Signature brand gold */
+  transform: translateY(-2px);
+}
+
+.navigation-links.active-link {
+  font-weight: 600;
+  border-bottom: 2px solid #e5b565;
+}
+
+
+/* ==========================================================================
+   2. NAVBAR SPECIFIC OVERRIDES & CONTACT BUTTON
+   ========================================================================== */
+
+/* Standard navbar links default to white */
+.navbar .navigation-links:not(.nav-btn-contact) {
+  color: #ffffff !important;
+}
+
+/* Hover and Active states for navbar links */
+.navbar .navigation-links:not(.nav-btn-contact):hover,
+.navbar .navigation-links:not(.nav-btn-contact).active-link {
+  color: #ffc107 !important;
+  transform: translateY(-2px);
+}
+
+/* Contact Us Button - ONLY inside Navbar */
+.navigation-links.nav-btn-contact {
+  background-color: #e5b565 !important;
+  color: #000000 !important; /* Dark text for strong contrast against gold background */
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border-bottom: none !important; /* Disable active underline on button */
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.navigation-links.nav-btn-contact:hover {
+  background-color: #f0c57c !important;
+  color: #000000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 181, 101, 0.3);
+}
+
+/* Active state for Contact Button in Navbar */
+.navigation-links.nav-btn-contact.active-link {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-bottom: none !important;
+}
+
+
+/* ==========================================================================
+   3. NAVBAR CONTAINER & RESPONSIVE LAYOUT
+   ========================================================================== */
+
 .navbar-card {
-    background-color: #0c0c0c;
-    border-radius: 12px;
-    height: 70px;
-    padding: 0 20px;
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #0c0c0c;
+  border-radius: 12px;
+  height: 70px;
+  padding: 0 20px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Horizontal scroll for mobile menu without showing scrollbar */
+/* Mobile no-scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* RESPONSIVE BREAKPOINTS */
+/* Responsive breakpoints */
 @media (min-width: 992px) {
-    .navbar-card {
-        margin: 10px auto;
-        max-width: 1200px; /* Centers the floating card on desktop */
-    }
+  .navbar-card {
+    margin: 10px auto;
+    max-width: 1200px; /* Centers the floating card on desktop */
+  }
 }
- @media (max-width: 552.98px) {
-.navbar-card {
-        margin: 5px;
-        gap: 10px;
-        height: 60px; /* Slimmer on mobile */
-        width: 380px;
-    }
- }
+
 @media (max-width: 991.98px) {
-    .navbar-card {
-        margin: 5px;
-        gap: 10px;
-        height: 60px; /* Slimmer on mobile */
-       
-    }
-    
-    .logo span {
-        font-size: 1.8rem; /* Scale logo down for mobile */
-    }
+  .navbar-card {
+    margin: 5px;
+    gap: 10px;
+    height: 60px; /* Slimmer on tablet/mobile */
+  }
+  
+  .logo span {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 552.98px) {
+  .navbar-card {
+    width: 100%; /* Changed from fixed 380px to prevent overflow on smaller phones */
+  }
 }

@@ -58,11 +58,21 @@ body {
     inset: 0;
     width: 100%;
     height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     object-fit: cover;
+    object-position: center center;
     display: block;
     pointer-events: none;
     z-index: 0;
+    filter: none;
+    -webkit-filter: none;
+    transform: none;
 }
+
+
+
+
 
 .section-video-overlay {
     position: absolute;
@@ -77,32 +87,12 @@ section[id] > *:not(.section-video-background):not(.section-video-overlay) {
     z-index: 2;
 }
 
-.rotating-bg-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-    background-color: #0a0c10;
-}
 
-.rotating-bg-image {
-    width: 150%;
-    height: 150%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(rgba(10, 12, 16, 0.7), rgba(10, 12, 16, 0.7)), url('/bg-image.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: slowRotation 80s linear infinite;
-}
+
+
 
 /* Glassmorphism Box */
-.hero-content-box {
+.glass-box {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);

@@ -69,14 +69,19 @@ export function Navbar() {
 
         {isMobileOpen && typeof document !== 'undefined' && createPortal(mobileMenu, document.body)}
 
-        {/* DESKTOP VIEW LOGIC */}
-        <div className="d-none d-lg-flex justify-content-between align-items-center w-100 ">
-          <Logo className="navbar-brand" />
-          <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav" style={{textDecoration:"none",}}>
-            <NavigationLinks containerClass="d-flex gap-4 mb-0" />
-          </div>
-        </div>
-      </div>
+{/* DESKTOP VIEW LOGIC */}
+<div className="d-none d-lg-flex align-items-center w-100">
+  <Logo className="navbar-brand me-4" />
+  
+  <div className="collapse navbar-collapse d-flex flex-grow-1" id="navbarNav">
+    <NavigationLinks 
+      limit={5} 
+      fromEnd={false} 
+      containerClass="d-flex align-items-center gap-4 mb-0 w-100 justify-content-center ms-lg-5 ps-lg-5" 
+    />
+  </div>
+</div>
+</div>
     </nav>
   );
 }

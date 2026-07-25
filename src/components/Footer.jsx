@@ -32,7 +32,7 @@ export function Footer() {
                         <p className="fw-bold text-warning mb-2 border-bottom border-warning border-opacity-25 pb-2">
                             Quick Web Links
                         </p>
-                        <NavigationLinks containerClass="flex-column align-items-center align-items-start gap-1 " />
+                        <NavigationLinks isFooter={true} containerClass="flex-column align-items-center align-items-start gap-1 " />
                     </div>
                     
                 </div>

@@ -5,6 +5,7 @@ import { Heroes } from "../components/Heroes";
 import { Projects } from "../components/Projects";
 import ContactForm from "../components/ContactMe";
 import { Navbar } from "../components/Navbar";
+import WhyUs from "../components/whyUs";
 import backgroundVideo from "../assets/background_video.mp4";
 
 export default function Home() {
@@ -28,11 +29,11 @@ export default function Home() {
             </section>
 
             {/* Change id to "featured-work" to match your Navbar links */}
-            <section id="featured-work" style={{ ...sectionStyle, minHeight: '72vh', paddingTop: '1rem' }}>
-                <video className="section-video-background" autoPlay loop muted playsInline>
+            <section id="featured-work" style={{ ...sectionStyle, minHeight: '100vh', paddingTop: '1rem' }}>
+                <video className="section-video-background featured-work-video" autoPlay loop muted playsInline preload="auto">
                     <source src={backgroundVideo} type="video/mp4" />
                 </video>
-                <div className="section-video-overlay" />
+                <div className="section-video-overlay featured-work-overlay" />
                 <Projects />
             </section>
 
@@ -44,6 +45,14 @@ export default function Home() {
                 <div className="section-video-overlay" />
                 <Services />
             </section>
+            <section id="why-us" className="py-0" style={{ ...sectionStyle, margin: '0', padding: '0', minHeight: '72vh', paddingTop: '1rem' }}>
+                <video className="section-video-background" autoPlay loop muted playsInline>
+                    <source src={backgroundVideo} type="video/mp4" />
+                </video>
+                <div className="section-video-overlay" />
+                <WhyUs />
+            </section>
+
 
             {/* Change id to "contact-section" to match your Navbar links */}
             <section id="contact-section" style={{ ...sectionStyle, margin: '0', padding: '0', minHeight: '72vh', paddingTop: '1rem' }}>

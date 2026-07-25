@@ -148,7 +148,7 @@ export function Projects() {
     ];
 
     return (
-        <section className="project-section" id="featured-work">
+        <section className="project-section glass-box" id="featured-work">
             <div className="container-fluid px-2 px-md-4 position-relative" style={{ zIndex: 1 }}>
                 
                 <div className="row g-5 align-items-start justify-content-center">
