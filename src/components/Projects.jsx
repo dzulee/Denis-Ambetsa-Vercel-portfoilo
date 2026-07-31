@@ -75,7 +75,7 @@ export function Projects() {
                     label: 'E-commerce', 
                     content: [
                         { name: 'Amazon clone App', url: 'https://github.com/dzulee?tab=repositories' },
-                        { name: 'Food Ordering App', url: 'https://github.com/dzulee?tab=repositories' },
+                        { name: 'Food Ordering App', url: 'https://food-ordering-system-blush.vercel.app/' },
                         { name: 'Payment Integration', url: 'https://github.com/dzulee?tab=repositories' }
                     ] 
                 }
