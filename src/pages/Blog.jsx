@@ -53,9 +53,9 @@ const Blog = () => {
   if (loading) return <div className="text-center text-white p-5">Loading stories...</div>;
 
   return (
-    <section className="blog-section py-3" id="blog" style={{ backgroundColor: 'transparent' }}>
+    <section className="blog-section py-5" id="blog" style={{ backgroundColor: 'transparent' }}>
       <Navbar />
-      <div className="container mt-2">
+      <div className="container mt-5">
         <div className="row g-4 justify-content-center">
           {currentPosts.map((post) => (
             <div className="col-lg-10" key={post.rowId}>
