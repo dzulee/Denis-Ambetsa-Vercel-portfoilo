@@ -40,7 +40,7 @@ const ContactForm = () => {
     });
   };
 
-  // 1. Send the generated code using your dedicated OTP Google Script
+  // 1. Send generated code using dedicated OTP Google Script
   const handleVerifyEmailClick = async () => {
     const isEmailValid = await trigger('email');
     if (!isEmailValid) return;
@@ -52,7 +52,6 @@ const ContactForm = () => {
     try {
       setIsSendingOtp(true);
       
-      // Post directly to your VITE_OTP_SCRIPT_URL
       await fetch(otpServiceScriptUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -84,6 +83,7 @@ const ContactForm = () => {
     }
   };
 
+  // 3. Form submission
   const onSubmit = async (data) => {
     if (!isOtpVerified) {
       toast.error('You must verify your email identity before submitting.');
@@ -93,22 +93,19 @@ const ContactForm = () => {
     try {
       setDisabled(true);
   
-      // Use native FormData instance for structural layout stability
       const formData = new FormData();
       formData.append('name', data.name);
+      formData.append('phone', data.phone); // Appended phone number
       formData.append('email', data.email);
       formData.append('subject', data.subject);
       formData.append('message', data.message);
   
-      // Dispatch via no-cors mode using raw form multi-part structures
       await fetch(primaryFormScriptUrl, {
         method: 'POST',
         mode: 'no-cors', 
         body: formData,
       });
   
-      // Under 'no-cors', execution bypasses explicit response status checks.
-      // If the runtime context does not crash out to the catch block, process as success.
       reset();
       setIsOtpVerified(false); 
       setOtpInputs(new Array(6).fill(""));
@@ -121,8 +118,6 @@ const ContactForm = () => {
     }
   };
 
-
-  
   const handleOtpChange = (element, index) => {
     const val = element.value;
     if (!/^[0-9]$/.test(val) && val !== "") return;
@@ -163,28 +158,26 @@ const ContactForm = () => {
           <div className='row' data-aos="fade-up" data-aos-delay='0.2s'>
             
             <div className='office-info text-center text-white col-lg-4 mb-4'>
-              <div className='office-card project-card  text-white '>
+              <div className='office-card project-card text-white'>
                 <h3>Office</h3>
                 <div className='card-detail bg-dark text-white'>
                   <h3>Address</h3>
-                <p><i className="fa fa-map-marker-alt me-2"></i>Utawala - Githunguri</p>
-                <p>PO BOX 2200-0100 Nairobi</p>
+                  <p><i className="fa fa-map-marker-alt me-2"></i>Utawala - Githunguri</p>
+                  <p>PO BOX 2200-0100 Nairobi</p>
                 </div>
                 <div className='card-detail bg-dark d-flex flex-column gap-2 text-white'>
                   <h3>Email</h3>
                   <div>
                     <a href="mailto:dennisambesa63@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa63@gmail.com</a>
-                    </div>
+                  </div>
                   <div>
                     <a href="mailto:dennisambesa36@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa36@gmail.com</a>
                   </div>
                 </div>
                 <div className='card-detail bg-dark text-white'>
                   <h3>Phone</h3>
-                  <div> <a href="tel:+254799964580"><i className="fa fa-phone me-2"></i> +254 799 964 580</a></div>
-               
-                <div><a href="tel:+254769579340"><i className="fa fa-phone me-2"></i> +254 769 579 340</a></div>
-
+                  <div><a href="tel:+254799964580"><i className="fa fa-phone me-2"></i> +254 799 964 580</a></div>
+                  <div><a href="tel:+254769579340"><i className="fa fa-phone me-2"></i> +254 769 579 340</a></div>
                 </div>
               </div>
             </div>
@@ -194,6 +187,7 @@ const ContactForm = () => {
                 <h2 className='text-light'>Send Us a message</h2>
                 <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
                   
+                  {/* Name Input */}
                   <div className='mb-3'>
                     <input
                       type='text'
@@ -204,17 +198,20 @@ const ContactForm = () => {
                     />
                     {errors.name && <div className='invalid-feedback'>{errors.name.message}</div>}
                   </div>
+
+                  {/* Phone Input */}
                   <div className='mb-3'>
                     <input
-                      type='int'
+                      type='tel'
                       disabled={isOtpVerified}
-                      {...register('phone', { required: 'Name is required', maxLength: 30 })}
-                      className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                      {...register('phone', { required: 'Phone number is required', maxLength: 20 })}
+                      className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
                       placeholder='Phone'
                     />
-                    {errors.name && <div className='invalid-feedback'>{errors.name.message}</div>}
+                    {errors.phone && <div className='invalid-feedback'>{errors.phone.message}</div>}
                   </div>
 
+                  {/* Email & Verify Input Group */}
                   <div className='mb-3'>
                     <div className="input-group">
                       <input
@@ -239,6 +236,7 @@ const ContactForm = () => {
                     {errors.email && <div className="text-danger mt-1" style={{fontSize: '0.875em'}}>Please enter a valid email address</div>}
                   </div>
 
+                  {/* Subject Input */}
                   <div className='mb-3'>
                     <input
                       type='text'
@@ -250,6 +248,7 @@ const ContactForm = () => {
                     {errors.subject && <div className='invalid-feedback'>{errors.subject.message}</div>}
                   </div>
 
+                  {/* Message Input */}
                   <div className='mb-3'>
                     <textarea
                       rows={4}
@@ -276,7 +275,7 @@ const ContactForm = () => {
         </div>
       </main>
 
-      {/* Pop-up Overlay Dialog Component View Block */}
+      {/* OTP Modal Overlay */}
       {showOtpModal && (
         <div className="otp-modal-overlay">
           <div className="otp-modal-card">
