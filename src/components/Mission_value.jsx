@@ -26,8 +26,8 @@ export default function MissionSection() {
                         <div className="mb-4">
                             <i className={`fa ${item.icon} fa-3x text-warning about_icon`}></i>
                         </div>
-                        <h2 className="h4 fw-bold text-dark mb-3">{item.title}</h2>
-                        <p className="text-muted lh-lg">{item.text}</p>
+                        <h2 className="h4 fw-bold mb-3">{item.title}</h2>
+                        <p className="lh-lg">{item.text}</p>
                     </div>
                 </div>
             ))}

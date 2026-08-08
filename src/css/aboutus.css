@@ -1,8 +1,9 @@
 .about_card {
-    background-color: #ffffff;
+    background-color: #000;
+    color: #dcdcdc;
     border-radius: 15px;
-    border-top: 5px solid #005F60; /* Your Muted Teal */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #fff; /* Your Muted Teal */
+    box-shadow: 0 10px 30px rgb(44, 199, 186);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
@@ -77,11 +78,18 @@
     transform: scale(1.02);
     filter: grayscale(0%);
 }
+/* Tab container */
+.tab-container{
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+     backdrop-filter: blur(10px);
 
+}
 /* Tab Indicators */
 .tab-btn {
     position: relative;
     outline: none !important;
+    
 }
 
 .tab-indicator {
@@ -102,4 +110,23 @@
 
 .tab_titles p:hover {
     color: #005F60 !important;
+}
+@media (max-width: 768px){
+    .cv-button{
+        margin-left: 3rem;
+    }
+    
+}
+@media (max-width: 445px){
+    .cv-button{
+        margin-left: 3rem;
+    }
+    .tab-btn {
+        position: relative;
+        outline: none !important;
+        font-size: 11px;
+        margin-left: 0.1px;
+       
+    }
+    
 }

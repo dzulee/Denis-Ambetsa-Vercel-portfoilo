@@ -78,6 +78,15 @@ export function Projects() {
                         { name: 'Food Ordering App', url: 'https://food-ordering-system-blush.vercel.app/' },
                         { name: 'Payment Integration', url: 'https://github.com/dzulee?tab=repositories' }
                     ] 
+                },
+                { 
+                    id: 'others', 
+                    label: 'Others', 
+                    content: [
+                        { name: 'Digital clock', url: 'https://github.com/dzulee?tab=repositories' },
+                        { name: 'Movie App', url: 'https://food-ordering-system-blush.vercel.app/' },
+                        { name: 'Gmail Labeler', url: 'https://github.com/dzulee?tab=repositories' }
+                    ] 
                 }
             ],
             whatido:'I create high-performance, responsive digital experiences using React and Bootstrap, focusing on clean UI/UX.'
@@ -156,8 +165,9 @@ export function Projects() {
                     {/* Left Column: Description Text */}
                     <div className="col-12 col-lg-5 "data-aos="fade-right" data-aos-duration="1500">                        
                         <div className="project-descriptions text-muted pe-lg-4">
-                            <h3 className="mb-3 text-white fw-bold "style={{ fontSize: '1.75rem' }}>
-                                Bridging the Gap: Innovation Across Disciplines
+                            <h3 className="bridge-the-gap mb-3 text-white fw-bold "style={{ fontSize: '1.75rem' }}>
+                                Bridging the Gap: <br/>
+                                Innovation Across Disciplines 
                             </h3>
                             <p className="mb-3 lead-custom "style={{ animationDelay: '0.1s' }}>
                                 I don't just build tools; I build solutions. By combining technical precision with strategic oversight, I help businesses scale through four core pillars:
@@ -178,7 +188,8 @@ export function Projects() {
 
                     {/* Right Column: Interactive Project Cards */}
                     <div className="col-12 col-lg-7" data-aos="fade-left" data-aos-duration="1500">
-                        <h2 className="text-center mb-2 fw-bold text-white display-6 slide-in-left">My Expertise</h2>
+                        <h2 className="text-center mb-5 fw-bold text-white display-6 slide-in-left">
+                            Drill down to see each project</h2>
 
                         <div className="row g-4">
                             {categories.map((cat,index) => (

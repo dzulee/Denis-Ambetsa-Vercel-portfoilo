@@ -42,11 +42,14 @@ export function Heroes() {
                                 Welcome to<span className="d-inline-block mx-1"><Logo /></span> .
                                 We turn complex data and modern tech into your competitive advantage:<br />
 
-<span className='fw-bold'>Responsive Web Design:</span> High-performance, modern digital experiences built for conversions.<br/>
+                                <span className='fw-bold'>Responsive Web Design:</span>
+                                High-performance, modern digital experiences built for conversions.<br/>
 
-<span className="fw-bold">Advanced Data Strategy:</span> Uncover hidden outliers, resolve operational misfits, and gain complete visibility over your organization.
+                                <span className="fw-bold">Advanced Data Strategy:</span>
+                                Uncover hidden outliers, resolve operational misfits, and gain complete visibility over your organization.
 
-<br/><span className="fw-bold">AI Integration:</span> Automation and smart analytics tailored to scale your sales faster.
+                                <br/><span className="fw-bold">AI Integration:</span>
+                                Automation and smart analytics tailored to scale your sales faster.
                             </div>
                             
                             <div className="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">

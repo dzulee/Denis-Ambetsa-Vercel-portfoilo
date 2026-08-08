@@ -1,0 +1,18 @@
+.learn-more-container{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0%;
+}
+
+.lead{
+    color: aqua;
+
+}
+.back-button{
+    display: flex;
+   
+    align-items: flex-start;
+    margin-top: 8rem;
+    margin-left: 5rem;
+}

@@ -2,6 +2,14 @@
 .contactInfo {
     position: relative;
     background-color: transparent !important;
+}.card-detail{
+    margin-top: 25px;
+    padding: 10px;
+    border-radius: 10px;
+
+}.card-detail a{
+    text-decoration: none;
+    color: white;
 }
 
 .contactInfo main {
@@ -28,6 +36,7 @@
     position: relative;
     margin-top: -80px; /* Using margin instead of top for better flow */
     z-index: 5;
+    color: white;
 }
 
 /* Cards */
@@ -38,10 +47,17 @@
     padding: 30px;
     border-radius: 15px;
     background-color: #01060d;
+    color: white;
+}.office-card{
+    width: 400px;
 }
 
 .contact-card {
+   
     border-top: 5px solid #00CED1;
+    width: 500px;
+}.contact-card:hover{
+    box-shadow: 0 15px 35px rgba(25, 191, 194, 0.957) !important;
 }
 
 /* Form Controls */
@@ -213,3 +229,10 @@ textarea::placeholder {
     animation: rotateBg 120s linear infinite;
     opacity: 0.6;
 }}
+
+@media (min-width:990px) {
+    .contact-card{
+        margin-left: 100px;
+    }
+    
+}

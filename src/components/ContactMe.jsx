@@ -163,20 +163,35 @@ const ContactForm = () => {
           <div className='row' data-aos="fade-up" data-aos-delay='0.2s'>
             
             <div className='office-info text-center text-white col-lg-4 mb-4'>
-              <div className='office-card project-card '>
+              <div className='office-card project-card  text-white '>
                 <h3>Office</h3>
+                <div className='card-detail bg-dark text-white'>
+                  <h3>Address</h3>
                 <p><i className="fa fa-map-marker-alt me-2"></i>Utawala - Githunguri</p>
                 <p>PO BOX 2200-0100 Nairobi</p>
-                <div className='d-flex flex-column gap-2'>
-                  <a href="mailto:dennisambesa63@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa63@gmail.com</a>
-                  <a href="tel:+254799964580"><i className="fa fa-phone me-2"></i> +254 799 964 580</a>
+                </div>
+                <div className='card-detail bg-dark d-flex flex-column gap-2 text-white'>
+                  <h3>Email</h3>
+                  <div>
+                    <a href="mailto:dennisambesa63@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa63@gmail.com</a>
+                    </div>
+                  <div>
+                    <a href="mailto:dennisambesa36@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa36@gmail.com</a>
+                  </div>
+                </div>
+                <div className='card-detail bg-dark text-white'>
+                  <h3>Phone</h3>
+                  <div> <a href="tel:+254799964580"><i className="fa fa-phone me-2"></i> +254 799 964 580</a></div>
+               
+                <div><a href="tel:+254769579340"><i className="fa fa-phone me-2"></i> +254 769 579 340</a></div>
+
                 </div>
               </div>
             </div>
 
             <div className='contact-form col-lg-8'>
               <div className='contact-card card shadow border-0'>
-                <h2 className='text-light'>Contact Me</h2>
+                <h2 className='text-light'>Send Us a message</h2>
                 <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
                   
                   <div className='mb-3'>
@@ -186,6 +201,16 @@ const ContactForm = () => {
                       {...register('name', { required: 'Name is required', maxLength: 30 })}
                       className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                       placeholder='Name'
+                    />
+                    {errors.name && <div className='invalid-feedback'>{errors.name.message}</div>}
+                  </div>
+                  <div className='mb-3'>
+                    <input
+                      type='int'
+                      disabled={isOtpVerified}
+                      {...register('phone', { required: 'Name is required', maxLength: 30 })}
+                      className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                      placeholder='Phone'
                     />
                     {errors.name && <div className='invalid-feedback'>{errors.name.message}</div>}
                   </div>

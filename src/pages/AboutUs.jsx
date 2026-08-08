@@ -28,7 +28,7 @@ const AboutMe = () => {
                         </div>
 
                         {/* Tab Switchers */}
-                        <div className="tab-container p-4 rounded-4 shadow-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)' }}>
+                        <div className="tab-container p-4 rounded-4 shadow-lg" >
                             <div className="d-flex mb-4 border-bottom" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
                                 {['education', 'skills', 'experience'].map((tab) => (
                                     <button 
@@ -93,7 +93,7 @@ const AboutMe = () => {
                         </div>
 
                         {/* Download CV Action */}
-                        <div className="mt-3 d-flex align-items-center">
+                        <div className="cv-button mt-3 d-flex align-items-center">
                             <a 
                                 href={myCV} 
                                 target="_blank" 

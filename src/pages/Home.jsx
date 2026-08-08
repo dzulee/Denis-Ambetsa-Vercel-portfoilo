@@ -7,6 +7,7 @@ import ContactForm from "../components/ContactMe";
 import { Navbar } from "../components/Navbar";
 import WhyUs from "../components/whyUs";
 import backgroundVideo from "../assets/background_video.mp4";
+import Pricing from "../components/Pricing";
 
 export default function Home() {
     const sectionStyle = {
@@ -51,6 +52,9 @@ export default function Home() {
                 </video>
                 <div className="section-video-overlay" />
                 <WhyUs />
+            </section>
+            <section>
+                <Pricing/>
             </section>
 
 
