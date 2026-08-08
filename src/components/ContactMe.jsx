@@ -82,35 +82,36 @@ const ContactForm = () => {
       toast.error('The code entered is invalid. Please try again.');
     }
   };
-  // 3. Form submission
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     if (!isOtpVerified) {
       toast.error('You must verify your email identity before submitting.');
       return;
     }
   
+    // Use getValues() to guarantee you extract form values even if locked
+    const formValues = getValues();
+  
     try {
       setDisabled(true);
   
       const formData = new FormData();
-      formData.append('name', data.name);
-      formData.append('phone', data.phone || '');
-      formData.append('email', data.email);
-      formData.append('subject', data.subject);
-      formData.append('message', data.message);
+      formData.append('name', formValues.name || '');
+      formData.append('phone', formValues.phone || ''); // 👈 Guaranteed extraction
+      formData.append('email', formValues.email || '');
+      formData.append('subject', formValues.subject || '');
+      formData.append('message', formValues.message || '');
   
       await fetch(primaryFormScriptUrl, {
         method: 'POST',
         mode: 'no-cors',
         body: formData,
       });
-
-      // Reset states and notify user
+  
       reset();
       setIsOtpVerified(false);
       setOtpInputs(new Array(6).fill(""));
       toastifySuccess();
-
+  
     } catch (e) {
       console.error('Submission error:', e);
       toast.error('Failed to submit form. Please try again.');
@@ -191,7 +192,7 @@ const ContactForm = () => {
                   <div className='mb-3'>
                     <input
                       type='text'
-                      disabled={isOtpVerified}
+                      readOnly={isOtpVerified}
                       {...register('name', { required: 'Name is required', maxLength: 30 })}
                       className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                       placeholder='Name'
@@ -203,7 +204,7 @@ const ContactForm = () => {
                   <div className='mb-3'>
                     <input
                       type='tel'
-                      disabled={isOtpVerified}
+                      readOnly={isOtpVerified}
                       {...register('phone', { required: 'Phone number is required', maxLength: 20 })}
                       className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
                       placeholder='Phone'
@@ -216,7 +217,7 @@ const ContactForm = () => {
                     <div className="input-group">
                       <input
                         type='email'
-                        disabled={isOtpVerified}
+                        readOnly={isOtpVerified}
                         {...register('email', { 
                           required: 'Email is required',
                           pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -240,7 +241,7 @@ const ContactForm = () => {
                   <div className='mb-3'>
                     <input
                       type='text'
-                      disabled={!isOtpVerified}
+                      readOnly={isOtpVerified}
                       {...register('subject', { required: 'Subject is required' })}
                       className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
                       placeholder={isOtpVerified ? 'Subject/address' : 'Verify your email first'}
@@ -252,7 +253,7 @@ const ContactForm = () => {
                   <div className='mb-3'>
                     <textarea
                       rows={4}
-                      disabled={!isOtpVerified}
+                      readOnly={isOtpVerified}
                       {...register('message', { required: 'Please enter a message' })}
                       className={`form-control ${errors.message ? 'is-invalid' : ''}`}
                       placeholder={isOtpVerified ? 'Your Message / Delivery Details' : 'Verify your email first'}
