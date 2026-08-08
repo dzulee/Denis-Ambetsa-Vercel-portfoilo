@@ -42,8 +42,15 @@ const ContactForm = () => {
 
   // 1. Send generated code using dedicated OTP Google Script
   const handleVerifyEmailClick = async () => {
+    // Ensure both name, phone, and email are filled before sending OTP
+    const isNameValid = await trigger('name');
+    const isPhoneValid = await trigger('phone');
     const isEmailValid = await trigger('email');
-    if (!isEmailValid) return;
+
+    if (!isNameValid || !isPhoneValid || !isEmailValid) {
+      toast.error('Please complete Name, Phone, and Email before verifying.');
+      return;
+    }
 
     const emailAddress = getValues('email');
     const randomOtp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -71,47 +78,53 @@ const ContactForm = () => {
     }
   };
 
-  // 2. Validate OTP code match locally
   const handleOtpVerificationCheck = () => {
     const combinedInputString = otpInputs.join('');
     if (combinedInputString === generatedOtp) {
       toast.success('Identity successfully verified!');
       setIsOtpVerified(true);
       setShowOtpModal(false); 
+
+      // Focus subject input immediately after unlocking
+      setTimeout(() => {
+        const subjectInput = document.querySelector('input[name="subject"]');
+        if (subjectInput) subjectInput.focus();
+      }, 50);
     } else {
       toast.error('The code entered is invalid. Please try again.');
     }
   };
+  // 3. Form submission
   const onSubmit = async () => {
     if (!isOtpVerified) {
       toast.error('You must verify your email identity before submitting.');
       return;
     }
-  
-    // Use getValues() to guarantee you extract form values even if locked
-    const formValues = getValues();
-  
+
+    // Force extraction using getValues() to guarantee phone is included
+    const values = getValues();
+
     try {
       setDisabled(true);
-  
+
       const formData = new FormData();
-      formData.append('name', formValues.name || '');
-      formData.append('phone', formValues.phone || ''); // 👈 Guaranteed extraction
-      formData.append('email', formValues.email || '');
-      formData.append('subject', formValues.subject || '');
-      formData.append('message', formValues.message || '');
-  
+      formData.append('name', values.name || '');
+      formData.append('phone', values.phone || '');
+      formData.append('email', values.email || '');
+      formData.append('subject', values.subject || '');
+      formData.append('message', values.message || '');
+
       await fetch(primaryFormScriptUrl, {
         method: 'POST',
         mode: 'no-cors',
         body: formData,
       });
-  
+
       reset();
       setIsOtpVerified(false);
       setOtpInputs(new Array(6).fill(""));
       toastifySuccess();
-  
+
     } catch (e) {
       console.error('Submission error:', e);
       toast.error('Failed to submit form. Please try again.');
@@ -119,6 +132,7 @@ const ContactForm = () => {
       setDisabled(false);
     }
   };
+
   const handleOtpChange = (element, index) => {
     const val = element.value;
     if (!/^[0-9]$/.test(val) && val !== "") return;
@@ -238,28 +252,38 @@ const ContactForm = () => {
                   </div>
 
                   {/* Subject Input */}
-                  <div className='mb-3'>
-                    <input
-                      type='text'
-                      readOnly={isOtpVerified}
-                      {...register('subject', { required: 'Subject is required' })}
-                      className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
-                      placeholder={isOtpVerified ? 'Subject/address' : 'Verify your email first'}
-                    />
-                    {errors.subject && <div className='invalid-feedback'>{errors.subject.message}</div>}
-                  </div>
+<div className='mb-3'>
+  <input
+    type='text'
+    tabIndex={isOtpVerified ? 0 : -1}
+    style={{
+      pointerEvents: isOtpVerified ? 'auto' : 'none',
+      opacity: isOtpVerified ? 1 : 0.65,
+      backgroundColor: isOtpVerified ? '#ffffff' : '#e9ecef'
+    }}
+    {...register('subject', { required: 'Subject is required' })}
+    className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
+    placeholder={isOtpVerified ? 'Enter Subject / Address' : '🔒 Verify email above to unlock'}
+  />
+  {errors.subject && <div className='invalid-feedback'>{errors.subject.message}</div>}
+</div>
 
-                  {/* Message Input */}
-                  <div className='mb-3'>
-                    <textarea
-                      rows={4}
-                      readOnly={isOtpVerified}
-                      {...register('message', { required: 'Please enter a message' })}
-                      className={`form-control ${errors.message ? 'is-invalid' : ''}`}
-                      placeholder={isOtpVerified ? 'Your Message / Delivery Details' : 'Verify your email first'}
-                    ></textarea>
-                    {errors.message && <div className='invalid-feedback'>{errors.message.message}</div>}
-                  </div>
+{/* Message Input */}
+<div className='mb-3'>
+  <textarea
+    rows={4}
+    tabIndex={isOtpVerified ? 0 : -1}
+    style={{
+      pointerEvents: isOtpVerified ? 'auto' : 'none',
+      opacity: isOtpVerified ? 1 : 0.65,
+      backgroundColor: isOtpVerified ? '#ffffff' : '#e9ecef'
+    }}
+    {...register('message', { required: 'Please enter a message' })}
+    className={`form-control ${errors.message ? 'is-invalid' : ''}`}
+    placeholder={isOtpVerified ? 'Type your message or delivery details here...' : '🔒 Verify email above to unlock'}
+  ></textarea>
+  {errors.message && <div className='invalid-feedback'>{errors.message.message}</div>}
+</div>  
 
                   <div className="d-grid">
                     <button className='btn btn-warning btn-lg fw-bold' disabled={disabled || !isOtpVerified} type='submit'>
