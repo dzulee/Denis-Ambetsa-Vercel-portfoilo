@@ -82,7 +82,6 @@ const ContactForm = () => {
       toast.error('The code entered is invalid. Please try again.');
     }
   };
-
   // 3. Form submission
   const onSubmit = async (data) => {
     if (!isOtpVerified) {
@@ -95,29 +94,30 @@ const ContactForm = () => {
   
       const formData = new FormData();
       formData.append('name', data.name);
-      formData.append('phone', data.phone); // Appended phone number
+      formData.append('phone', data.phone || '');
       formData.append('email', data.email);
       formData.append('subject', data.subject);
       formData.append('message', data.message);
   
       await fetch(primaryFormScriptUrl, {
         method: 'POST',
-        mode: 'no-cors', 
+        mode: 'no-cors',
         body: formData,
       });
-  
+
+      // Reset states and notify user
       reset();
-      setIsOtpVerified(false); 
+      setIsOtpVerified(false);
       setOtpInputs(new Array(6).fill(""));
       toastifySuccess();
+
     } catch (e) {
-      console.error('Submission error details:', e);
-      toast.error('Form could not be processed. Please try again later.');
+      console.error('Submission error:', e);
+      toast.error('Failed to submit form. Please try again.');
     } finally {
       setDisabled(false);
     }
   };
-
   const handleOtpChange = (element, index) => {
     const val = element.value;
     if (!/^[0-9]$/.test(val) && val !== "") return;
