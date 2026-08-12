@@ -19,7 +19,7 @@ export default function LearnMorePage() {
             {/* Added 'pt-5 mt-5' to push the button and content below fixed navbar */}
             <div className="container pt-5 mt-5">
                 
-                <div className="mb-4">
+                <div className="mb-4 pt-5">
                     <NavHashLink smooth to="/#services" className="btn btn-outline-warning fw-bold">
                         ← Back to Services
                     </NavHashLink>
