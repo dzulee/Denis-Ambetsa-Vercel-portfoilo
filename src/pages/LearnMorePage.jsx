@@ -5,7 +5,7 @@ import '../css/learn-more.css';
 import { Navbar } from "../components/Navbar";
 
 export default function LearnMorePage() {
-    // This gets the ":id" part from the URL (e.g., /learn-more/data-analysis)
+    // This gets the ":id" part from the URL (e.g., /learn-more/website-creation)
     const { id } = useParams();
 
     const validIds = ["website-creation", "website-design", "it-support", "data-analysis", "professional-consultancy"];
@@ -27,12 +27,19 @@ export default function LearnMorePage() {
                 <div className="container py-4 animate__animated animate__fadeIn">
                     <h1 className="fw-bold text-warning mb-3">Website Design & Creation</h1>
                     <p className="lead text-light">
-                        A website removes exposure limits and changes the perception that your business operates in a silo. 
-                        It allows you to sell at scale, reach broader audiences, and trigger customer buying intent.
+                        A modern digital presence removes geographic limits and breaks the perception that your business operates in a silo. It allows you to scale, reach broader audiences, and effectively trigger customer buying intent.
                     </p>
                     <p className="text-secondary">
-                        Under the hood, technical complexity should be hidden from the user. We prioritize intuitive UX and seamless navigation. Beyond visual spectrums, I build high-performing, search-engine-optimized, secure web applications featuring SSL integration and modern frameworks like React and Bootstrap.
+                        Under the hood, technical complexity should remain seamless to the user. We focus on clean maneuverability, responsiveness, and intuitive user experiences. Beyond visual design, performance, search engine optimization (SEO), SSL security, and robust web architecture are crucial to digital success.
                     </p>
+                    
+                    <ul className="text-light lh-lg my-3">
+                        <li><strong>Responsive UI/UX:</strong> Built with modern frameworks like React, Vite, and Bootstrap to ensure flawless performance across mobile phones, tablets, and desktops.</li>
+                        <li><strong>SEO & Performance:</strong> Structured code optimized for search engine visibility and fast load times.</li>
+                        <li><strong>Security & Infrastructure:</strong> SSL certificate integration, production deployment, and reliable hosting setup.</li>
+                        <li><strong>Tailored Source Code:</strong> Custom applications engineered specifically around your business goals and operational workflow.</li>
+                    </ul>
+
                     <div className="mt-4">
                         <NavHashLink smooth to="/#contact-section" className="btn btn-warning fw-bold px-4 py-2">
                             Book This Service
@@ -44,13 +51,21 @@ export default function LearnMorePage() {
             {/* 2. IT Support Content */}
             {id === "it-support" && (
                 <div className="container py-4 animate__animated animate__fadeIn">
-                    <h1 className="fw-bold text-warning mb-3">IT Support & Infrastructure</h1>
+                    <h1 className="fw-bold text-warning mb-3">IT Support & System Infrastructure</h1>
                     <p className="lead text-light">
-                        From troubleshooting hardware issues to setting up secure, resilient networks, my IT support ensures your business maintains maximum uptime.
+                        Technical downtime costs businesses time and momentum. My IT support services ensure your technological infrastructure remains secure, resilient, and fully operational.
                     </p>
                     <p className="text-secondary">
-                        Whether you need remote system administration or hands-on operational assistance, I provide structured troubleshooting and preventive maintenance tailored to your workplace setup.
+                        Whether dealing with unexpected hardware malfunctions or setting up secure office networks, I provide comprehensive troubleshooting and preventive maintenance.
                     </p>
+
+                    <ul className="text-light lh-lg my-3">
+                        <li><strong>Hardware & Software Diagnostics:</strong> Quick identification and resolution of system faults to restore operational workflows.</li>
+                        <li><strong>Network Configuration & Security:</strong> Setting up secure local area networks, routers, and secure access configurations.</li>
+                        <li><strong>Preventive Maintenance:</strong> System updates, performance optimizations, and regular health checks.</li>
+                        <li><strong>Flexible Delivery:</strong> Prompt remote troubleshooting alongside hands-on on-site assistance when required.</li>
+                    </ul>
+
                     <div className="mt-4">
                         <NavHashLink smooth to="/#contact-section" className="btn btn-warning fw-bold px-4 py-2">
                             Request Support
