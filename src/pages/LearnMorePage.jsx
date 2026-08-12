@@ -11,7 +11,7 @@ export default function LearnMorePage() {
     const validIds = ["website-creation", "website-design", "it-support", "data-analysis", "professional-consultancy"];
 
     return (
-        <div className="learn-more-container">
+        <div className="learn-more-container" id="learnmore">
             <div id="tpp-side">
                 <Navbar />
             </div>

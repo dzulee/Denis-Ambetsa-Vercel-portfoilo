@@ -11,6 +11,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css';
 import backgroundVideo from './assets/background_video.mp4';
+import ScrollToTop from './components/ScrollTop';
 
 function App() {
   useEffect(() => {
@@ -32,6 +33,7 @@ function App() {
 
       <div className="app-content">
         <Router>
+        <ScrollToTop />
           <Routes>
             {/* This is your main landing page */}
             <Route path="/" element={<Home />} />
