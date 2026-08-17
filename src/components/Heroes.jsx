@@ -31,14 +31,14 @@ export function Heroes() {
                 <div className="row w-100 justify-content-center justify-content-md-start px-1 px-md-2 align-items-start" style={{ marginTop: '0' }}>
                     
                     {/* Glassmorphism Hero Box */}
-                    <div className="col-11 col-md-10 col-lg-8 glass-box p-2 p-md-3" style={{ marginTop: '1.1rem', paddingTop: '0.25rem', paddingBottom: '0.25rem' }}>
+                    <div className="col-11 col-md-10 col-lg-8 glass-box p-2 p-md-2" style={{ marginTop: '1.1rem', paddingTop: '0.25rem', paddingBottom: '0.25rem' }}>
                         <h2 className="display-6 fw-bold text-white mb-3">
                            Get Professional <br className="d-md-none" />
                             <span className="typed-text" style={{ color: '#00CED1', fontSize: '2.5rem' }} ref={el}></span>
                         </h2>
                         
                         <div className="col-12 col-xl-10">
-                            <div className="fs-5 mb-3 text-light hero-subtext">
+                            <div className="fs-6 mb-3 text-light hero-subtext">
                                 Welcome to<span className="d-inline-block mx-1"><Logo /></span> .
                                 We turn complex data and modern tech into your competitive advantage:<br />
 

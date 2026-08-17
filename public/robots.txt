@@ -3,3 +3,7 @@ Allow: /
 
 # Point to your sitemap URL
 Sitemap: https://ambetsatech.vercel.app/sitemap.xml
+
+# Optional: block search indexing on generated or private paths if needed
+# Disallow: /admin
+# Disallow: /private
