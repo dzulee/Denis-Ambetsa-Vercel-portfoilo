@@ -1,4 +1,13 @@
 {
+  "redirects": [
+    { "source": "/services/consulting", "destination": "/learn-more/professional-consultancy", "permanent": true },
+    { "source": "/services/data-analysis", "destination": "/learn-more/data-analysis", "permanent": true },
+    { "source": "/services/web-development", "destination": "/learn-more/web-creation", "permanent": true },
+    { "source": "/services/it-support", "destination": "/learn-more/it-support", "permanent": true },
+    { "source": "/services/project-management", "destination": "/learn-more/professional-consultancy", "permanent": true },
+    { "source": "/services/virtual-assistant", "destination": "/learn-more/professional-consultancy", "permanent": true },
+    { "source": "/services/:path", "destination": "/learn-more/professional-consultancy", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
