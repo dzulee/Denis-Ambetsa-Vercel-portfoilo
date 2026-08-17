@@ -215,14 +215,18 @@ export function Projects() {
                                         </div>
 
                                         <div className="tab-content pt-2">
-                                            {cat.tabs.find(t => t.id === activeTabs[cat.id])?.content.map((project, index) => (
-                                                <p key={index} className="mb-2 fade-in-text">
-                                                    <i className="fa fa-chevron-right text-info me-2 small"></i>
-                                                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-link">
-                                                        {project.name}
-                                                    </a>
-                                                </p>
-                                            ))}
+                                            {(() => {
+                                                const activeTab = cat.tabs.find(t => t.id === activeTabs[cat.id]);
+                                                if (!activeTab) return null;
+                                                return activeTab.content.map((project, index) => (
+                                                    <p key={index} className="mb-2 fade-in-text">
+                                                        <i className="fa fa-chevron-right text-info me-2 small"></i>
+                                                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-link">
+                                                            {project.name}
+                                                        </a>
+                                                    </p>
+                                                ));
+                                            })()}
                                         </div>
                                     </div>
                                 </div>
