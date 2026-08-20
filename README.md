@@ -116,6 +116,19 @@ All client-side variables must use the `VITE_` prefix because they are read thro
 
 Do not commit `.env` files or private credentials. Configure these values in the Vercel project settings for production deployments.
 
+### Contact Notifications
+
+The contact form sends one POST request containing `name`, `phone`, `email`, `subject`, and `message`. The Google Apps Script source for that endpoint is in `scripts/contact-form-apps-script.js`; it sends the submission to both Gmail and WhatsApp through CallMeBot.
+
+To configure the endpoint:
+
+1. Create or update a Google Apps Script project with the contents of `scripts/contact-form-apps-script.js`.
+2. In **Project Settings > Script properties**, add `CALLMEBOT_API_KEY` with the API key for WhatsApp number `254769579340`.
+3. Deploy the project as a web app that executes as the script owner and allows anyone to access it.
+4. Set the deployed `/exec` URL as `VITE_CONTACT_SCRIPT_URL` in Vercel and redeploy the site.
+
+Keep the CallMeBot API key in Script Properties; do not put it in the React app or a committed `.env` file.
+
 ## Production Build
 
 Build and preview the application locally:

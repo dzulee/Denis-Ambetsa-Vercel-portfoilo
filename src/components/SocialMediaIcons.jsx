@@ -13,7 +13,7 @@ import slackIcon from '../assets/slack-brands-solid-full.svg'
 const icons=[
      {
         name: "WhatsApp",
-        link: "https://wa.me/254799964580",
+        link: "https://wa.me/254769579340",
         socialIcon: whatsappIcon
     },
     {

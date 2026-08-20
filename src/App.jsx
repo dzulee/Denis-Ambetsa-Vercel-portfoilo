@@ -12,6 +12,7 @@ import 'aos/dist/aos.css';
 import './App.css';
 import backgroundVideo from './assets/background_video.mp4';
 import ScrollToTop from './components/ScrollTop';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 const pageMeta = {
   '/': {
@@ -315,6 +316,7 @@ function App() {
           </Routes>
 
           <Footer />
+          <FloatingWhatsApp />
         </Router>
       </div>
     </div>
