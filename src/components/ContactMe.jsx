@@ -94,6 +94,38 @@ const ContactForm = () => {
       toast.error('The code entered is invalid. Please try again.');
     }
   };
+
+  const focusFormField = (fieldName) => {
+    const field = document.querySelector(`#contact-form [name="${fieldName}"]`);
+    if (field) field.focus();
+  };
+
+  const handleFieldKeyDown = (event, nextField, action) => {
+    if (event.key !== 'Enter' || (event.target.tagName === 'TEXTAREA' && event.shiftKey)) return;
+
+    event.preventDefault();
+    if (action) {
+      action();
+    } else if (nextField) {
+      focusFormField(nextField);
+    }
+  };
+
+  const handleOtpPaste = (event) => {
+    event.preventDefault();
+    const pastedCode = event.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
+    if (!pastedCode) return;
+
+    const updatedArr = new Array(6).fill('');
+    pastedCode.split('').forEach((digit, index) => {
+      updatedArr[index] = digit;
+    });
+    setOtpInputs(updatedArr);
+
+    const focusIndex = Math.min(pastedCode.length, 5);
+    inputRefs.current[focusIndex].focus();
+  };
+
   // 3. Form submission
   const onSubmit = async () => {
     if (!isOtpVerified) {
@@ -147,6 +179,16 @@ const ContactForm = () => {
   };
 
   const handleOtpKeyDown = (e, index) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (otpInputs.every(Boolean)) {
+        handleOtpVerificationCheck();
+      } else if (index < 5) {
+        inputRefs.current[index + 1].focus();
+      }
+      return;
+    }
+
     if (e.key === 'Backspace') {
       if (!otpInputs[index] && index > 0) {
         inputRefs.current[index - 1].focus();
@@ -210,6 +252,7 @@ const ContactForm = () => {
                       {...register('name', { required: 'Name is required', maxLength: 30 })}
                       className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                       placeholder='Name'
+                      onKeyDown={(event) => handleFieldKeyDown(event, 'phone')}
                     />
                     {errors.name && <div className='invalid-feedback'>{errors.name.message}</div>}
                   </div>
@@ -222,6 +265,7 @@ const ContactForm = () => {
                       {...register('phone', { required: 'Phone number is required', maxLength: 20 })}
                       className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
                       placeholder='Phone'
+                      onKeyDown={(event) => handleFieldKeyDown(event, 'email')}
                     />
                     {errors.phone && <div className='invalid-feedback'>{errors.phone.message}</div>}
                   </div>
@@ -238,6 +282,11 @@ const ContactForm = () => {
                         })}
                         className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                         placeholder='Email address'
+                        onKeyDown={(event) => handleFieldKeyDown(
+                          event,
+                          isOtpVerified ? 'subject' : null,
+                          isOtpVerified ? null : handleVerifyEmailClick
+                        )}
                       />
                       <button 
                         type="button" 
@@ -264,6 +313,7 @@ const ContactForm = () => {
     {...register('subject', { required: 'Subject is required' })}
     className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
     placeholder={isOtpVerified ? 'Enter Subject / Address' : '🔒 Verify email above to unlock'}
+    onKeyDown={(event) => handleFieldKeyDown(event, 'message')}
   />
   {errors.subject && <div className='invalid-feedback'>{errors.subject.message}</div>}
 </div>
@@ -281,6 +331,7 @@ const ContactForm = () => {
     {...register('message', { required: 'Please enter a message' })}
     className={`form-control ${errors.message ? 'is-invalid' : ''}`}
     placeholder={isOtpVerified ? 'Type your message or delivery details here...' : '🔒 Verify email above to unlock'}
+    onKeyDown={(event) => handleFieldKeyDown(event, null, () => handleSubmit(onSubmit)())}
   ></textarea>
   {errors.message && <div className='invalid-feedback'>{errors.message.message}</div>}
 </div>  
@@ -319,6 +370,7 @@ const ContactForm = () => {
                   ref={(el) => (inputRefs.current[index] = el)}
                   onChange={(e) => handleOtpChange(e.target, index)}
                   onKeyDown={(e) => handleOtpKeyDown(e, index)}
+                  onPaste={handleOtpPaste}
                 />
               ))}
             </div>

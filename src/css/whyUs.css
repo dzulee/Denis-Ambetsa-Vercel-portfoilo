@@ -1,5 +1,185 @@
-.why-us-section{
+.why-us-section {
     min-height: 100vh;
-}.verified{
-    background-color: blue;
+}
+
+.pricing-section {
+    position: relative;
+    overflow: hidden;
+    background: rgba(9, 10, 14, 0.86);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pricing-heading {
+    max-width: 700px;
+}
+
+.pricing-eyebrow {
+    margin-bottom: 0.75rem;
+    color: #d8d8d8;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.pricing-heading h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.pricing-heading > p:last-child {
+    font-size: 0.85rem;
+}
+
+.pricing-column {
+    display: flex;
+}
+
+.pricing-card {
+    width: 100%;
+    min-height: 365px;
+    overflow: hidden;
+    border: 1px solid rgba(215, 215, 215, 0.55);
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(42, 43, 47, 0.98), rgba(0, 0, 0, 0.98) 18%, #030303 100%);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 24px 38px rgba(0, 0, 0, 0.45), 0 0 22px rgba(255, 255, 255, 0.08);
+}
+
+.pricing-card .card-body {
+    padding: 1.15rem 1.15rem 1.2rem;
+}
+
+.pricing-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 55px;
+}
+
+.pricing-icon-shell,
+.why-us-icon-shell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    background: linear-gradient(135deg, rgb(255, 193, 7), rgb(0, 206, 209));
+    box-shadow: 0 0 18px rgba(0, 206, 209, 0.3);
+}
+
+.pricing-icon-shell {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.pricing-card-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.why-us-card {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgb(24, 27, 34), rgb(3, 3, 3));
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-us-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 206, 209, 0.65);
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.4), 0 0 18px rgba(255, 193, 7, 0.14);
+}
+
+.why-us-icon-shell {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+}
+
+.why-us-icon {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.pricing-badge {
+    max-width: 96px;
+    padding: 0.28rem 0.48rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 4px;
+    color: #f5f5f5;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.pricing-card .card-price {
+    margin: 1rem 0 0.2rem;
+    color: #fff;
+    font-size: clamp(1.7rem, 2.2vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.pricing-period {
+    margin: 0;
+    color: #d2d2d2;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.pricing-divider {
+    height: 1px;
+    margin: 1rem 0 0.85rem;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.pricing-description {
+    color: #d5d5d5;
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+.pricing-cta {
+    display: block;
+    padding: 0.65rem 0.75rem;
+    border-radius: 4px;
+    background: #e50920;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.pricing-cta:hover,
+.pricing-cta:focus-visible {
+    background: #ff2037;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 991.98px) {
+    .pricing-card {
+        min-height: 340px;
+    }
 }

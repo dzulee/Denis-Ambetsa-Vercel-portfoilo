@@ -35,29 +35,35 @@ function Pricing() {
   ];
 
   return (
-    <div className="why-us-section py-5 glass-box">
-      <div className="container text-center">
-        <h2 className="mb-4 text-white">Pricing</h2>
-        <p className="text-white">Our standard and affordable pricing.</p>
+    <div className="why-us-section pricing-section py-5">
+      <div className="container pricing-heading text-center">
+        <p className="pricing-eyebrow">Simple, transparent options</p>
+        <h2 className="mb-3 text-white">Choose your plan</h2>
+        <p className="text-white-50 mb-0">Our standard and affordable pricing for every stage of your digital journey.</p>
       </div>
       <div className="container mt-5">
         <div className="row justify-content-center">
           {pricings.map((pricing, index) => (
-            <div key={index} className="col-md-6 col-lg-3 mb-4">
-              <div className="card h-100 bg-dark text-white text-center">
-                <div className="card-body d-flex flex-column align-items-center">
-                  
-                  {/* 2. Render icon above the title */}
-                  <img 
-                    src={pricing.icon} 
-                    alt={pricing.title} 
-                    className="mb-3" 
-                    style={{ width: '48px', height: '48px', objectFit: 'contain' }} 
-                  />
-                  
-                  <h5 className="card-title">{pricing.title}</h5>
-                  <h3 className='card-price'>{pricing.price}</h3>
-                  <p className="card-text">{pricing.description}</p>
+            <div key={index} className="col-md-6 col-lg-3 mb-4 pricing-column">
+              <div className="card pricing-card h-100 text-white">
+                <div className="card-body d-flex flex-column">
+                  <div className="pricing-card-header">
+                    <span className="pricing-icon-shell">
+                      <img
+                        src={pricing.icon}
+                        alt={pricing.title}
+                        className="pricing-card-icon"
+                      />
+                    </span>
+                    <span className="pricing-badge">{pricing.title}</span>
+                  </div>
+                  <h3 className="card-price">{pricing.price}</h3>
+                  <p className="pricing-period">PROJECT PACKAGE</p>
+                  <div className="pricing-divider" />
+                  <p className="card-text pricing-description">{pricing.description}</p>
+                  <a href="#contact-form" className="pricing-cta mt-auto">
+                    Discuss this plan
+                  </a>
                 </div>
               </div>
             </div>

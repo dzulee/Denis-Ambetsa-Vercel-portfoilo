@@ -40,16 +40,15 @@ function WhyUs() {
         <div className="row justify-content-center">
           {reasons.map((reason, index) => (
             <div key={index} className="col-md-6 col-lg-3 mb-4">
-              <div className="card h-100 bg-dark text-white text-center">
+              <div className="card why-us-card h-100 bg-dark text-white text-center">
                 <div className="card-body d-flex flex-column align-items-center">
-                  
-                  {/* 2. Render icon above the title */}
-                  <img 
-                    src={reason.icon} 
-                    alt={reason.title} 
-                    className="mb-3" 
-                    style={{ width: '48px', height: '48px', objectFit: 'contain' }} 
-                  />
+                  <span className="why-us-icon-shell mb-3">
+                    <img
+                      src={reason.icon}
+                      alt={reason.title}
+                      className="why-us-icon"
+                    />
+                  </span>
                   
                   <h5 className="card-title">{reason.title}</h5>
                   <p className="card-text">{reason.description}</p>
