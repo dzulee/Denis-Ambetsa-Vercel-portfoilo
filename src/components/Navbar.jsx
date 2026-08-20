@@ -19,27 +19,14 @@ export function Navbar() {
   }, [isMobileOpen]);
 
   const mobileMenu = (
-    <div
-      className="d-flex align-items-center animate-fade-in collapsed-navLinks"
-      style={{
-        position: 'fixed',
-        top: '5.5rem',
-        left: 0,
-        width: '32%',
-        maxWidth: '220px',
-        height: 'calc(100vh - 7.5rem)',
-        zIndex: 2147483647,
-        backgroundColor: 'rgba(0, 0, 0, 0.98)',
-        padding: '1.25rem',
-        overflowY: 'auto',
-        pointerEvents: 'auto'
-      }}
-    >
-      <button 
-        className="btn text-warning me-3 p-0" 
+    <div className="d-flex align-items-center animate-fade-in collapsed-navLinks">
+      <button
+        type="button"
+        className="mobile-menu-back"
+        aria-label="Close navigation menu"
         onClick={() => setIsMobileOpen(false)}
       >
-        ← <span className="small">Back</span>
+        <span aria-hidden="true">&lt;-</span> <span>Back</span>
       </button>
       <div className="overflow-auto no-scrollbar py-2">
         <NavigationLinks 
@@ -59,7 +46,9 @@ export function Navbar() {
           <div className="d-flex justify-content-between w-100 align-items-center">
             <Logo className="navbar-brand" />
             <button 
+              type="button"
               className="navbar-toggler border-0" 
+              aria-label="Open navigation menu"
               onClick={() => setIsMobileOpen(true)}
             >
               <span className="navbar-toggler-icon"></span>
@@ -75,7 +64,7 @@ export function Navbar() {
   
   <div className="collapse navbar-collapse d-flex flex-grow-1" id="navbarNav">
     <NavigationLinks 
-      limit={5} 
+      limit={7}
       fromEnd={false} 
       containerClass="d-flex align-items-center gap-4 mb-0 w-100 justify-content-center ms-lg-5 ps-lg-5" 
     />

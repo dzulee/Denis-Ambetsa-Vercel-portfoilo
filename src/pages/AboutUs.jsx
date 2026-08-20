@@ -7,18 +7,19 @@ const AboutMe = () => {
     const [activeTab, setActiveTab] = useState('education');
     const myCV="https://drive.google.com/file/d/1uYCJFjgB1NiT4j81aAfGhr26XZomd2du/view?usp=sharing"
     return (
-        <section className="about_us py-3" id="about_us" style={{ backgroundColor: 'transparent', minHeight: '100vh' }}>
+        <section className="about_us" id="about_us">
             <div id='Navbar'><Navbar/> </div>
-            <div className="container mt-5">
+            <div className="container about-shell">
                 <div className="row align-items-center justify-content-center py-3">
                     
                     {/* Column 1: Text Content */}
                     <div className="col-lg-7 p-2 salutation order-2 order-md-1 px-lg-5">
-                        <div className="mb-4">
-                            <h1 className="display-5 fw-bold mb-3" style={{ color: '#ffffff' }}>
-                                About <span style={{ color: '#00CED1' }}>Me</span>
+                        <div className="about-intro mb-4">
+                            <p className="about-eyebrow">The person behind the work</p>
+                            <h1>
+                                About <span>Denis Ambetsa</span>
                             </h1>
-                            <p className="lead mb-4" style={{ textAlign: 'justify', color: '#b0b0b0', fontSize: '1.1rem' }}>
+                            <p className="about-lead mb-4">
                                 Guided by a strong moral compass and strict adherence to industry regulations, 
                                 <span className="fw-bold" style={{ color: '#00CED1' }}> Ambetsa Tech Solutions</span> stands for integrity in every engagement. 
                                 We champion the well-being of our clients, society, and the broader digital landscape.
@@ -28,19 +29,13 @@ const AboutMe = () => {
                         </div>
 
                         {/* Tab Switchers */}
-                        <div className="tab-container p-4 rounded-4 shadow-lg" >
-                            <div className="d-flex mb-4 border-bottom" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
+                        <div className="tab-container">
+                            <div className="about-tabs">
                                 {['education', 'skills', 'experience'].map((tab) => (
                                     <button 
                                         key={tab}
-                                        className={`btn tab-btn px-4 py-2 me-2 fw-bold transition-all`}
+                                        className={`tab-btn ${activeTab === tab ? 'is-active' : ''}`}
                                         onClick={() => setActiveTab(tab)}
-                                        style={{ 
-                                            border: 'none', 
-                                            background: 'none', 
-                                            color: activeTab === tab ? '#00CED1' : '#808080',
-                                            borderBottom: activeTab === tab ? '2px solid #00CED1' : 'none'
-                                        }}
                                     >
                                         {tab.toUpperCase()}
                                     </button>
@@ -51,11 +46,11 @@ const AboutMe = () => {
                             <div className="tab-content-area px-2">
                                 {activeTab === 'education' && (
                                     <div className="animate__animated animate__fadeIn">
-                                        <div className="education-item mb-3 border-start ps-3" style={{ borderColor: '#00CED1' }}>
+                                        <div className="education-item">
                                             <h6 className="fw-bold mb-0 text-white">MERN Stack Development</h6>
                                             <small className="text-info">Edureka | 2025</small>
                                         </div>
-                                        <div className="education-item mb-3 border-start ps-3" style={{ borderColor: '#00CED1' }}>
+                                        <div className="education-item">
                                             <h6 className="fw-bold mb-0 text-white">Bsc in Information Technology</h6>
                                             <small className="text-info">Taita Taveta University | Graduate</small>
                                         </div>
@@ -67,7 +62,7 @@ const AboutMe = () => {
                                         {['Web Development', 'Data Analysis', 'Python & SQL', 'JavaScript'].map(skill => (
                                             <div className="col-6" key={skill}>
                                                 <div className="d-flex align-items-center text-light">
-                                                    <div className="skill-dot me-2" style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#00CED1' }}></div>
+                                                    <div className="skill-dot me-2"></div>
                                                     <span>{skill}</span>
                                                 </div>
                                             </div>
@@ -98,8 +93,7 @@ const AboutMe = () => {
                                 href={myCV} 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="btn btn-lg fw-bold px-4 py-3 shadow-lg hover-lift"
-                                style={{ backgroundColor: '#00CED1', color: '#0a0c10', border: 'none' }}
+                                className="about-cv-button btn btn-lg fw-bold px-4 py-3 shadow-lg hover-lift"
                             >
                                 <i className="fa fa-file-pdf me-2"></i> View My CV
                             </a>
@@ -108,23 +102,13 @@ const AboutMe = () => {
 
                     {/* Column 2: Image Section */}
                     <div className="col-lg-5 p-2 order-1 order-md-2 mb-5 mb-md-0 d-flex justify-content-center">
-                        <div className="position-relative">
+                        <div className="about-profile-frame position-relative">
                             {/* Decorative Glow behind image */}
-                            <div style={{ 
-                                position: 'absolute', 
-                                top: '10px', 
-                                left: '10px', 
-                                width: '100%', 
-                                height: '100%', 
-                                border: '2px solid #00CED1', 
-                                borderRadius: '10px',
-                                zIndex: 0
-                            }}></div>
+                            <div className="about-profile-outline"></div>
                             <img 
                                 src="/Ambetsa.jpeg" 
                                 alt="Denis Ambetsa" 
-                                className="img-fluid rounded shadow-lg position-relative" 
-                                style={{ zIndex: 1, maxWidth: '350px' }}
+                                className="about-profile-image img-fluid rounded shadow-lg position-relative"
                             />
                         </div>
                     </div>

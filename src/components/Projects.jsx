@@ -59,7 +59,7 @@ export function Projects() {
         {
             id: 'webdev',
             title: 'Web Development',
-            desc: 'Supporting my work and expertise in analysis.',
+            desc: 'Designing useful, responsive experiences for modern businesses.',
             tabs: [
                 { 
                     id: 'webdesign', 
@@ -164,22 +164,26 @@ export function Projects() {
                     
                     {/* Left Column: Description Text */}
                     <div className="col-12 col-lg-5 "data-aos="fade-right" data-aos-duration="1500">                        
-                        <div className="project-descriptions text-muted pe-lg-4">
-                            <h3 className="bridge-the-gap mb-3 text-white fw-bold "style={{ fontSize: '1.75rem' }}>
-                                Bridging the Gap: <br/>
-                                Innovation Across Disciplines 
-                            </h3>
-                            <p className="mb-3 lead-custom "style={{ animationDelay: '0.1s' }}>
-                                I don't just build tools; I build solutions. By combining technical precision with strategic oversight, I help businesses scale through four core pillars:
+                        <div className="project-descriptions pe-lg-4">
+                            <p className="project-eyebrow">Selected work and capabilities</p>
+                            <h2 className="bridge-the-gap">
+                                Bridging the gap
+                                <span>between ideas and impact</span>
+                            </h2>
+                            <p className="lead-custom">
+                                I combine technical precision with strategic thinking to create solutions that make complex work clearer, faster, and more valuable.
                             </p>
                             
                             <div className="pillar-list">
                                 {categories.map((cat,index) => (                
-                                    <div className="card mb-4 border-0 slide-in-left" key={cat.id}
+                                    <div className="pillar-item slide-in-left" key={cat.id}
                                      data-aos="fade-up" 
                                      data-aos-delay={index * 100}>
-                                        <h4 className="text-warning fw-bold mb-2">{cat.title}</h4>
-                                        <p className="small text-light opacity-75">{cat.whatido}</p>
+                                        <div className="pillar-number">0{index + 1}</div>
+                                        <div>
+                                            <h3>{cat.title}</h3>
+                                            <p>{cat.whatido}</p>
+                                        </div>
                                     </div>
                                 ))}
                         </div>
@@ -188,33 +192,37 @@ export function Projects() {
 
                     {/* Right Column: Interactive Project Cards */}
                     <div className="col-12 col-lg-7" data-aos="fade-left" data-aos-duration="1500">
-                        <h2 className="text-center mb-5 fw-bold text-white display-6 slide-in-left">
-                            Drill down to see each project</h2>
+                        <div className="project-list-heading">
+                            <p className="project-eyebrow">Explore the portfolio</p>
+                            <h2>Drill down to see each project</h2>
+                        </div>
 
                         <div className="row g-4">
                             {categories.map((cat,index) => (
                                 <div className="col-12 col-md-6" key={cat.id}
                                  data-aos="fade-up" 
                                      data-aos-delay={index * 100}>
-                                    <div className="project-card h-100 p-4 rounded-4 shadow-lg border-0" 
+                                    <div className="project-card h-100"
                                    >
-                                        <h4 className="fw-bold text-white mb-2">{cat.title}</h4>
+                                        <div className="project-card-header">
+                                            <span className="project-card-kicker">Capability {String(index + 1).padStart(2, '0')}</span>
+                                            <h3>{cat.title}</h3>
+                                        </div>
                                         <p className="card-desc mb-3">{cat.desc}</p>
                                         
-                                        <div className="d-flex flex-wrap gap-2 mb-3 pb-2 border-bottom border-secondary">
+                                        <div className="project-tabs">
                                             {cat.tabs.map((tab) => (
                                                 <button 
                                                     key={tab.id}
-                                                    className={`btn btn-xs py-1 px-2 ${activeTabs[cat.id] === tab.id ? 'btn-warning fw-bold' : 'btn-outline-light opacity-50'}`}
+                                                    className={`project-tab ${activeTabs[cat.id] === tab.id ? 'is-active' : ''}`}
                                                     onClick={() => handleTabChange(cat.id, tab.id)}
-                                                    style={{ fontSize: '0.75rem' }}
                                                 >
                                                     {tab.label}
                                                 </button>
                                             ))}
                                         </div>
 
-                                        <div className="tab-content pt-2">
+                                        <div className="tab-content project-tab-content">
                                             {(() => {
                                                 const activeTab = cat.tabs.find(t => t.id === activeTabs[cat.id]);
                                                 if (!activeTab) return null;

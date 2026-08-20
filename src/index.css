@@ -176,6 +176,23 @@ section[id] > *:not(.section-video-background):not(.section-video-overlay) {
     margin-top: 1.5rem;
 }
 
+.hero-proof-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+    margin-top: 1.35rem;
+    color: #a9a9a9;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero-proof-row strong {
+    margin-right: 0.25rem;
+    color: #ffc107;
+}
+
 .hero-subtext {
     opacity: 0.9;
     line-height: 1.6;
@@ -216,6 +233,10 @@ section[id] > *:not(.section-video-background):not(.section-video-overlay) {
     }
 
     .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-proof-row {
         justify-content: center;
     }
 }

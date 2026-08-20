@@ -16,3 +16,93 @@
     margin-top: 8rem;
     margin-left: 5rem;
 }
+
+.learn-more-container {
+    padding: 7rem 0 4rem;
+    color: #ffffff;
+    background: transparent;
+}
+
+.learn-more-shell {
+    max-width: 980px;
+}
+
+.learn-more-back-link {
+    display: inline-block;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid rgba(255, 193, 7, 0.6);
+    border-radius: 4px;
+    color: #ffc107;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.learn-more-back-link:hover {
+    background: #ffc107;
+    color: #101010;
+}
+
+.learn-more-content {
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(42, 43, 47, 0.98), rgba(0, 0, 0, 0.98) 24%, #030303 100%);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.learn-more-content h1 {
+    max-width: 760px;
+    margin-bottom: 1.2rem;
+    color: transparent !important;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ffffff 10%, #00ced1 58%, #ffc107 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.learn-more-content .lead {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.learn-more-content p,
+.learn-more-content li {
+    color: #c8c8c8;
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+.learn-more-content strong,
+.learn-more-content h4,
+.learn-more-content h5 {
+    color: #ffc107;
+}
+
+.learn-more-content ul {
+    padding-left: 1.2rem;
+}
+
+.learn-more-content li::marker {
+    color: #00ced1;
+}
+
+.learn-more-content .bg-dark {
+    border: 1px solid rgba(0, 206, 209, 0.3) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.learn-more-content .btn-warning {
+    border: 0;
+    background: #00ced1;
+    color: #071014;
+    font-weight: 800;
+}
+
+.learn-more-content .btn-warning:hover {
+    background: #ffc107;
+}

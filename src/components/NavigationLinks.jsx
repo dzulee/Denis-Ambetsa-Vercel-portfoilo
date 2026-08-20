@@ -4,12 +4,12 @@ import '../css/navigation-links.css';
 
 const navigationLinks = [
   { text: 'Home', navigationTo: '/#Hero', id: 'Hero' },
-  
   { text: 'Projects', navigationTo: '/#featured-work', id: 'featured-work' },
-  { text: 'Services', navigationTo: '/#services', id: 'services' },
-  { text: 'Why Us', navigationTo: '/#why-us', id: 'why-us' },
-  { text: 'Contact US', navigationTo: '/#contact-section', id: 'contact-section' },
   { text: 'About Us', navigationTo: '/about#about_us', id: 'about_us' },
+  { text: 'Pricing', navigationTo: '/#pricing', id: 'pricing' },
+  { text: 'Why Us', navigationTo: '/#why-us', id: 'why-us' },
+  { text: 'Services', navigationTo: '/#services', id: 'services' },
+  { text: 'Contact US', navigationTo: '/#contact-section', id: 'contact-section' },
   { text: 'Blog', navigationTo: '/blog', id: 'blog' }
 ];
 

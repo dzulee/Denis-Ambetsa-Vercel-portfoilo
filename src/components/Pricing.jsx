@@ -35,7 +35,7 @@ function Pricing() {
   ];
 
   return (
-    <div className="why-us-section pricing-section py-5">
+    <div className="why-us-section pricing-section py-5" id="pricing">
       <div className="container pricing-heading text-center">
         <p className="pricing-eyebrow">Simple, transparent options</p>
         <h2 className="mb-3 text-white">Choose your plan</h2>

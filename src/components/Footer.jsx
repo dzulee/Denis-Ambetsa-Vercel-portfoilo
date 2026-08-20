@@ -7,37 +7,34 @@ import { ContactMap } from './ContactMap';
 
 export function Footer() {
     return (
-        <footer className="container-fluid footer py-5 bg-dark text-light position-relative" style={{ overflow: 'hidden' }}>
-            <div className="container footer-container position-relative" style={{ zIndex: 1 }}>
-                <div className="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-4 gap-md-5">
+        <footer className="container-fluid footer text-light position-relative">
+            <div className="container footer-container position-relative">
+                <div className="footer-grid">
                     
                     {/* Brand & Socials Section */}
-                    <div className="p-2 text-center text-md-start">
-                        <img src="/logo2.png" alt="logo" width="80" height="80" className="wg2l mb-2" />
-                        <h4 className="textback fw-bold mb-3">We Don't Get 2 Lose</h4>
+                    <div className="footer-brand text-center text-md-start">
+                        <img src="/logo2.png" alt="Ambetsa Tech logo" width="80" height="80" className="wg2l mb-2" />
+                        <p className="footer-eyebrow">Ambetsa Tech</p>
+                        <h2 className="textback">We Don&apos;t Get 2 Lose</h2>
+                        <p className="footer-tagline">Clear strategy. Better technology. Measurable progress.</p>
                         
                         <div className="mt-4">
-                            <p className="small  mb-2">Follow me</p>
+                            <p className="footer-label mb-2">Follow along</p>
                             <SocialIcons limit={4} fromEnd={true} />
                         </div>
                     </div>
-                    <ContactMap/>
+                    <div className="footer-map"><ContactMap/></div>
 
                     {/* The Perpendicular Line (Vertical Divider) */}
                     {/* d-none d-md-block ensures it only shows on desktop where things are side-by-side */}
-                    <span className="vr d-none d-md-block shadow-sm" style={{ alignSelf: 'stretch', width: '2px', opacity: 0.4, backgroundColor: '#ffc107' }}></span>
-
-                    {/* Quick Links Section */}
-                    <div className="p-2 footer-links min-w-200">
-                        <p className="fw-bold text-warning mb-2 border-bottom border-warning border-opacity-25 pb-2">
-                            Quick Web Links
-                        </p>
-                        <NavigationLinks isFooter={true} containerClass="flex-column align-items-center align-items-start gap-1 " />
+                    <div className="footer-links">
+                        <p className="footer-label">Explore</p>
+                        <NavigationLinks isFooter={true} containerClass="flex-column align-items-center align-items-start gap-1" />
                     </div>
                     
                 </div>
-               <div className="mt-5 pt-3 border-top border-secondary border-opacity-25 text-center">
-                    <p className="small  mb-0">
+            <div className="footer-bottom">
+                <p>
                         &copy; {new Date().getFullYear()} Denis Ambetsa. All Rights Reserved.
                     </p>
                 </div>

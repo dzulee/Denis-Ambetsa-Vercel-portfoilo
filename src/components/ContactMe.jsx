@@ -201,28 +201,30 @@ const ContactForm = () => {
   };
 
   return (
-    <div className='ContactInfo position-relative' id="contact-section">
+    <div className='ContactInfo contact-section position-relative' id="contact-section">
       <main className="flex-shrink-0 position-relative">
         <div className="rotating-bg-container">
           <div className="rotating-bg-image"></div>
         </div>
         <div className="get-in-touch text-center">
-          <h1>Get In Touch</h1>
-          <p className="text-white lead">The dedication and the strength to any work will be given with integrity.</p>
+          <p className="contact-eyebrow">Let&apos;s build what matters</p>
+          <h1>Make your next move count</h1>
+          <p className="contact-lead">Have a project, challenge, or idea in mind? Let&apos;s turn it into a clear plan and a useful digital result.</p>
         </div>
 
         <div className='container position-relative' style={{ zIndex: 10 }}>
           <div className='row' data-aos="fade-up" data-aos-delay='0.2s'>
             
             <div className='office-info text-center text-white col-lg-4 mb-4'>
-              <div className='office-card project-card text-white'>
-                <h3>Office</h3>
-                <div className='card-detail bg-dark text-white'>
+              <div className='office-card text-white'>
+                <p className="contact-card-kicker">Find your way to us</p>
+                <h2>Office details</h2>
+                <div className='card-detail'>
                   <h3>Address</h3>
                   <p><i className="fa fa-map-marker-alt me-2"></i>Utawala - Githunguri</p>
                   <p>PO BOX 2200-0100 Nairobi</p>
                 </div>
-                <div className='card-detail bg-dark d-flex flex-column gap-2 text-white'>
+                <div className='card-detail d-flex flex-column gap-2 text-white'>
                   <h3>Email</h3>
                   <div>
                     <a href="mailto:dennisambesa63@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa63@gmail.com</a>
@@ -231,7 +233,7 @@ const ContactForm = () => {
                     <a href="mailto:dennisambesa36@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa36@gmail.com</a>
                   </div>
                 </div>
-                <div className='card-detail bg-dark text-white'>
+                <div className='card-detail text-white'>
                   <h3>Phone</h3>
                   <div><a href="tel:+254799964580"><i className="fa fa-phone me-2"></i> +254 799 964 580</a></div>
                   <div><a href="tel:+254769579340"><i className="fa fa-phone me-2"></i> +254 769 579 340</a></div>
@@ -241,7 +243,9 @@ const ContactForm = () => {
 
             <div className='contact-form col-lg-8'>
               <div className='contact-card card shadow border-0'>
-                <h2 className='text-light'>Send Us a message</h2>
+                <p className="contact-card-kicker">Start the conversation</p>
+                <h2 className='text-light'>Tell us what you&apos;re building</h2>
+                <p className="contact-form-intro">Verify your email, then share a few details and we&apos;ll get back to you with the right next step.</p>
                 <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
                   
                   {/* Name Input */}

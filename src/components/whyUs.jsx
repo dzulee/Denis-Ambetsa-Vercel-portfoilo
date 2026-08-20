@@ -33,8 +33,9 @@ function WhyUs() {
   return (
     <div className="why-us-section py-5 glass-box">
       <div className="container text-center">
-        <h2 className="mb-4 text-white">Why Choose Us?</h2>
-        <p className="text-white">Here's why our clients trust us with their projects.</p>
+        <p className="why-us-eyebrow">The difference is in the details</p>
+        <h2 className="why-us-heading">Built for better outcomes</h2>
+        <p className="why-us-intro">Experience, care, and accountability in every decision from the first conversation to the final result.</p>
       </div>
       <div className="container mt-5">
         <div className="row justify-content-center">
@@ -42,6 +43,7 @@ function WhyUs() {
             <div key={index} className="col-md-6 col-lg-3 mb-4">
               <div className="card why-us-card h-100 bg-dark text-white text-center">
                 <div className="card-body d-flex flex-column align-items-center">
+                  <span className="why-us-card-number">0{index + 1}</span>
                   <span className="why-us-icon-shell mb-3">
                     <img
                       src={reason.icon}

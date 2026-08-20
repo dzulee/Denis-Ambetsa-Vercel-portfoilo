@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Navbar } from './Navbar';
 import { Logo } from './Logo';
 import '../index.css';
 import { SocialIcons } from './SocialMediaIcons';
@@ -12,7 +11,7 @@ export function Heroes() {
     useEffect(() => {
         if (el.current) {
             const typed = new Typed(el.current, {
-                strings: ['Web development', 'UI/UX Design', 'Data Analysis', 'Project Management', 'Consultantation'],
+                strings: ['Web Development', 'UI/UX Design', 'Data Analysis', 'Project Management', 'Consultation'],
                 typeSpeed: 60,
                 backSpeed: 40,
                 backDelay: 2000,
@@ -25,49 +24,50 @@ export function Heroes() {
     }, []);
 
     return (
-        <div className="hero-master-container" id="Hero" style={{ minHeight: 'auto', marginTop: '4rem' }}>
-            {/* Main Content Wrapper */}
-            <div className="container-fluid d-flex align-items-start hero-top-gap" style={{ minHeight: 'auto', position: 'relative', zIndex: 2, paddingTop: '0', paddingBottom: '0', marginTop: '0' }}>
-                <div className="row w-100 justify-content-center justify-content-md-start px-1 px-md-2 align-items-start" style={{ marginTop: '0' }}>
-                    
-                    {/* Glassmorphism Hero Box */}
-                    <div className="col-11 col-md-10 col-lg-8 glass-box p-2 p-md-2" style={{ marginTop: '1.1rem', paddingTop: '0.25rem', paddingBottom: '0.25rem' }}>
-                        <h2 className="display-6 fw-bold text-white mb-3">
-                           Get Professional <br className="d-md-none" />
-                            <span className="typed-text" style={{ color: '#00CED1', fontSize: '2.5rem' }} ref={el}></span>
-                        </h2>
-                        
-                        <div className="col-12 col-xl-10">
-                            <div className="fs-6 mb-3 text-light hero-subtext">
-                                Welcome to<span className="d-inline-block mx-1"><Logo /></span> .
-                                We turn complex data and modern tech into your competitive advantage:<br />
-
-                                <span className='fw-bold'>Responsive Web Design:</span>
-                                High-performance, modern digital experiences built for conversions.<br/>
-
-                                <span className="fw-bold">Advanced Data Strategy:</span>
-                                Uncover hidden outliers, resolve operational misfits, and gain complete visibility over your organization.
-
-                                <br/><span className="fw-bold">AI Integration:</span>
-                                Automation and smart analytics tailored to scale your sales faster.
+        <div className="hero-master-container" id="Hero">
+            <div className="container-fluid hero-top-gap">
+                <div className="row justify-content-center px-1 px-md-2">
+                    <div className="col-11 col-md-10 col-xl-9 glass-box hero-content-box">
+                        <div className="row align-items-center g-4">
+                            <div className="col-lg-6">
+                                <p className="hero-eyebrow">Technology with direction</p>
+                                <h1 className="hero-title">
+                                    Turn ideas into
+                                    <span className="hero-title-accent">measurable momentum</span>
+                                </h1>
+                                <p className="hero-typed-label">Get professional</p>
+                                <span className="typed-text" ref={el}></span>
                             </div>
-                            
-                            <div className="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
-                                <a href="#featured-work" className="btn btn-info btn-lg px-4 fw-bold hero-btn-primary">
-                                    View My Work
-                                </a>
-                                <a href="#contact-section" className="btn btn-outline-light btn-lg px-4 hero-btn-secondary">
-                                    Contact Me
-                                </a>
+
+                            <div className="col-lg-6">
+                                <div className="hero-copy">
+                                    <p className="hero-welcome">
+                                        Welcome to <span className="d-inline-block mx-1"><Logo /></span>.
+                                    </p>
+                                    <p>
+                                        I build clear, high-performing digital solutions for businesses ready to work smarter and grow with confidence.
+                                    </p>
+                                    <p>
+                                        From responsive websites and intelligent dashboards to practical automation, your goals stay at the center of every decision.
+                                    </p>
+                                </div>
+
+                                <div className="hero-actions d-flex flex-wrap gap-2">
+                                    <a href="#featured-work" className="btn btn-info btn-lg px-4 fw-bold hero-btn-primary">
+                                        Explore My Work
+                                    </a>
+                                    <a href="#contact-section" className="btn btn-outline-light btn-lg px-4 hero-btn-secondary">
+                                        Start a Conversation
+                                    </a>
+                                </div>
+
+                                <div className="hero-proof-row">
+                                    <span><strong>01</strong> Strategy-led</span>
+                                    <span><strong>02</strong> Built to scale</span>
+                                </div>
+                                <SocialIcons limit={5} FromEnd={false} />
                             </div>
                         </div>
-                        <div>
-                            {/* Social Icons Integrated into the Box */}
-                          <SocialIcons limit={5} FromEnd={false} />
-
-                        </div>
-
-                        
                     </div>
                 </div>
             </div>

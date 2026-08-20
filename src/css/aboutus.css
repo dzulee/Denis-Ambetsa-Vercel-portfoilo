@@ -1,3 +1,74 @@
+.about_us {
+    min-height: 100vh;
+    padding: 7rem 0 4rem;
+    background: transparent;
+    color: #ffffff;
+}
+
+.about-shell {
+    max-width: 1180px;
+}
+
+.about-intro {
+    max-width: 700px;
+}
+
+.about-eyebrow {
+    margin-bottom: 0.75rem;
+    color: #00ced1;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.about-intro h1 {
+    margin-bottom: 1.2rem;
+    color: transparent;
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 0.98;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ffffff 10%, #00ced1 58%, #ffc107 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.about-lead {
+    color: #c5c5c5;
+    font-size: 0.98rem;
+    line-height: 1.85;
+}
+
+.about-lead .fw-bold {
+    color: #00ced1 !important;
+}
+
+.about-profile-frame {
+    padding: 1rem;
+}
+
+.about-profile-outline {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0, 206, 209, 0.7);
+    border-radius: 8px;
+    transform: translate(12px, 12px);
+}
+
+.about-profile-image {
+    z-index: 1;
+    max-width: 350px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    filter: grayscale(18%);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.about-profile-image:hover {
+    filter: grayscale(0%);
+    transform: translateY(-5px);
+}
+
 .about_card {
     background-color: #000;
     color: #dcdcdc;
@@ -80,9 +151,63 @@
 }
 /* Tab container */
 .tab-container{
-    background-color: rgba(255, 255, 255, 0.03);
+    padding: 1.25rem;
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(42, 43, 47, 0.98), rgba(0, 0, 0, 0.98) 24%, #030303 100%);
     border: 1px solid rgba(255, 255, 255, 0.1);
-     backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+}
+
+.about-tabs {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.tab-btn {
+    padding: 0.65rem 0.8rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    color: #808080;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.tab-btn.is-active,
+.tab-btn:hover {
+    border-bottom-color: #00ced1;
+    color: #00ced1;
+}
+
+.education-item {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid #00ced1;
+}
+
+.education-item:last-child { margin-bottom: 0; }
+
+.skill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ced1;
+    box-shadow: 0 0 10px rgba(0, 206, 209, 0.55);
+}
+
+.about-cv-button {
+    border: 0;
+    background: #00ced1;
+    color: #0a0c10;
+}
+
+.about-cv-button:hover {
+    background: #ffc107;
+    color: #0a0c10;
 
 }
 /* Tab Indicators */

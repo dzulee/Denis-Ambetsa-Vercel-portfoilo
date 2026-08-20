@@ -17,17 +17,17 @@ export default function LearnMorePage() {
             </div>
 
             {/* Added 'pt-5 mt-5' to push the button and content below fixed navbar */}
-            <div className="container pt-5 mt-5">
+            <div className="container learn-more-shell">
                 
-                <div className="mb-4 pt-5">
-                    <NavHashLink smooth to="/#services" className="btn btn-outline-warning fw-bold">
-                        ← Back to Services
+                <div className="learn-more-back mb-4">
+                    <NavHashLink smooth to="/#services" className="learn-more-back-link">
+                        &lt;- Back to Services
                     </NavHashLink>
                 </div>
 
                 {/* 1. Website Creation / Design Content */}
                 {(id === "website-creation" || id === "website-design") && (
-                    <div className="animate__animated animate__fadeIn pb-5">
+                    <div className="learn-more-content animate__animated animate__fadeIn pb-5">
                         <h1 className="fw-bold text-warning mb-3">Website Design & Creation</h1>
                         <p className="lead text-light">
                             A modern digital presence removes geographic limits and breaks the perception that your business operates in a silo. It allows you to scale, reach broader audiences, and effectively trigger customer buying intent.
@@ -53,7 +53,7 @@ export default function LearnMorePage() {
 
                 {/* 2. IT Support Content */}
                 {id === "it-support" && (
-                    <div className="animate__animated animate__fadeIn pb-5">
+                    <div className="learn-more-content animate__animated animate__fadeIn pb-5">
                         <h1 className="fw-bold text-warning mb-3">IT Support & System Infrastructure</h1>
                         <p className="lead text-light">
                             Technical downtime costs businesses time and momentum. My IT support services ensure your technological infrastructure remains secure, resilient, and fully operational.
@@ -79,7 +79,7 @@ export default function LearnMorePage() {
 
                 {/* 3. Data Analysis Content */}
                 {id === "data-analysis" && (
-                    <div className="animate__animated animate__fadeIn pb-5">
+                    <div className="learn-more-content animate__animated animate__fadeIn pb-5">
                         <h1 className="fw-bold text-warning mb-3">Data Analytics & Strategic Insights</h1>
                         <p className="lead text-light">
                             <strong>Data without direction is just noise.</strong> Raw information only creates true value when converted into clear, actionable business strategy.
@@ -123,7 +123,7 @@ export default function LearnMorePage() {
 
                 {/* 4. Professional Consultancy Content */}
                 {id === "professional-consultancy" && (
-                    <div className="animate__animated animate__fadeIn pb-5">
+                    <div className="learn-more-content animate__animated animate__fadeIn pb-5">
                         <h1 className="fw-bold text-warning mb-3">Professional Consultancy & Process Optimization</h1>
                         <p className="lead text-light">
                             Continuous improvement is an indispensable mindset. In any organizational strategy or operation, variation exists—making continuous process refinement inevitable to eliminate waste.
@@ -150,7 +150,7 @@ export default function LearnMorePage() {
 
                 {/* Fallback for unrecognized IDs or missing params */}
                 {(!id || !validIds.includes(id)) && (
-                    <div className="py-5 text-center">
+                    <div className="learn-more-content learn-more-empty py-5 text-center">
                         <h1 className="text-light">Service Not Found</h1>
                         <p className="text-secondary">The requested service detail page could not be located.</p>
                         <NavHashLink to="/#services" className="btn btn-warning mt-3">Back to Services</NavHashLink>
