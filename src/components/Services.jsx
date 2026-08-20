@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/service.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 
 export function Services() {
@@ -44,34 +44,39 @@ export function Services() {
      return (
         <section className="service-section position-relative" id="services">
             <div className="container position-relative py-3" style={{ zIndex: 1 }}>
-                <h2 className="bookus-call text-center mb-2 fw-bold text-white">Book Us Now For Our Services</h2>
-                <p className="text-center mb-3 text-light">For tailored solutions for your digital needs.</p>
+                <div className="service-heading text-center">
+                    <p className="service-eyebrow">Built around your next move</p>
+                    <h2 className="bookus-call">Services that move business forward</h2>
+                    <p className="service-intro">Practical technology, thoughtful strategy, and dependable support for ambitious teams.</p>
+                </div>
 
-                {/* Updated Row with specific responsive column widths */}
                 <div className="row g-4">
-                    {serviceList.map((service) => (
+                    {serviceList.map((service, index) => (
                         <div className="col-12 col-md-6 col-lg-3 d-flex" key={service.id}
                         data-aos="fade-up" 
                       data-aos-delay='0.2s'>
-                            <div className="card service-card shadow-sm border-0 text-center p-3 w-100 h-100 d-flex flex-column">
-                                <div className="img-container mb-3">
-                                    <img src={service.img} className="card-img-top rounded shadow-sm" alt={service.title} />
+                            <div className="card service-card text-white w-100 h-100 d-flex flex-column">
+                                <div className="service-card-topline">
+                                    <span>0{index + 1}</span>
+                                    <span>Digital service</span>
                                 </div>
-                                <div className="card-body d-flex flex-column p-0">
-                                    <h3 className="h5 fw-bold text-white">{service.title}</h3>
-                                    <p className="card-text mb-4">{service.text}</p>
+                                <div className="img-container">
+                                    <img src={service.img} className="card-img-top" alt={service.title} />
+                                </div>
+                                <div className="card-body d-flex flex-column">
+                                    <h3>{service.title}</h3>
+                                    <p className="service-card-text">{service.text}</p>
                                     
-                                    <div className="mt-auto d-grid gap-2">
-                                        <NavHashLink smooth to="/#contact-section" className="btn btn-info fw-bold text-dark" style={{backgroundColor: '#00CED1', border: 'none'}}>
+                                    <div className="service-actions mt-auto">
+                                        <NavHashLink smooth to="/#contact-section" className="service-cta">
                                             Book This Service
                                         </NavHashLink>
                                         
                                         <button 
                                             onClick={() => handleLearnMore(service.title)} 
-                                            className="btn btn-link btn-sm text-decoration-none"
-                                            style={{ color: '#00CED1' }}
+                                            className="service-learn-more"
                                         >
-                                            Learn More →
+                                            Learn More <span aria-hidden="true">-&gt;</span>
                                         </button>
                                     </div>
                                 </div>
