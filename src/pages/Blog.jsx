@@ -50,6 +50,13 @@ const Blog = () => {
   const currentPosts = posts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
   const totalPages = Math.ceil(posts.length / postsPerPage);
 
+  const getStoryParagraphs = (story = '') => (
+    story
+      .split(/\r?\n\s*\r?\n|\r?\n/)
+      .map(paragraph => paragraph.trim())
+      .filter(Boolean)
+  );
+
   if (loading) return <div className="text-center text-white p-5">Loading stories...</div>;
 
   if (error) {
@@ -77,17 +84,33 @@ const Blog = () => {
         <div className="row g-4 justify-content-center">
           {currentPosts.map((post) => (
             <div className="col-lg-10" key={post.rowId}>
-              <article className="blog-content-box mb-4 shadow" style={blogControllers.getBackgroundStyle(post)}>
-                <div className="blog-post-kicker">Field note</div>
-                <h2>{post.title}</h2>
-                
-                <div style={{ maxHeight: expandedPosts[post.rowId] ? 'none' : '150px', overflow: 'hidden', position: 'relative' }}>
-                  <p className="lead" style={{ whiteSpace: "pre-wrap" }}>{post.story}</p>
-                </div>
+              <article className="blog-content-box mb-4 shadow">
+                <div className="blog-post-grid">
+                  <div className="blog-post-media">
+                    {post.imageUrl ? (
+                      <img src={post.imageUrl} alt="" className="blog-post-image" />
+                    ) : (
+                      <div className="blog-post-image blog-post-image-fallback" aria-hidden="true">
+                        <span>Ambetsa Tech</span>
+                      </div>
+                    )}
+                  </div>
 
-                <button className="blog-read-more" onClick={() => setExpandedPosts(prev => ({ ...prev, [post.rowId]: !prev[post.rowId] }))}>
-                  {expandedPosts[post.rowId] ? "Show Less ↑" : "Read More ↓"}
-                </button>
+                  <div className="blog-post-body">
+                    <div className="blog-post-kicker">Field note</div>
+                    <h2>{post.title}</h2>
+
+                    <div className={`blog-story ${expandedPosts[post.rowId] ? 'is-expanded' : ''}`}>
+                      {getStoryParagraphs(post.story).map((paragraph, index) => (
+                        <p className="lead" key={`${post.rowId}-paragraph-${index}`}>{paragraph}</p>
+                      ))}
+                    </div>
+
+                    <button className="blog-read-more" onClick={() => setExpandedPosts(prev => ({ ...prev, [post.rowId]: !prev[post.rowId] }))}>
+                      {expandedPosts[post.rowId] ? "Show Less ↑" : "Read More ↓"}
+                    </button>
+                  </div>
+                </div>
 
                 <div className="interaction-area">
                   <div className="d-flex flex-column flex-md-row gap-3">
