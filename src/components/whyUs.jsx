@@ -9,8 +9,8 @@ import integrityIcon from '../assets/integrity.png';
 function WhyUs() {
   const reasons = [
     {
-      icon: efficiencyIcon,
       title: "Expertise",
+      icon: efficiencyIcon,
       description: "Our team of professionals brings extensive experience and knowledge to every project."
     },
     {
@@ -58,9 +58,30 @@ function WhyUs() {
           ))}
       
         </div>
-  
+        <div className="pricing-divider" />
+        <div className="why-us-trust row align-items-center mt-4">
+          <div className="col-lg-5">
+            <p className="why-us-trust-eyebrow">Our promise</p>
+            <h2 className="why-us-trust-title">
+              Trust built
+              <span>on excellence</span>
+            </h2>
+          </div>
+          <div className="col-lg-7">
+            <div className="why-us-trust-copy">
+              <p>
+                Every project deserves thoughtful strategy, clear communication, and work that stands up to scrutiny.
+              </p>
+              <p>
+                We turn your goals into dependable digital solutions, keeping you informed from the first conversation to the final result.
+              </p>
+              <p>
+                With practical expertise and lasting support, we help you move forward with confidence.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-     
     </div>
   );
 }

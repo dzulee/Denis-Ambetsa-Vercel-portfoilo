@@ -152,6 +152,59 @@
     background: rgba(255, 255, 255, 0.18);
 }
 
+.why-us-trust {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 1.4rem 0 0.5rem;
+    text-align: left;
+}
+
+.why-us-trust-eyebrow {
+    margin-bottom: 0.7rem;
+    color: #00ced1;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.why-us-trust-title {
+    max-width: 370px;
+    margin: 0;
+    color: transparent;
+    font-size: clamp(2.1rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 0.98;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ffffff 12%, #00ced1 52%, #ffc107 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.why-us-trust-title span {
+    display: block;
+}
+
+.why-us-trust-copy {
+    max-width: 620px;
+    padding-left: clamp(0rem, 4vw, 2.8rem);
+    border-left: 1px solid rgba(0, 206, 209, 0.45);
+}
+
+.why-us-trust-copy p {
+    margin: 0 0 1rem;
+    color: #e1e1e1;
+    font-size: 0.92rem;
+    line-height: 1.75;
+}
+
+.why-us-trust-copy p:last-child {
+    margin-bottom: 0;
+    color: #ffffff;
+    font-weight: 600;
+}
+
 .pricing-description {
     color: #d5d5d5;
     font-size: 0.78rem;
@@ -181,5 +234,13 @@
 @media (max-width: 991.98px) {
     .pricing-card {
         min-height: 340px;
+    }
+
+    .why-us-trust-copy {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        padding-left: 0;
+        border-top: 1px solid rgba(0, 206, 209, 0.45);
+        border-left: 0;
     }
 }
