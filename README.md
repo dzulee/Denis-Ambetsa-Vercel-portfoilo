@@ -1,113 +1,156 @@
 # Denis Ambetsa Portfolio
+# Denis Ambetsa Portfolio
+Personal portfolio and professional services website for **Denis Ambetsa**, a full-stack developer, data analyst, and technology consultant based in Kenya. The site presents web development services, business intelligence work, IT support, consulting, selected projects, articles, and contact options in a responsive React application.
 
-This is a modern React + Vite portfolio website for Denis Ambetsa, showcasing professional services, featured projects, contact information, a blog section, and an interactive contact form with email verification.
+**Live website:** [ambetsatech.vercel.app](https://ambetsatech.vercel.app)
 
-## Overview
+## Highlights
 
-The site is designed to present a personal brand and professional services in a polished, responsive, and fast-loading experience. It includes:
+- Responsive portfolio experience for desktop and mobile screens
+- Service pages for website creation, IT support, data analysis, and consultancy
+- Project showcase with Power BI dashboard examples
+- Blog powered by a Google Apps Script data source
+- Validated contact form with email and OTP verification flows
+- Route-aware page titles, descriptions, canonical URLs, Open Graph metadata, and JSON-LD structured data
+- Vercel-ready production build with SPA rewrites and static SEO files
 
-- A hero section with a strong introduction
-- Service and project showcases
-- About and mission/value sections
-- A blog section for published content
-- A contact form with OTP/email verification
-- Responsive layout for desktop and mobile devices
+## Technology
 
-## Tech Stack
+- [React](https://react.dev/) 19
+- [Vite](https://vite.dev/) 7
+- [React Router](https://reactrouter.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Leaflet](https://react-leaflet.js.org/)
+- [Bootstrap](https://getbootstrap.com/), Sass, and custom CSS
+- AOS for scroll animations
+- React Toastify for user notifications
+- Vercel for hosting and deployment
 
-- React
-- Vite
-- React Router
-- React Hook Form
-- React Toastify
-- Bootstrap styling and custom CSS
-- Vercel deployment
+## Site Routes
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Home page with hero, services, projects, and contact sections |
+| `/about` | About, mission, values, and professional background |
+| `/blog` | Published articles and insights |
+| `/learn-more/web-creation` | Website design and development services |
+| `/learn-more/it-support` | IT support and infrastructure services |
+| `/learn-more/data-analysis` | Data analysis and business intelligence services |
+| `/learn-more/professional-consultancy` | Consultancy and process optimization services |
+| `/powerbi/sales-dashboard` | Sales dashboard project view |
+| `/powerbi/car-models-dashboard` | Car models dashboard project view |
 
 ## Project Structure
 
-- src/components: reusable UI sections such as Navbar, Hero, Projects, Services, Footer, and Contact form
-- src/pages: route-based pages including Home, About Us, Blog, Learn More, and Not Found
-- src/css: page-level and component-level styling
-- public: static assets such as robots.txt and sitemap.xml
-
-## Features
-
-- Fast Vite-powered development experience
-- Responsive and visually rich portfolio layout
-- Contact form with validation and OTP-based email verification
-- SEO-friendly metadata and static assets
-- Smooth navigation across multiple sections and pages
+```text
+.
+├── public/                 # Static files, sitemap, robots.txt, and verification files
+├── scripts/                # Optional prerendering script
+├── src/
+│   ├── assets/             # Images, video, and other imported assets
+│   ├── components/         # Reusable page sections and UI components
+│   ├── controllers/        # External data and blog integrations
+│   ├── css/                # Feature-specific stylesheets
+│   ├── pages/              # Route-level page components
+│   ├── ui/                 # Shared UI primitives
+│   ├── App.jsx             # Routing, metadata, and application shell
+│   └── main.jsx            # React entry point
+├── index.html
+├── package.json
+├── vercel.json             # Redirects and SPA fallback rewrite
+└── vite.config.js
+```
 
 ## Getting Started
 
-### Prerequisites
+### Requirements
 
-Make sure you have the following installed:
-
-- Node.js (recommended: v18 or newer)
-- npm
+- Node.js 18 or newer
+- npm 9 or newer
 
 ### Installation
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/dzulee/Denis-Ambetsa-Vercel-portfoilo.git
-   ```
+```bash
+git clone https://github.com/dzulee/Denis-Ambetsa-Vercel-portfoilo.git
+cd Denis-Ambetsa-Vercel-portfoilo
+npm install
+```
 
-2. Navigate into the project folder
-   ```bash
-   cd Denis-Ambetsa-Vercel-portfoilo
-   ```
-
-3. Install dependencies
-   ```bash
-   npm install
-   ```
-
-4. Start the development server
-   ```bash
-   npm run dev
-   ```
-
-5. Open the local URL shown in the terminal, usually:
-   ```bash
-   http://localhost:5173/
-   ```
-
-## Environment Variables
-
-This project uses environment variables for its contact and OTP services.
-
-Create a .env file in the project root and add the following variables:
+Create a local `.env` file in the project root before testing integrations:
 
 ```env
 VITE_CONTACT_SCRIPT_URL=your_contact_form_script_url
 VITE_OTP_SCRIPT_URL=your_otp_service_script_url
+VITE_GOOGLE_SCRIPT_URL=your_google_apps_script_url
 ```
 
-> The .env file is ignored by Git to protect sensitive values.
+Start the development server:
 
-## Build for Production
+```bash
+npm run dev
+```
 
-Run:
+Vite will print the local URL, normally `http://localhost:5173`.
+
+## Available Commands
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create the production bundle in `dist/` |
+| `npm run preview` | Preview the production bundle locally |
+| `npm run lint` | Run ESLint across the project |
+| `npm run prerender` | Optionally prerender routes with Playwright locally |
+
+The default Vercel build intentionally runs `vite build` only. The optional Playwright prerender command requires a compatible local browser environment and is not required for deployment because Vercel serves the SPA through the rewrite in `vercel.json`.
+
+## Environment Variables
+
+All client-side variables must use the `VITE_` prefix because they are read through `import.meta.env` by Vite.
+
+| Variable | Used for |
+| --- | --- |
+| `VITE_CONTACT_SCRIPT_URL` | Contact form submission endpoint |
+| `VITE_OTP_SCRIPT_URL` | OTP verification endpoint for the contact flow |
+| `VITE_GOOGLE_SCRIPT_URL` | Blog content endpoint |
+
+Do not commit `.env` files or private credentials. Configure these values in the Vercel project settings for production deployments.
+
+## Production Build
+
+Build and preview the application locally:
 
 ```bash
 npm run build
+npm run preview
 ```
 
-The production build will be generated in the dist folder.
+The generated files are written to `dist/`. The build may report a Vite warning about large JavaScript chunks; this is informational and does not fail the build.
 
 ## Deployment
 
-The site is configured for deployment on Vercel.
+This project is configured for Vercel:
 
-To deploy:
+1. Import the GitHub repository into Vercel.
+2. Select the `main` branch for production deployments.
+3. Add the three `VITE_` environment variables in **Project Settings > Environment Variables**.
+4. Use `npm run build` as the build command.
+5. Deploy.
 
-1. Push the repository to GitHub
-2. Import the project into Vercel
-3. Set the environment variables in the Vercel dashboard
-4. Deploy the application
+The included `vercel.json` provides redirects for legacy service URLs and rewrites application routes to `index.html` for client-side routing.
+
+## Contributing
+
+1. Create a feature branch from `main`.
+2. Make focused changes that match the existing component and styling patterns.
+3. Run `npm run lint` and `npm run build`.
+4. Open a pull request with a clear description of the change.
 
 ## License
 
-This project is for personal/professional portfolio use.
+This repository represents a personal and professional portfolio. Contact the author before reusing branding, personal content, images, or portfolio materials.
+
+## Contact
+
+- Website: [ambetsatech.vercel.app](https://ambetsatech.vercel.app)
+- GitHub: [dzulee](https://github.com/dzulee)
