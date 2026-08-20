@@ -9,8 +9,8 @@ const navigationLinks = [
   { text: 'Pricing', navigationTo: '/#pricing', id: 'pricing' },
   { text: 'Why Us', navigationTo: '/#why-us', id: 'why-us' },
   { text: 'Services', navigationTo: '/#services', id: 'services' },
-  { text: 'Contact US', navigationTo: '/#contact-section', id: 'contact-section' },
-  { text: 'Blog', navigationTo: '/blog', id: 'blog' }
+  { text: 'Blog', navigationTo: '/blog', id: 'blog' },
+  { text: 'Contact US', navigationTo: '/#contact-section', id: 'contact-section' }
 ];
 
 export function NavigationLinks({ 

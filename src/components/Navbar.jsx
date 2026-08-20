@@ -64,7 +64,7 @@ export function Navbar() {
   
   <div className="collapse navbar-collapse d-flex flex-grow-1" id="navbarNav">
     <NavigationLinks 
-      limit={7}
+      limit={8}
       fromEnd={false} 
       containerClass="d-flex align-items-center gap-4 mb-0 w-100 justify-content-center ms-lg-5 ps-lg-5" 
     />
