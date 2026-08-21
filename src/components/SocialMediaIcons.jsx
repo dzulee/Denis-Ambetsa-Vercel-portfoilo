@@ -23,7 +23,7 @@ const icons=[
     },
      {
         name: "E-Mail",
-        link: "mailto:denis.ambetsa63@gmail.com",
+        link: "mailto:dennisambesa63@gmail.com",
         socialIcon: mailIcon 
     },
     {

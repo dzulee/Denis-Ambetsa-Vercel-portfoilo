@@ -59,7 +59,7 @@ export function Services() {
                                     <span>Digital service</span>
                                 </div>
                                 <div className="img-container">
-                                    <img src={service.img} className="card-img-top" alt={service.title} />
+                                    <img src={service.img} className="card-img-top" alt={service.title} loading="lazy" decoding="async" />
                                 </div>
                                 <div className="card-body d-flex flex-column">
                                     <h3>{service.title}</h3>

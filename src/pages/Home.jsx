@@ -46,7 +46,7 @@ export default function Home() {
     return (
         <div style={{ backgroundColor: 'transparent' }}>
             <section id="Hero" style={{ backgroundColor: 'transparent', position: 'relative', overflow: 'hidden', minHeight: '100vh', paddingTop: '0', paddingBottom: '0', marginTop: '0' }}>
-                <video className="section-video-background" autoPlay loop muted playsInline>
+                <video className="section-video-background" autoPlay loop muted playsInline preload="none">
                     <source src={backgroundVideo} type="video/mp4" />
                 </video>
                 <div className="section-video-overlay" />
@@ -56,7 +56,7 @@ export default function Home() {
 
             {/* Change id to "featured-work" to match your Navbar links */}
             <section id="featured-work" style={{ ...sectionStyle, minHeight: '100vh', paddingTop: '1rem' }}>
-                <video className="section-video-background featured-work-video" autoPlay loop muted playsInline preload="auto">
+                <video className="section-video-background featured-work-video" autoPlay loop muted playsInline preload="none">
                     <source src={backgroundVideo} type="video/mp4" />
                 </video>
                 <div className="section-video-overlay featured-work-overlay" />
@@ -65,14 +65,14 @@ export default function Home() {
 
             {/* IMPORTANT: Added the id "services" here */}
             <section id="services" className="py-0" style={{ ...sectionStyle, margin: '0', padding: '0', minHeight: '72vh', paddingTop: '1rem' }}>
-                <video className="section-video-background" autoPlay loop muted playsInline>
+                <video className="section-video-background" autoPlay loop muted playsInline preload="none">
                     <source src={backgroundVideo} type="video/mp4" />
                 </video>
                 <div className="section-video-overlay" />
                 <Services />
             </section>
             <section id="why-us" className="py-0" style={{ ...sectionStyle, margin: '0', padding: '0', minHeight: '72vh', paddingTop: '1rem' }}>
-                <video className="section-video-background" autoPlay loop muted playsInline>
+                <video className="section-video-background" autoPlay loop muted playsInline preload="none">
                     <source src={backgroundVideo} type="video/mp4" />
                 </video>
                 <div className="section-video-overlay" />
@@ -85,7 +85,7 @@ export default function Home() {
 
             {/* Change id to "contact-section" to match your Navbar links */}
             <section id="contact-section" style={{ ...sectionStyle, margin: '0', padding: '0', minHeight: '72vh', paddingTop: '1rem' }}>
-                <video className="section-video-background" autoPlay loop muted playsInline>
+                <video className="section-video-background" autoPlay loop muted playsInline preload="none">
                     <source src={backgroundVideo} type="video/mp4" />
                 </video>
                 <div className="section-video-overlay" />

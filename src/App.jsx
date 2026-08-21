@@ -144,7 +144,7 @@ function JsonLdSchema() {
       image: `${siteUrl}/Ambetsa.jpeg`,
       url: siteUrl,
       description: 'AmbetsaTech provides web development, business intelligence, IT support, and consultancy services for modern businesses.',
-      email: 'denis.ambetsa63@gmail.com',
+      email: 'dennisambesa63@gmail.com',
       telephone: '+254769579340',
       areaServed: 'Kenya',
       priceRange: '$$',
@@ -304,7 +304,7 @@ function App() {
   return (
     <div className="app-shell">
       <div className="app-video-layer">
-        <video className="app-video-background" autoPlay loop muted playsInline>
+        <video className="app-video-background" autoPlay loop muted playsInline preload="metadata">
           <source src={backgroundVideo} type="video/mp4" />
         </video>
         <div className="app-video-overlay" />

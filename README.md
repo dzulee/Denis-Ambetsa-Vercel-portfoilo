@@ -97,12 +97,12 @@ Vite will print the local URL, normally `http://localhost:5173`.
 | Command | Description |
 | --- | --- |
 | `npm run dev` | Start the Vite development server |
-| `npm run build` | Create the production bundle in `dist/` |
+| `npm run build` | Create and prerender the production bundle in `dist/` |
 | `npm run preview` | Preview the production bundle locally |
 | `npm run lint` | Run ESLint across the project |
 | `npm run prerender` | Optionally prerender routes with Playwright locally |
 
-The default Vercel build intentionally runs `vite build` only. The optional Playwright prerender command requires a compatible local browser environment and is not required for deployment because Vercel serves the SPA through the rewrite in `vercel.json`.
+The Vercel build runs Vite and prerenders the canonical routes with Playwright so search engines receive route content and metadata in the initial HTML.
 
 ## Environment Variables
 
@@ -147,7 +147,7 @@ This project is configured for Vercel:
 1. Import the GitHub repository into Vercel.
 2. Select the `main` branch for production deployments.
 3. Add the three `VITE_` environment variables in **Project Settings > Environment Variables**.
-4. Use `npm run build` as the build command.
+4. Use `npm run build` as the build command and ensure the Vercel build environment can install Playwright Chromium.
 5. Deploy.
 
 The included `vercel.json` provides redirects for legacy service URLs and rewrites application routes to `index.html` for client-side routing.

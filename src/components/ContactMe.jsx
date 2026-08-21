@@ -229,13 +229,9 @@ const ContactForm = () => {
                   <div>
                     <a href="mailto:dennisambesa63@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa63@gmail.com</a>
                   </div>
-                  <div>
-                    <a href="mailto:dennisambesa36@gmail.com"><i className="fa fa-envelope-square me-2"></i> dennisambesa36@gmail.com</a>
-                  </div>
                 </div>
                 <div className='card-detail text-white'>
                   <h3>Phone</h3>
-                  <div><a href="tel:+254799964580"><i className="fa fa-phone me-2"></i> +254 799 964 580</a></div>
                   <div><a href="tel:+254769579340"><i className="fa fa-phone me-2"></i> +254 769 579 340</a></div>
                 </div>
               </div>

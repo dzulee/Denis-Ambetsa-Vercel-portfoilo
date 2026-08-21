@@ -16,6 +16,7 @@ const PowerBi = () => {
         width="100%"
         height="500px"
         src={dashboard.url}
+        loading="lazy"
         frameBorder="0"
         allowFullScreen={true}>
       </iframe>
