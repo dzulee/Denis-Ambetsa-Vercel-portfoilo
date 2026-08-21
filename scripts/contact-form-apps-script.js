@@ -80,8 +80,11 @@ function sendWhatsAppNotification(submission) {
   try {
     var response = UrlFetchApp.fetch(url, { method: 'get', muteHttpExceptions: true });
     var statusCode = response.getResponseCode();
-    if (statusCode < 200 || statusCode >= 300) {
-      console.error('WhatsApp notification returned HTTP ' + statusCode + '.');
+    var responseBody = response.getContentText();
+    console.log('CallMeBot response (' + statusCode + '): ' + responseBody);
+
+    if (statusCode < 200 || statusCode >= 300 || /error|invalid|failed|denied/i.test(responseBody)) {
+      console.error('WhatsApp notification was rejected. HTTP ' + statusCode + ': ' + responseBody);
       return false;
     }
     return true;
