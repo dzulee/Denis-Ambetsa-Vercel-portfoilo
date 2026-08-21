@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css/featured-work.css';
-import { DashboardData } from './PowerBiDashboards';
+import { DashboardData } from '../data/dashboardData';
 
 
 export function Projects() {

@@ -16,8 +16,8 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 const pageMeta = {
   '/': {
-    title: 'Denis Ambetsa | Full Stack Developer & Data Analyst in Kenya',
-    description: 'Denis Ambetsa builds fast, modern websites and data-driven business solutions for startups and growing brands in Kenya and beyond.'
+    title: 'AmbetsaTech | Web Development, Data Analysis & IT Support in Kenya',
+    description: 'AmbetsaTech builds high-performing websites, Power BI dashboards, and practical IT solutions for businesses in Kenya and beyond.'
   },
   '/about': {
     title: 'About Denis Ambetsa | Web Developer, Data Analyst & Consultant',
@@ -79,6 +79,7 @@ function SeoMeta() {
   useEffect(() => {
     const pathname = location.pathname;
     const meta = pageMeta[pathname] || pageMeta['/'];
+    const siteUrl = 'https://ambetsatech.vercel.app';
 
     document.title = meta.title;
 
@@ -91,7 +92,7 @@ function SeoMeta() {
     descriptionMeta.setAttribute('content', meta.description);
 
     const canonical = document.querySelector('link[rel="canonical"]');
-    const url = `https://ambetsatech.vercel.app${pathname === '/' ? '' : pathname}`;
+    const url = `${siteUrl}${pathname === '/' ? '' : pathname}`;
     if (canonical) {
       canonical.setAttribute('href', url);
     }
@@ -99,10 +100,16 @@ function SeoMeta() {
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    const twitterImage = document.querySelector('meta[name="twitter:image"]');
 
     if (ogTitle) ogTitle.setAttribute('content', meta.title);
     if (ogDescription) ogDescription.setAttribute('content', meta.description);
     if (ogUrl) ogUrl.setAttribute('content', url);
+    if (twitterTitle) twitterTitle.setAttribute('content', meta.title);
+    if (twitterDescription) twitterDescription.setAttribute('content', meta.description);
+    if (twitterImage) twitterImage.setAttribute('content', `${siteUrl}/Ambetsa.jpeg`);
   }, [location.pathname]);
 
   return null;
@@ -114,15 +121,6 @@ function JsonLdSchema() {
   useEffect(() => {
     const pathname = location.pathname;
     const siteUrl = 'https://ambetsatech.vercel.app';
-    const baseSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Denis Ambetsa',
-      jobTitle: 'Full Stack Developer & Data Analyst',
-      url: siteUrl,
-      description: 'Denis Ambetsa builds modern websites, dashboards, and data-driven business solutions for startups and growing brands in Kenya and beyond.'
-    };
-
     const faqQuestions = [
       {
         question: 'What services does Denis Ambetsa offer?',
@@ -140,13 +138,14 @@ function JsonLdSchema() {
 
     let schema = {
       '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Denis Ambetsa',
+      '@type': 'ProfessionalService',
+      name: 'AmbetsaTech',
+      alternateName: 'Ambetsa Tech',
       image: `${siteUrl}/Ambetsa.jpeg`,
       url: siteUrl,
-      description: 'Denis Ambetsa provides web development, business intelligence, IT support, and consultancy services for modern businesses.',
-      email: 'ambetsadenis@gmail.com',
-      telephone: '+254700000000',
+      description: 'AmbetsaTech provides web development, business intelligence, IT support, and consultancy services for modern businesses.',
+      email: 'denis.ambetsa63@gmail.com',
+      telephone: '+254769579340',
       areaServed: 'Kenya',
       priceRange: '$$',
       founder: {
@@ -155,8 +154,10 @@ function JsonLdSchema() {
         jobTitle: 'Full Stack Developer & Data Analyst'
       },
       sameAs: [
-        'https://www.linkedin.com',
-        'https://github.com'
+        'https://www.linkedin.com/in/denis-ambetsa/',
+        'https://github.com/dzulee',
+        'https://x.com/ambetsa_dennis',
+        'https://www.youtube.com/@dennisambetsa1588'
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
