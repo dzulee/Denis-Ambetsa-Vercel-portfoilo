@@ -13,7 +13,9 @@ export function Footer() {
                     
                     {/* Brand & Socials Section */}
                     <div className="footer-brand text-center text-md-start">
-                        <img src="/logo2.png" alt="Ambetsa Tech logo" width="80" height="80" className="wg2l mb-2" />
+                        <div className="footer-logo-frame">
+                            <img src="/logo2.png" alt="Ambetsa Tech logo" className="wg2l" />
+                        </div>
                         <p className="footer-eyebrow">Ambetsa Tech</p>
                         <h2 className="textback">We Don&apos;t Get 2 Lose</h2>
                         <p className="footer-tagline">Clear strategy. Better technology. Measurable progress.</p>

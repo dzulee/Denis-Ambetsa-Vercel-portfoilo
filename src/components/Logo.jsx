@@ -2,10 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import '../css/navbar.css'
 export function Logo({ className = "logo" }) {
-  return(
-    <div>
-         <NavLink className="logo navbar-brand " to="/" ><span>A</span>MBETSA TECH</NavLink>
-    </div>
-  )
+  const logoClassName = ['logo', className].filter(Boolean).join(' ');
+
+  return (
+    <NavLink className={logoClassName} to="/" aria-label="Ambetsa Tech home">
+      <img className="logo-image" src="/logo2.png" alt="Ambetsa Tech" />
+    </NavLink>
+  );
 
 }

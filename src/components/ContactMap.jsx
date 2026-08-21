@@ -15,7 +15,7 @@ export function ContactMap() {
         />
         <Marker position={position}>
           <Popup>
-            {<Logo/>} is based here! 🇰🇪 <br /> Open for collaborations.
+            <Logo className="logo--popup" /> is based here! 🇰🇪 <br /> Open for collaborations.
           </Popup>
         </Marker>
       </MapContainer>

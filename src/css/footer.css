@@ -15,22 +15,31 @@
     align-items: start;
 }
 
-.wg2l {
-    display: block;
+.footer-logo-frame {
+    display: inline-flex;
     width: 124px;
-    height: auto;
-    margin-bottom: 0.85rem !important;
-    padding: 0.45rem;
+    height: 108px;
+    margin-bottom: 0.85rem;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
     border: 1px solid rgba(0, 206, 209, 0.55);
     border-radius: 12px;
     background: #071114;
     box-shadow: 0 0 24px rgba(0, 206, 209, 0.18);
-    filter: invert(1) contrast(1.08);
-    object-fit: contain;
     transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.wg2l:hover {
+.wg2l {
+    display: block;
+    width: 150px;
+    height: auto;
+    transform: translateX(9px);
+    filter: invert(1) contrast(1.08);
+    object-fit: contain;
+}
+
+.footer-logo-frame:hover {
     transform: translateY(-3px) rotate(-1deg);
     box-shadow: 0 0 30px rgba(0, 206, 209, 0.3);
 }
@@ -105,7 +114,7 @@
     .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
     .footer-brand,
     .footer-links { text-align: center; }
-    .wg2l { margin-right: auto; margin-left: auto; }
+    .footer-logo-frame { margin-right: auto; margin-left: auto; }
     .footer-tagline { margin-right: auto; margin-left: auto; }
     .footer-links .navigation-links { align-items: center; }
 }

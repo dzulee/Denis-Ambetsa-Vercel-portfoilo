@@ -42,7 +42,7 @@ export function Heroes() {
                             <div className="col-lg-6">
                                 <div className="hero-copy">
                                     <p className="hero-welcome">
-                                        Welcome to <span className="d-inline-block mx-1"><Logo /></span>.
+                                        Welcome to <span className="d-inline-block mx-1"><Logo className="logo--inline" /></span>.
                                     </p>
                                     <p>
                                         I build clear, high-performing digital solutions for businesses ready to work smarter and grow with confidence.

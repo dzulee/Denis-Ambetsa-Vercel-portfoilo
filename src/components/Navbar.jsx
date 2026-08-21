@@ -44,7 +44,7 @@ export function Navbar() {
         {/* MOBILE VIEW LOGIC */}
         <div className="d-lg-none d-flex align-items-center w-100">
           <div className="d-flex justify-content-between w-100 align-items-center">
-            <Logo className="navbar-brand" />
+            <Logo className="navbar-brand logo--nav" />
             <button 
               type="button"
               className="navbar-toggler border-0" 
@@ -60,7 +60,7 @@ export function Navbar() {
 
 {/* DESKTOP VIEW LOGIC */}
 <div className="d-none d-lg-flex align-items-center w-100">
-  <Logo className="navbar-brand me-4" />
+  <Logo className="navbar-brand logo--nav me-4" />
   
   <div className="collapse navbar-collapse d-flex flex-grow-1" id="navbarNav">
     <NavigationLinks 

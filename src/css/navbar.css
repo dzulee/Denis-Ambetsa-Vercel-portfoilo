@@ -1,22 +1,59 @@
 
 
 .logo{
-   font-family: Verdana;
-   font-size: 1.5rem;
-   font-weight: 500px;
-  letter-spacing: 2px;
-  text-decoration: none;
- 
-}.logo span {
-   font-size: 2.5rem;
-   font-weight: bold;
-    color: #e5b565;
-     font-family: Verdana;
-     position: relative;
-     top: 0.3rem;
+   display: inline-flex;
+   width: 108px;
+   height: 46px;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+   border: 1px solid rgba(0, 206, 209, 0.55);
+   border-radius: 9px;
+   background: #071114;
+   box-shadow: 0 0 16px rgba(0, 206, 209, 0.16);
+   text-decoration: none;
+   transition: transform 180ms ease, box-shadow 180ms ease;
+}
 
-}.collapsed-navLinks{
+.logo:hover,
+.logo:focus-visible {
+   transform: translateY(-2px);
+   box-shadow: 0 0 22px rgba(0, 206, 209, 0.3);
+}
+
+.logo-image {
+   display: block;
+   width: 122px;
+   height: auto;
+   transform: translateX(4px);
+   filter: invert(1) contrast(1.08);
+}
+
+.logo--inline {
+   width: 88px;
+   height: 40px;
+   vertical-align: middle;
+}
+
+.logo--inline .logo-image {
+   width: 102px;
+   transform: translateX(3px);
+}
+
+.logo--popup {
+   width: 100px;
+   height: 52px;
+   margin-bottom: 0.35rem;
+}
+
+.logo--popup .logo-image {
+   width: 112px;
+   transform: translateX(3px);
+}
+
+.collapsed-navLinks{
    flex-direction: column;
+   align-items: stretch !important;
    background-color: rgba(0, 0, 0, 0.98) !important;
    position: fixed !important;
    top: 0 !important;
@@ -34,6 +71,38 @@
 /* Ensure the mobile menu overlay is the topmost element on the page */
 body .collapsed-navLinks {
    z-index: 2147483647 !important;
+}
+
+.collapsed-navLinks > div {
+   width: min(100%, 420px);
+   margin: 0 auto;
+}
+
+.collapsed-navLinks .list-unstyled {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   gap: 0.7rem !important;
+}
+
+.collapsed-navLinks .nav-item {
+   margin: 0 !important;
+}
+
+.collapsed-navLinks .navigation-links {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+   padding: 0.8rem 1rem;
+   border: 1px solid rgba(255, 255, 255, 0.12);
+   border-radius: 8px;
+   background: rgba(255, 255, 255, 0.05);
+   font-size: 1rem;
+}
+
+.collapsed-navLinks .nav-btn-contact {
+   border-color: #e5b565;
+   background: #e5b565 !important;
 }
 
 .navbar.fixed-top {
