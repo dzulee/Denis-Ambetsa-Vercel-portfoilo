@@ -2,8 +2,8 @@
 
 .logo{
    display: inline-flex;
-   width: 108px;
-   height: 46px;
+   width: 78px;
+   height: 68px;
    align-items: center;
    justify-content: center;
    overflow: hidden;
@@ -23,32 +23,29 @@
 
 .logo-image {
    display: block;
-   width: 122px;
+   width: 100%;
    height: auto;
-   transform: translateX(4px);
    filter: invert(1) contrast(1.08);
 }
 
 .logo--inline {
-   width: 88px;
-   height: 40px;
+   width: 82px;
+   height: 72px;
    vertical-align: middle;
 }
 
 .logo--inline .logo-image {
-   width: 102px;
-   transform: translateX(3px);
+   width: 100%;
 }
 
 .logo--popup {
    width: 100px;
-   height: 52px;
+   height: 87px;
    margin-bottom: 0.35rem;
 }
 
 .logo--popup .logo-image {
-   width: 112px;
-   transform: translateX(3px);
+   width: 100%;
 }
 
 .collapsed-navLinks{
@@ -179,3 +176,10 @@ body .collapsed-navLinks {
 }
 
 .mobile-menu-back:hover { color: #00ced1; }
+
+@media (max-width: 991.98px) {
+   .logo--nav {
+      width: 68px;
+      height: 58px;
+   }
+}

@@ -32,9 +32,8 @@
 
 .wg2l {
     display: block;
-    width: 150px;
+    width: 100%;
     height: auto;
-    transform: translateX(9px);
     filter: invert(1) contrast(1.08);
     object-fit: contain;
 }
