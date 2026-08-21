@@ -6,7 +6,7 @@ export function Logo({ className = "logo" }) {
 
   return (
     <NavLink className={logoClassName} to="/" aria-label="Ambetsa Tech home">
-      <img className="logo-image" src="/logo.png" alt="Ambetsa Tech" />
+      <img className="logo-image" src="/logo2.png" alt="Ambetsa Tech" />
     </NavLink>
   );
 
