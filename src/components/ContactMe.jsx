@@ -208,7 +208,7 @@ const ContactForm = () => {
         </div>
         <div className="get-in-touch text-center">
           <p className="contact-eyebrow">Let&apos;s build what matters</p>
-          <h1>Make your next move count</h1>
+          <h2>Make your next move count</h2>
           <p className="contact-lead">Have a project, challenge, or idea in mind? Let&apos;s turn it into a clear plan and a useful digital result.</p>
         </div>
 

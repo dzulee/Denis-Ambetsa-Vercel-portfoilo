@@ -33,7 +33,7 @@ export function Heroes() {
                             <div className="col-lg-6">
                                 <p className="hero-eyebrow">Technology with direction</p>
                                 <h1 className="hero-title">
-                                    Turn ideas into
+                                    AmbetsaTech: turn ideas into
                                     <span className="hero-title-accent">measurable momentum</span>
                                 </h1>
                                 <p className="hero-typed-label">Get professional</p>

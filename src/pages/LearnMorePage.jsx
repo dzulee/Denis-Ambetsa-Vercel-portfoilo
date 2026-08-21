@@ -5,10 +5,9 @@ import '../css/learn-more.css';
 import { Navbar } from "../components/Navbar";
 
 export default function LearnMorePage() {
-    // This gets the ":id" part from the URL (e.g., /learn-more/website-creation)
     const { id } = useParams();
 
-    const validIds = ["website-creation", "website-design", "it-support", "data-analysis", "professional-consultancy"];
+    const validIds = ["web-creation", "website-creation", "website-design", "it-support", "data-analysis", "professional-consultancy"];
 
     return (
         <div className="learn-more-container" id="learnmore">
@@ -26,7 +25,7 @@ export default function LearnMorePage() {
                 </div>
 
                 {/* 1. Website Creation / Design Content */}
-                {(id === "website-creation" || id === "website-design") && (
+                {(id === "web-creation" || id === "website-creation" || id === "website-design") && (
                     <div className="learn-more-content animate__animated animate__fadeIn pb-5">
                         <h1 className="fw-bold text-warning mb-3">Website Design & Creation</h1>
                         <p className="lead text-light">

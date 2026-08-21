@@ -7,9 +7,8 @@ export function Services() {
     const navigate = useNavigate();
 
     // Correct way to handle navigation with parameters
-    const handleLearnMore = (serviceName) => {
-        // Option A: Standard Route
-        navigate(`/learn-more/${serviceName.toLowerCase().replace(/\s+/g, '-')}`);
+    const handleLearnMore = (serviceId) => {
+        navigate(`/learn-more/${serviceId}`);
     };
 
     // Data array to keep code DRY (Don't Repeat Yourself)
@@ -72,7 +71,7 @@ export function Services() {
                                         </Link>
                                         
                                         <button 
-                                            onClick={() => handleLearnMore(service.title)} 
+                                            onClick={() => handleLearnMore(service.id)} 
                                             className="service-learn-more"
                                         >
                                             Learn More <span aria-hidden="true">-&gt;</span>

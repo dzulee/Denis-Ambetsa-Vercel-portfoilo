@@ -66,7 +66,7 @@ export function Projects() {
                     label: 'Web Design', 
                     content: [
                         { name: 'Portfolio Website', url: 'https://ambetsatech.vercel.app/' },
-                        { name: 'Blog website page', url: '/powerBi/salesdashboard.jsx' },
+                        { name: 'AmbetsaTech blog', url: '/blog' },
                        
                     ] 
                 },
@@ -115,9 +115,9 @@ export function Projects() {
                     id: 'social-media-mngmnt', 
                     label: 'Social Media Management', 
                     content: [
-                        { name: 'Engagement', url: '#' },
-                        { name: 'Schedule Post', url: '#' },
-                        { name: 'Sentiment Analysis', url: '#' }
+                        { name: 'Engagement', url: '/contact' },
+                        { name: 'Schedule Post', url: '/contact' },
+                        { name: 'Sentiment Analysis', url: '/contact' }
                     ] 
                 }
             ],

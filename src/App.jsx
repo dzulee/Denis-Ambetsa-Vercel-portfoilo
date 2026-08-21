@@ -29,23 +29,28 @@ const pageMeta = {
   },
   '/projects': {
     title: 'Projects | Denis Ambetsa Portfolio',
-    description: 'Explore selected web development, automation, and data analytics projects by Denis Ambetsa.'
+    description: 'Explore selected web development, automation, and data analytics projects by Denis Ambetsa.',
+    indexable: false
   },
   '/services': {
     title: 'Services | Web Development, Data Analysis & IT Support',
-    description: 'Explore web development, data analysis, IT support, and consultancy services by Denis Ambetsa.'
+    description: 'Explore web development, data analysis, IT support, and consultancy services by Denis Ambetsa.',
+    indexable: false
   },
   '/pricing': {
     title: 'Pricing | Digital Services by Denis Ambetsa',
-    description: 'View practical pricing options for websites, dashboards, IT support, and digital consultancy.'
+    description: 'View practical pricing options for websites, dashboards, IT support, and digital consultancy.',
+    indexable: false
   },
   '/why-us': {
     title: 'Why Choose Ambetsa Tech | Denis Ambetsa',
-    description: 'Discover the strategy, clarity, and measurable results behind Ambetsa Tech solutions.'
+    description: 'Discover the strategy, clarity, and measurable results behind Ambetsa Tech solutions.',
+    indexable: false
   },
   '/contact': {
     title: 'Contact Denis Ambetsa | Ambetsa Tech',
-    description: 'Start a conversation with Denis Ambetsa about web development, analytics, IT support, or consultancy.'
+    description: 'Start a conversation with Denis Ambetsa about web development, analytics, IT support, or consultancy.',
+    indexable: false
   },
   '/learn-more/web-creation': {
     title: 'Website Design & Development Services | Denis Ambetsa',
@@ -82,6 +87,8 @@ function SeoMeta() {
     const siteUrl = 'https://ambetsatech.vercel.app';
 
     document.title = meta.title;
+    const titleMeta = document.querySelector('meta[name="title"]');
+    if (titleMeta) titleMeta.setAttribute('content', meta.title);
 
     let descriptionMeta = document.querySelector('meta[name="description"]');
     if (!descriptionMeta) {
@@ -92,10 +99,18 @@ function SeoMeta() {
     descriptionMeta.setAttribute('content', meta.description);
 
     const canonical = document.querySelector('link[rel="canonical"]');
-    const url = `${siteUrl}${pathname === '/' ? '' : pathname}`;
+    const isSectionAlias = meta.indexable === false;
+    const url = isSectionAlias ? siteUrl : `${siteUrl}${pathname === '/' ? '' : pathname}`;
     if (canonical) {
       canonical.setAttribute('href', url);
     }
+    let robotsMeta = document.querySelector('meta[name="robots"]');
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta');
+      robotsMeta.setAttribute('name', 'robots');
+      document.head.appendChild(robotsMeta);
+    }
+    robotsMeta.setAttribute('content', isSectionAlias ? 'noindex, follow' : 'index, follow');
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
@@ -121,21 +136,6 @@ function JsonLdSchema() {
   useEffect(() => {
     const pathname = location.pathname;
     const siteUrl = 'https://ambetsatech.vercel.app';
-    const faqQuestions = [
-      {
-        question: 'What services does Denis Ambetsa offer?',
-        answer: 'Denis Ambetsa offers website design and development, IT support, data analysis, Power BI dashboards, and professional consultancy for digital transformation.'
-      },
-      {
-        question: 'Do you help businesses in Kenya with digital transformation?',
-        answer: 'Yes. Denis Ambetsa works with businesses in Kenya and beyond to improve digital presence, analytics, and operational efficiency.'
-      },
-      {
-        question: 'Can I get a custom website or dashboard built?',
-        answer: 'Yes. Denis Ambetsa builds tailored websites, dashboards, and data-driven systems to match your business goals and operational workflow.'
-      }
-    ];
-
     let schema = {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
@@ -186,17 +186,6 @@ function JsonLdSchema() {
           }
         ]
       },
-      mainEntity: {
-        '@type': 'FAQPage',
-        mainEntity: faqQuestions.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.answer
-          }
-        }))
-      }
     };
 
     if (pathname === '/about') {
@@ -221,7 +210,7 @@ function JsonLdSchema() {
 
     if (pathname.startsWith('/learn-more/')) {
       const serviceMap = {
-        '/learn-more/web-creation': {
+          '/learn-more/web-creation': {
           name: 'Website Design & Development',
           description: 'Professional website design and development services for businesses that need a modern online presence, SEO, security, and scalable digital growth.'
         },
@@ -278,7 +267,7 @@ function JsonLdSchema() {
 
       schema = {
         '@context': 'https://schema.org',
-        '@type': 'Dataset',
+        '@type': 'CreativeWork',
         name: dashboard.name,
         creator: {
           '@type': 'Person',

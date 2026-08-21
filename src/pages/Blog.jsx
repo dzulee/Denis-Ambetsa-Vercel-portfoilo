@@ -57,7 +57,16 @@ const Blog = () => {
       .filter(Boolean)
   );
 
-  if (loading) return <div className="text-center text-white p-5">Loading stories...</div>;
+  if (loading) return (
+    <section className="blog-section blog-state" aria-busy="true">
+      <Navbar />
+      <div className="container text-center">
+        <p className="blog-eyebrow">The journal</p>
+        <h1 className="blog-page-title">AmbetsaTech insights</h1>
+        <p className="blog-state-message">Loading practical notes on technology, data, and business growth.</p>
+      </div>
+    </section>
+  );
 
   if (error) {
     return (
@@ -88,7 +97,7 @@ const Blog = () => {
                 <div className="blog-post-grid">
                   <div className="blog-post-media">
                     {post.imageUrl ? (
-                      <img src={post.imageUrl} alt="" className="blog-post-image" />
+                      <img src={post.imageUrl} alt={post.title || 'AmbetsaTech journal article'} className="blog-post-image" />
                     ) : (
                       <div className="blog-post-image blog-post-image-fallback" aria-hidden="true">
                         <span>Ambetsa Tech</span>
