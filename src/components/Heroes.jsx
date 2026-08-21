@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Logo } from './Logo';
+import { Link } from 'react-router-dom';
 import '../index.css';
 import { SocialIcons } from './SocialMediaIcons';
 
@@ -53,12 +54,12 @@ export function Heroes() {
                                 </div>
 
                                 <div className="hero-actions d-flex flex-wrap gap-2">
-                                    <a href="#featured-work" className="btn btn-info btn-lg px-4 fw-bold hero-btn-primary">
+                                    <Link to="/projects" className="btn btn-info btn-lg px-4 fw-bold hero-btn-primary">
                                         Explore My Work
-                                    </a>
-                                    <a href="#contact-section" className="btn btn-outline-light btn-lg px-4 hero-btn-secondary">
+                                    </Link>
+                                    <Link to="/contact" className="btn btn-outline-light btn-lg px-4 hero-btn-secondary">
                                         Start a Conversation
-                                    </a>
+                                    </Link>
                                 </div>
 
                                 <div className="hero-proof-row">

@@ -8,8 +8,33 @@ import { Navbar } from "../components/Navbar";
 import WhyUs from "../components/whyUs";
 import backgroundVideo from "../assets/background_video.mp4";
 import Pricing from "../components/Pricing";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        const sectionByPath = {
+            '/projects': 'featured-work',
+            '/pricing': 'pricing',
+            '/why-us': 'why-us',
+            '/services': 'services',
+            '/contact': 'contact-section'
+        };
+        const sectionId = sectionByPath[pathname];
+
+        if (!sectionId) return;
+
+        const scrollToSection = () => {
+            const section = document.getElementById(sectionId);
+            if (section) window.scrollTo({ top: section.offsetTop - 110, behavior: 'smooth' });
+        };
+
+        const timeoutId = window.setTimeout(scrollToSection, 50);
+        return () => window.clearTimeout(timeoutId);
+    }, [pathname]);
+
     const sectionStyle = {
         backgroundColor: 'transparent',
         position: 'relative',
@@ -53,7 +78,7 @@ export default function Home() {
                 <div className="section-video-overlay" />
                 <WhyUs />
             </section>
-            <section>
+            <section id="pricing">
                 <Pricing/>
             </section>
 

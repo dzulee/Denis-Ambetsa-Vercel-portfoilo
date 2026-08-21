@@ -1,8 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/service.css';
-import { useNavigate } from 'react-router-dom';
-import { NavHashLink } from 'react-router-hash-link';
+import { useNavigate, Link } from 'react-router-dom';
 
 export function Services() {
     const navigate = useNavigate();
@@ -68,9 +67,9 @@ export function Services() {
                                     <p className="service-card-text">{service.text}</p>
                                     
                                     <div className="service-actions mt-auto">
-                                        <NavHashLink smooth to="/#contact-section" className="service-cta">
+                                        <Link to="/contact" className="service-cta">
                                             Book This Service
-                                        </NavHashLink>
+                                        </Link>
                                         
                                         <button 
                                             onClick={() => handleLearnMore(service.title)} 

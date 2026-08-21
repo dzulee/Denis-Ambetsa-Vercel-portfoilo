@@ -34,7 +34,7 @@
 }
 
 .blog-page-shell {
-  padding-top: 2rem;
+  padding-top: 5.5rem;
 }
 
 .blog-page-header {
@@ -236,6 +236,12 @@
 .blog-page-button {
   padding: 0.5rem 0.85rem;
   font-size: 0.75rem;
+}
+
+@media (max-width: 767.98px) {
+  .blog-page-shell {
+    padding-top: 5rem;
+  }
 }
 
 .blog-page-button:disabled {

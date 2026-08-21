@@ -1,4 +1,5 @@
 import '../css/whyUs.css';
+import { Link } from 'react-router-dom';
 
 // 1. Import your icon images from the assets folder
 import efficiencyIcon from '../assets/efficiency.png';
@@ -61,9 +62,9 @@ function Pricing() {
                   <p className="pricing-period">PROJECT PACKAGE</p>
                   <div className="pricing-divider" />
                   <p className="card-text pricing-description">{pricing.description}</p>
-                  <a href="#contact-form" className="pricing-cta mt-auto">
+                  <Link to="/contact" className="pricing-cta mt-auto">
                     Discuss this plan
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

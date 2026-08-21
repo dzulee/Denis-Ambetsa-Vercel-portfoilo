@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { NavHashLink } from "react-router-hash-link";
+import { NavLink } from "react-router-dom";
 import '../css/navigation-links.css';
 
 const navigationLinks = [
-  { text: 'Home', navigationTo: '/#Hero', id: 'Hero' },
-  { text: 'Projects', navigationTo: '/#featured-work', id: 'featured-work' },
-  { text: 'About Us', navigationTo: '/about#about_us', id: 'about_us' },
-  { text: 'Pricing', navigationTo: '/#pricing', id: 'pricing' },
-  { text: 'Why Us', navigationTo: '/#why-us', id: 'why-us' },
-  { text: 'Services', navigationTo: '/#services', id: 'services' },
+  { text: 'Home', navigationTo: '/', id: 'Hero' },
+  { text: 'Projects', navigationTo: '/projects', id: 'featured-work' },
+  { text: 'About Us', navigationTo: '/about', id: 'about_us' },
+  { text: 'Pricing', navigationTo: '/pricing', id: 'pricing' },
+  { text: 'Why Us', navigationTo: '/why-us', id: 'why-us' },
+  { text: 'Services', navigationTo: '/services', id: 'services' },
   { text: 'Blog', navigationTo: '/blog', id: 'blog' },
-  { text: 'Contact US', navigationTo: '/#contact-section', id: 'contact-section' }
+  { text: 'Contact US', navigationTo: '/contact', id: 'contact-section' }
 ];
 
 export function NavigationLinks({ 
@@ -49,14 +49,6 @@ export function NavigationLinks({
     return () => observer.disconnect();
   }, [isFooter]);
 
-  const handleScroll = (el, linkTo) => {
-    if (linkTo === '/#Hero') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: el.offsetTop - 110, behavior: 'smooth' });
-    }
-  };
-
   return (
     <ul className={`list-unstyled ${containerClass}`}>
       {navigation.map((link, index) => {
@@ -69,14 +61,12 @@ export function NavigationLinks({
             key={index} 
             onClick={onLinkClick}
           >
-            <NavHashLink 
-              smooth 
-              to={link.navigationTo} 
-              scroll={el => handleScroll(el, link.navigationTo)}
+            <NavLink
+              to={link.navigationTo}
               className={`navigation-links ${isContactBtn ? 'nav-btn-contact' : ''} ${isCurrentActive ? 'active-link' : ''}`}
             >
               {link.text}
-            </NavHashLink>
+            </NavLink>
           </li>
         );
       })}

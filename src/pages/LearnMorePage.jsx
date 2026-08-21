@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import '../css/learn-more.css';
 import { Navbar } from "../components/Navbar";
 
@@ -20,9 +20,9 @@ export default function LearnMorePage() {
             <div className="container learn-more-shell">
                 
                 <div className="learn-more-back mb-4">
-                    <NavHashLink smooth to="/#services" className="learn-more-back-link">
+                    <Link to="/services" className="learn-more-back-link">
                         &lt;- Back to Services
-                    </NavHashLink>
+                    </Link>
                 </div>
 
                 {/* 1. Website Creation / Design Content */}
@@ -44,9 +44,9 @@ export default function LearnMorePage() {
                         </ul>
 
                         <div className="mt-4">
-                            <NavHashLink smooth to="/#contact-section" className="btn btn-warning fw-bold px-4 py-2">
+                            <Link to="/contact" className="btn btn-warning fw-bold px-4 py-2">
                                 Book This Service
-                            </NavHashLink>
+                            </Link>
                         </div>
                     </div>
                 )}
@@ -70,9 +70,9 @@ export default function LearnMorePage() {
                         </ul>
 
                         <div className="mt-4">
-                            <NavHashLink smooth to="/#contact-section" className="btn btn-warning fw-bold px-4 py-2">
+                            <Link to="/contact" className="btn btn-warning fw-bold px-4 py-2">
                                 Request Support
-                            </NavHashLink>
+                            </Link>
                         </div>
                     </div>
                 )}
@@ -114,9 +114,9 @@ export default function LearnMorePage() {
                         </div>
 
                         <div className="mt-4">
-                            <NavHashLink smooth to="/#contact-section" className="btn btn-warning fw-bold px-4 py-2">
+                            <Link to="/contact" className="btn btn-warning fw-bold px-4 py-2">
                                 Analyze My Data
-                            </NavHashLink>
+                            </Link>
                         </div>
                     </div>
                 )}
@@ -141,9 +141,9 @@ export default function LearnMorePage() {
                         </p>
 
                         <div className="mt-4">
-                            <NavHashLink smooth to="/#contact-section" className="btn btn-warning fw-bold px-4 py-2">
+                            <Link to="/contact" className="btn btn-warning fw-bold px-4 py-2">
                                 Schedule a Consultation
-                            </NavHashLink>
+                            </Link>
                         </div>
                     </div>
                 )}
@@ -153,7 +153,7 @@ export default function LearnMorePage() {
                     <div className="learn-more-content learn-more-empty py-5 text-center">
                         <h1 className="text-light">Service Not Found</h1>
                         <p className="text-secondary">The requested service detail page could not be located.</p>
-                        <NavHashLink to="/#services" className="btn btn-warning mt-3">Back to Services</NavHashLink>
+                        <Link to="/services" className="btn btn-warning mt-3">Back to Services</Link>
                     </div>
                 )}
 

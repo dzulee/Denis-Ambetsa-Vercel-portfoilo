@@ -27,6 +27,26 @@ const pageMeta = {
     title: 'Blog | Insights on Web Development, Data Analysis & Business Strategy',
     description: 'Read practical blog articles on web development, data analysis, digital transformation, and performance-driven business growth.'
   },
+  '/projects': {
+    title: 'Projects | Denis Ambetsa Portfolio',
+    description: 'Explore selected web development, automation, and data analytics projects by Denis Ambetsa.'
+  },
+  '/services': {
+    title: 'Services | Web Development, Data Analysis & IT Support',
+    description: 'Explore web development, data analysis, IT support, and consultancy services by Denis Ambetsa.'
+  },
+  '/pricing': {
+    title: 'Pricing | Digital Services by Denis Ambetsa',
+    description: 'View practical pricing options for websites, dashboards, IT support, and digital consultancy.'
+  },
+  '/why-us': {
+    title: 'Why Choose Ambetsa Tech | Denis Ambetsa',
+    description: 'Discover the strategy, clarity, and measurable results behind Ambetsa Tech solutions.'
+  },
+  '/contact': {
+    title: 'Contact Denis Ambetsa | Ambetsa Tech',
+    description: 'Start a conversation with Denis Ambetsa about web development, analytics, IT support, or consultancy.'
+  },
   '/learn-more/web-creation': {
     title: 'Website Design & Development Services | Denis Ambetsa',
     description: 'Professional website design and development services for businesses that need a modern online presence, SEO, security, and scalable digital growth.'
@@ -308,6 +328,11 @@ function App() {
           <Routes>
             {/* This is your main landing page */}
             <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Home />} />
+            <Route path="/services" element={<Home />} />
+            <Route path="/pricing" element={<Home />} />
+            <Route path="/why-us" element={<Home />} />
+            <Route path="/contact" element={<Home />} />
             <Route path="/learn-more/:id" element={<LearnMorePage />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/powerbi/:id" element={<PowerBi />} />
