@@ -97,12 +97,12 @@ Vite will print the local URL, normally `http://localhost:5173`.
 | Command | Description |
 | --- | --- |
 | `npm run dev` | Start the Vite development server |
-| `npm run build` | Create and prerender the production bundle in `dist/` |
+| `npm run build` | Create the production bundle in `dist/` |
 | `npm run preview` | Preview the production bundle locally |
 | `npm run lint` | Run ESLint across the project |
 | `npm run prerender` | Optionally prerender routes with Playwright locally |
 
-The Vercel build runs Vite and prerenders the canonical routes with Playwright so search engines receive route content and metadata in the initial HTML.
+The Vercel build runs Vite only. This keeps deployment independent of the system libraries required by headless Chromium. To generate route-specific HTML locally, run `npm run build` followed by `npm run prerender`.
 
 ## Environment Variables
 
