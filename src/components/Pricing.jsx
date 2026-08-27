@@ -13,25 +13,25 @@ function Pricing() {
       icon: efficiencyIcon,
       title: "Tier 1",
       price: "Kes 20,000",
-      description: "a well crafted and art designed frontend with smooth and navigation and business details."
+      description: "A well-crafted and artfully designed frontend with smooth navigation and complete business details."
     },
     {
       icon: qualityIcon,
       title: "Tier 2",
       price: "Kes 40,000",
-      description: "free Email integration on the contact me section to be able to receive emails from website forms."
+      description: "Includes seamless email integration on your contact form to receive client inquiries directly."
     },
     {
       icon: supportIcon,
       title: "Tier 3",
       price: "From as low as Kes 60,000",
-      description: "REST API website to enable posting and viewing of details"
+      description: "REST API-driven website to enable dynamic content posting, viewing, and data management."
     },
     {
       icon: integrityIcon,
       title: "Tier 4",
       price: "From as low as Kes 80,000",
-      description: "A Full stack website involving backend and frontend, domain name selection ,SEO and SSL managing  ."
+      description: "A complete full-stack website (frontend & backend) including domain setup, basic SEO, and SSL management."
     }
   ];
 
