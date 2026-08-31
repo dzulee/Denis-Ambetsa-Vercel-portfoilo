@@ -6,6 +6,7 @@ import LearnMorePage from './pages/LearnMorePage';
 import NotFound from './pages/NoteFound';
 import PowerBi from './components/PowerBiDashboards';
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost';
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -327,6 +328,7 @@ function App() {
             <Route path="/about" element={<AboutMe />} />
             <Route path="/powerbi/:id" element={<PowerBi />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
 
