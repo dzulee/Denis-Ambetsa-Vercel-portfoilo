@@ -11,7 +11,10 @@ const Blog = () => {
   const [replyText, setReplyText] = useState({});
   const [expandedPosts, setExpandedPosts] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedAgenda, setSelectedAgenda] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
   const postsPerPage = 2;
+  const blogAgendas = ['All', 'Data Analysis', 'Project Management', 'Web Development', 'Business Strategy', 'IT Support', 'Consulting'];
 
   const cleanText = (value = '') =>
     String(value)
@@ -23,6 +26,36 @@ const Blog = () => {
     const cleaned = cleanText(story);
     if (!cleaned) return 'Insights on web development, data analysis, digital strategy, and practical business growth.';
     return cleaned.length > maxLength ? `${cleaned.slice(0, maxLength).trim()}...` : cleaned;
+  };
+
+  const matchesAgenda = (post, agenda) => {
+    if (agenda === 'All') return true;
+
+    const combinedText = `${post.title || ''} ${post.story || ''}`.toLowerCase();
+
+    const agendaPatterns = {
+      'Data Analysis': /(data analysis|analytics|dashboard|excel|power bi|sql|python|eda|insight|reporting)/i,
+      'Project Management': /(project management|roadmap|planning|timeline|stakeholder|delivery|execution|milestone|sprint|workflow)/i,
+      'Web Development': /(web development|website|frontend|backend|react|javascript|css|html|api|seo|ui|ux|performance)/i,
+      'Business Strategy': /(business strategy|strategy|growth|digital transformation|consulting|operations|optimization|process|decision making)/i,
+      'IT Support': /(it support|infrastructure|system|network|security|maintenance|troubleshooting|support)/i,
+      'Consulting': /(consulting|advisory|problem solving|improvement|optimization|business|transformation)/i,
+    };
+
+    return agendaPatterns[agenda]?.test(combinedText) ?? true;
+  };
+
+  const matchesSearch = (post, query) => {
+    const trimmed = query.trim();
+    if (!trimmed) return true;
+
+    const haystack = `${post.title || ''} ${post.story || ''}`;
+    try {
+      const regex = new RegExp(trimmed, 'i');
+      return regex.test(haystack);
+    } catch {
+      return haystack.toLowerCase().includes(trimmed.toLowerCase());
+    }
   };
 
   useEffect(() => {
@@ -130,19 +163,32 @@ const Blog = () => {
     }
   };
 
+  const agendaCounts = blogAgendas.reduce((counts, agenda) => {
+    counts[agenda] = agenda === 'All'
+      ? posts.length
+      : posts.filter((post) => matchesAgenda(post, agenda)).length;
+    return counts;
+  }, {});
+
+  const filteredPosts = posts.filter((post) => matchesAgenda(post, selectedAgenda) && matchesSearch(post, searchTerm));
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedAgenda, searchTerm]);
+
   const paginate = (num) => {
     const safePage = Math.min(Math.max(1, num), totalPages || 1);
     setCurrentPage(safePage);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const totalPages = Math.max(1, Math.ceil(posts.length / postsPerPage));
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage));
   const pageWindowSize = 7;
   const pageWindowStart = Math.floor((currentPage - 1) / pageWindowSize) * pageWindowSize + 1;
   const pageWindowEnd = Math.min(totalPages, pageWindowStart + pageWindowSize - 1);
   const pageNumbers = Array.from({ length: pageWindowEnd - pageWindowStart + 1 }, (_, index) => pageWindowStart + index);
 
-  const currentPosts = posts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
+  const currentPosts = filteredPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
 
   const getStoryParagraphs = (story = '') => (
     story
@@ -195,9 +241,56 @@ const Blog = () => {
           <h1 className="blog-page-title">The Ambetsa journal</h1>
           <p className="blog-page-intro">Practical perspectives on technology, data, strategy, and building businesses that move with intention.</p>
         </header>
-        <div className="row g-4 justify-content-center">
-          {currentPosts.map((post) => (
-            <div className="col-lg-10" key={post.rowId}>
+        <div className="blog-toolbar mb-4">
+          <div className="blog-filter-group" role="tablist" aria-label="Filter blog topics">
+            {blogAgendas.map((agenda) => (
+              <button
+                key={agenda}
+                type="button"
+                className={`blog-filter-button ${selectedAgenda === agenda ? 'is-selected' : ''}`}
+                onClick={() => setSelectedAgenda(agenda)}
+              >
+                {agenda}
+                <span className="blog-filter-count">{agendaCounts[agenda] || 0}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="blog-search-wrap">
+            <input
+              type="search"
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              placeholder="Search blog title or article..."
+              aria-label="Search blog posts"
+              className="blog-search-input"
+            />
+            {(selectedAgenda !== 'All' || searchTerm.trim()) && (
+              <button
+                type="button"
+                className="blog-clear-search"
+                onClick={() => {
+                  setSelectedAgenda('All');
+                  setSearchTerm('');
+                }}
+              >
+                Clear filters
+              </button>
+            )}
+          </div>
+        </div>
+
+        {filteredPosts.length === 0 ? (
+          <div className="text-center py-5">
+            <p className="blog-state-message">No blog posts match your filters or search terms.</p>
+            <button className="blog-page-button mt-3" onClick={() => { setSelectedAgenda('All'); setSearchTerm(''); }}>
+              Clear filters
+            </button>
+          </div>
+        ) : (
+          <div className="row g-4 justify-content-center">
+            {currentPosts.map((post) => (
+              <div className="col-lg-10" key={post.rowId}>
               <article className="blog-content-box mb-4 shadow">
                 <div className="blog-post-grid">
                   <div className="blog-post-media">
@@ -247,11 +340,12 @@ const Blog = () => {
                 </div>
               </article>
             </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
-        {/* Pagination UI */}
-        <div className="d-flex flex-wrap justify-content-center align-items-center gap-2 mt-3">
+        {filteredPosts.length > 0 && (
+          <div className="d-flex flex-wrap justify-content-center align-items-center gap-2 mt-3">
           <button
             disabled={pageWindowStart === 1}
             onClick={() => paginate(Math.max(1, pageWindowStart - pageWindowSize))}
@@ -279,8 +373,9 @@ const Blog = () => {
           >
             Next
           </button>
-          <span className="blog-page-count">Page {currentPage} of {totalPages}</span>
-        </div>
+            <span className="blog-page-count">Page {currentPage} of {totalPages}</span>
+          </div>
+        )}
       </div>
     </section>
   );
