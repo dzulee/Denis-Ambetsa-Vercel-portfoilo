@@ -332,6 +332,14 @@
   color: #f4f4f4;
 }
 
+mark {
+  background: rgba(147, 51, 234, 0.35);
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 0 0.15rem;
+  box-shadow: 0 0 0 1px rgba(147, 51, 234, 0.3);
+}
+
 .blog-search-input::placeholder {
   color: rgba(255, 255, 255, 0.55);
 }

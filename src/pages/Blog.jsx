@@ -4,6 +4,24 @@ import { Navbar } from '../components/Navbar';
 import { blogControllers } from '../controllers/blogControllers'; 
 import '../css/blog.css';
 
+const escapeHtml = (value = '') =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+const escapeRegExp = (value = '') => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const highlightMatch = (value = '', query = '') => {
+  const trimmed = query.trim();
+  if (!trimmed) return escapeHtml(value);
+
+  const pattern = new RegExp(`(${escapeRegExp(trimmed)})`, 'ig');
+  return escapeHtml(value).replace(pattern, '<mark>$1</mark>');
+};
+
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -202,6 +220,9 @@ const Blog = () => {
     return `${slugValue}-${rowId || 'post'}`;
   };
 
+  const getHighlightedStoryParagraphs = (story = '', query = '') =>
+    getStoryParagraphs(story).map((paragraph) => highlightMatch(paragraph, query));
+
   if (loading) return (
     <section className="blog-section blog-state" aria-busy="true">
       <Navbar />
@@ -305,18 +326,18 @@ const Blog = () => {
 
                   <div className="blog-post-body">
                     <div className="blog-post-kicker">Field note</div>
-                    <h2>{post.title}</h2>
+                    <h2 dangerouslySetInnerHTML={{ __html: highlightMatch(post.title, searchTerm) }} />
 
                     <div className={`blog-story ${expandedPosts[post.rowId] ? 'is-expanded' : ''}`}>
-                      {getStoryParagraphs(post.story).map((paragraph, index) => (
-                        <p className="lead" key={`${post.rowId}-paragraph-${index}`}>{paragraph}</p>
+                      {getHighlightedStoryParagraphs(post.story, searchTerm).map((paragraph, index) => (
+                        <p className="lead" key={`${post.rowId}-paragraph-${index}`} dangerouslySetInnerHTML={{ __html: paragraph }} />
                       ))}
                     </div>
 
                     <button className="blog-read-more" onClick={() => setExpandedPosts(prev => ({ ...prev, [post.rowId]: !prev[post.rowId] }))}>
                       {expandedPosts[post.rowId] ? "Show Less ↑" : "Read More ↓"}
                     </button>
-                    <Link to={`/blog/${buildPostSlug(post.title, post.rowId)}`} className="blog-read-more d-inline-block text-decoration-none">
+                    <Link to={`/blog/${buildPostSlug(post.title, post.rowId)}?q=${encodeURIComponent(searchTerm)}`} className="blog-read-more d-inline-block text-decoration-none">
                       Read article →
                     </Link>
                   </div>

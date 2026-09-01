@@ -1,8 +1,26 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { blogControllers } from '../controllers/blogControllers';
 import '../css/blog.css';
+
+const escapeHtml = (value = '') =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+const escapeRegExp = (value = '') => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const highlightMatch = (value = '', query = '') => {
+  const trimmed = query.trim();
+  if (!trimmed) return escapeHtml(value);
+
+  const pattern = new RegExp(`(${escapeRegExp(trimmed)})`, 'ig');
+  return escapeHtml(value).replace(pattern, '<mark>$1</mark>');
+};
 
 const slugify = (value = '') =>
   String(value)
@@ -22,6 +40,7 @@ const getStoryParagraphs = (story = '') =>
 const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -107,7 +126,9 @@ const BlogPost = () => {
     schemaTag.textContent = JSON.stringify(articleSchema);
   }, [post, slug]);
 
+  const searchQuery = useMemo(() => new URLSearchParams(location.search).get('q') || '', [location.search]);
   const articleParagraphs = useMemo(() => getStoryParagraphs(post?.story || ''), [post]);
+  const highlightedParagraphs = useMemo(() => articleParagraphs.map((paragraph) => highlightMatch(paragraph, searchQuery)), [articleParagraphs, searchQuery]);
 
   if (loading) {
     return (
@@ -161,11 +182,11 @@ const BlogPost = () => {
 
                 <div className="blog-post-body">
                   <div className="blog-post-kicker">Field note</div>
-                  <h1 className="blog-page-title text-start">{post.title}</h1>
+                  <h1 className="blog-page-title text-start" dangerouslySetInnerHTML={{ __html: highlightMatch(post.title, searchQuery) }} />
 
                   <div className="blog-story is-expanded">
-                    {articleParagraphs.map((paragraph, index) => (
-                      <p className="lead" key={`${post.rowId}-article-${index}`}>{paragraph}</p>
+                    {highlightedParagraphs.map((paragraph, index) => (
+                      <p className="lead" key={`${post.rowId}-article-${index}`} dangerouslySetInnerHTML={{ __html: paragraph }} />
                     ))}
                   </div>
                 </div>
