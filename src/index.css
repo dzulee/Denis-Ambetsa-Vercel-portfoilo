@@ -101,7 +101,7 @@ section[id] > *:not(.section-video-background):not(.section-video-overlay) {
 }
 
 .hero-content-box {
-    margin-top: 1.1rem;
+    margin-top: 2.2rem;
     padding: clamp(1.4rem, 3vw, 3rem);
 }
 
@@ -116,7 +116,7 @@ section[id] > *:not(.section-video-background):not(.section-video-overlay) {
 }
 
 .hero-title {
-    max-width: 520px;
+    max-width: 580px;
     margin: 0;
     color: transparent;
     font-size: clamp(2.3rem, 5vw, 4.8rem);

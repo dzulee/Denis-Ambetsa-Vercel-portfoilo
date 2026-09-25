@@ -1,5 +1,5 @@
 {
-  "name": "web-portfolio-app",
+  "name": "vite",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -36,5 +36,17 @@
     "playwright": "^1.62.1",
     "sass": "^1.97.1",
     "vite": "^7.2.4"
-  }
+  },
+  "description": "Personal portfolio and professional services website for **Denis Ambetsa**, a full-stack developer, data analyst, and technology consultant based in Kenya. The site presents web development services, business intelligence work, IT support, consulting, selected projects, articles, and contact options in a responsive React application.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzulee/Denis-Ambetsa-Vercel-portfoilo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dzulee/Denis-Ambetsa-Vercel-portfoilo/issues"
+  },
+  "homepage": "https://github.com/dzulee/Denis-Ambetsa-Vercel-portfoilo#readme"
 }

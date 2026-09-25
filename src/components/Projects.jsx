@@ -6,7 +6,7 @@ import { DashboardData } from '../data/dashboardData';
 export function Projects() {
     const [activeTabs, setActiveTabs] = useState({
         analysis: 'excel',
-        webdev: 'webdesign',
+        webdev: 'ecommerce',
         va: 'Inbox-management',
         pm: 'agile-scrum',
     });
@@ -62,15 +62,6 @@ export function Projects() {
             desc: 'Designing useful, responsive experiences for modern businesses.',
             tabs: [
                 { 
-                    id: 'webdesign', 
-                    label: 'Web Design', 
-                    content: [
-                        { name: 'Portfolio Website', url: 'https://ambetsatech.vercel.app/' },
-                        { name: 'AmbetsaTech blog', url: '/blog' },
-                       
-                    ] 
-                },
-                { 
                     id: 'ecommerce', 
                     label: 'E-commerce', 
                     content: [
@@ -79,6 +70,16 @@ export function Projects() {
                         { name: 'Payment Integration', url: 'https://github.com/dzulee?tab=repositories' }
                     ] 
                 },
+                { 
+                    id: 'webdesign', 
+                    label: 'Web Design', 
+                    content: [
+                        { name: 'Portfolio Website', url: 'https://ambetsatech.vercel.app/' },
+                        { name: 'AmbetsaTech blog', url: '/blog' },
+                       
+                    ] 
+                },
+                
                 { 
                     id: 'others', 
                     label: 'Others', 
